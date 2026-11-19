@@ -6,7 +6,14 @@
 
 Seuil est une porte de conformité pour les agences qui livrent des produits web à des clients réglementés (santé, administration publique, énergie). Il s'insère dans la chaîne de livraison, des design tokens jusqu'aux pages déployées, et bloque une pull request tant que les contrôles d'accessibilité, de protection des données et de sécurité échouent. Il produit ensuite un rapport d'audit que l'agence peut remettre tel quel à son client.
 
-**Statut : squelette.** Les commandes existent mais ne sont pas encore implémentées. La spécification complète et le planning sur 5 semaines sont dans [docs/SPEC.md](docs/SPEC.md).
+**Statut : semaine 1 sur 5.** `seuil tokens` fonctionne, les autres commandes ne sont pas encore implémentées. La spécification complète et le planning sur 5 semaines sont dans [docs/SPEC.md](docs/SPEC.md).
+
+```bash
+$ seuil tokens
+ERROR  tokens/contrast  [WCAG 2.2 1.4.3]
+  color.text.muted on color.bg.default in theme "admin": contrast 3.45:1, below the 4.5:1 required for normal text.
+  Fix: Use #757575 or darker for color.text.muted (same hue, reaches 4.5:1).
+```
 
 ## Ce que Seuil contrôle
 

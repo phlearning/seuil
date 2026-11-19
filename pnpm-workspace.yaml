@@ -2,3 +2,7 @@ packages:
   - packages/*
   - demos/*
   - site
+
+# Packages allowed to run install scripts (everything else stays blocked).
+allowBuilds:
+  esbuild: true

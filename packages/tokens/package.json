@@ -2,6 +2,17 @@
   "name": "@seuil/tokens",
   "version": "0.0.0",
   "private": true,
-  "description": "DTCG design tokens with three client themes, built with Style Dictionary (week 1).",
-  "type": "module"
+  "description": "DTCG design tokens with three client themes, built with Style Dictionary into CSS variables and JS.",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./tokens.css": "./dist/tokens.css"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "style-dictionary": "5.8.0"
+  }
 }

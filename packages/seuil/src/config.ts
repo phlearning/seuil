@@ -1,0 +1,81 @@
+import { existsSync, readFileSync } from "node:fs";
+import { dirname, resolve } from "node:path";
+import type { Severity } from "./results.js";
+import type { PairInput } from "./tokens/check.js";
+
+export interface SeuilConfig {
+  tokens?: { path: string; themes: string[]; pairs: PairInput[] };
+  targets: string[];
+  firstParty: string[];
+  allowThirdParties: string[];
+  level: "AA";
+  failOn: Severity;
+  offline: boolean;
+}
+
+const DEFAULTS: SeuilConfig = {
+  targets: [],
+  firstParty: [],
+  allowThirdParties: [],
+  level: "AA",
+  failOn: "error",
+  offline: false,
+};
+
+export class ConfigError extends Error {}
+
+function isPair(p: unknown): p is PairInput {
+  if (Array.isArray(p)) return p.length === 2 && p.every((s) => typeof s === "string");
+  if (typeof p !== "object" || p === null) return false;
+  const o = p as Record<string, unknown>;
+  return typeof o.fg === "string" && typeof o.bg === "string" && (o.kind === undefined || ["text", "large-text", "ui"].includes(o.kind as string));
+}
+
+/** Parses a config object; relative paths resolve against baseDir. */
+export function parseConfig(raw: unknown, baseDir: string): SeuilConfig {
+  if (typeof raw !== "object" || raw === null) throw new ConfigError("Configuration must be a JSON object");
+  const input = raw as Record<string, unknown>;
+  const config: SeuilConfig = { ...DEFAULTS };
+
+  if (input.failOn !== undefined) {
+    if (input.failOn !== "error" && input.failOn !== "warning") throw new ConfigError(`failOn must be "error" or "warning"`);
+    config.failOn = input.failOn;
+  }
+  for (const key of ["targets", "firstParty", "allowThirdParties"] as const) {
+    const value = input[key];
+    if (value === undefined) continue;
+    if (!Array.isArray(value) || !value.every((v) => typeof v === "string")) throw new ConfigError(`${key} must be a list of strings`);
+    config[key] = value;
+  }
+  if (input.offline !== undefined) config.offline = Boolean(input.offline);
+
+  if (input.tokens !== undefined) {
+    const t = input.tokens as Record<string, unknown>;
+    if (typeof t.path !== "string") throw new ConfigError("tokens.path must be a string");
+    const themes = t.themes ?? [];
+    if (!Array.isArray(themes) || !themes.every((s) => typeof s === "string")) throw new ConfigError("tokens.themes must be a list of strings");
+    const pairs = t.pairs ?? [];
+    if (!Array.isArray(pairs)) throw new ConfigError("tokens.pairs must be a list");
+    pairs.forEach((p, i) => {
+      if (!isPair(p)) throw new ConfigError(`tokens.pairs[${i}] must be ["fg", "bg"] or { "fg", "bg", "kind" }`);
+    });
+    config.tokens = { path: resolve(baseDir, t.path), themes, pairs };
+  }
+  return config;
+}
+
+/** Reads the config file; a missing default file yields the defaults. */
+export function loadConfig(file: string, { required = false } = {}): SeuilConfig {
+  const path = resolve(file);
+  if (!existsSync(path)) {
+    if (required) throw new ConfigError(`Configuration file not found: ${path}`);
+    return { ...DEFAULTS };
+  }
+  let raw: unknown;
+  try {
+    raw = JSON.parse(readFileSync(path, "utf8"));
+  } catch (error) {
+    throw new ConfigError(`${path}: invalid JSON (${(error as Error).message})`);
+  }
+  return parseConfig(raw, dirname(path));
+}

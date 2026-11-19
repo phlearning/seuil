@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "storybook",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "pnpm@12.19.0", "--filter", "@seuil/ui", "storybook"],
+      "port": 6006
+    }
+  ]
+}

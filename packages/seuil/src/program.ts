@@ -1,4 +1,5 @@
 import { Command } from "commander";
+import { tokensCommand } from "./commands/tokens.js";
 
 /** Exit code for runtime errors (SPEC section 5.1). */
 export const EXIT_RUNTIME_ERROR = 2;
@@ -17,8 +18,14 @@ export function createProgram(): Command {
   program
     .command("tokens")
     .description("check text/background contrast directly in DTCG design tokens")
-    .argument("<dir>", "design tokens directory")
-    .action(notImplemented("tokens", 1));
+    .argument("[dir]", "design tokens directory (default: tokens.path from the config)")
+    .option("-c, --config <file>", "configuration file", "seuil.config.json")
+    .option("--json <file>", "also write the results as JSON")
+    .action((dir: string | undefined, opts: { config: string; json?: string }) => {
+      const outcome = tokensCommand({ config: opts.config, ...(dir && { dir }), ...(opts.json && { json: opts.json }) });
+      (outcome.code === 2 ? console.error : console.log)(outcome.output);
+      process.exitCode = outcome.code;
+    });
 
   program
     .command("audit")

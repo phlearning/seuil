@@ -6,7 +6,14 @@
 
 Seuil is a compliance gate for agencies that ship web products to regulated clients (health, public administration, energy). It plugs into the delivery chain, from design tokens to deployed pages, and blocks a pull request until accessibility, data protection and security checks pass. It then produces an audit report the agency can hand to its client as is.
 
-**Status: early skeleton.** The commands exist but are not implemented yet. See [docs/SPEC.md](docs/SPEC.md) (in French) for the full specification and the 5-week plan.
+**Status: week 1 of 5.** `seuil tokens` works; the other commands are not implemented yet. See [docs/SPEC.md](docs/SPEC.md) (in French) for the full specification and the 5-week plan.
+
+```bash
+$ seuil tokens
+ERROR  tokens/contrast  [WCAG 2.2 1.4.3]
+  color.text.muted on color.bg.default in theme "admin": contrast 3.45:1, below the 4.5:1 required for normal text.
+  Fix: Use #757575 or darker for color.text.muted (same hue, reaches 4.5:1).
+```
 
 ## What it checks
 

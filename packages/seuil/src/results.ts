@@ -11,6 +11,8 @@ export interface Target {
   kind: TargetKind;
   /** Token path, Storybook story id or page URL. */
   id: string;
+  /** Design system theme the target was checked in. */
+  theme?: string;
   /** CSS selector of the offending element, when there is one. */
   selector?: string;
   /** Short HTML excerpt, kept so a future AI layer has the context it needs. */
