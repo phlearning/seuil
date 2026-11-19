@@ -1,0 +1,21 @@
+# Seuil template for GitLab CI, including self-hosted instances.
+# Usage in a project's .gitlab-ci.yml:
+#   include:
+#     - remote: <url of this file>
+# Week 5: point SEUIL_IMAGE at the published image.
+
+variables:
+  SEUIL_IMAGE: seuil:latest
+  SEUIL_CONFIG: seuil.config.json
+
+seuil:
+  stage: test
+  image:
+    name: $SEUIL_IMAGE
+    entrypoint: [""]
+  script:
+    - node /app/dist/cli.js check --config "$SEUIL_CONFIG"
+  artifacts:
+    when: always
+    paths:
+      - seuil-results.json

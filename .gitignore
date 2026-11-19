@@ -1,0 +1,16 @@
+node_modules/
+dist/
+coverage/
+storybook-static/
+playwright-report/
+test-results/
+
+# Seuil outputs (examples are committed under site/ instead)
+seuil-results.json
+seuil-report/
+
+# IP geolocation database, downloaded at build time
+data/geoip/*.mmdb
+
+.DS_Store
+.env

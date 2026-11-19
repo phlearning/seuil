@@ -1,0 +1,7 @@
+{
+  "name": "@seuil/demo-energie",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Fictional client: Cascade Énergie (energy). Pages: customer area, consumption (week 3).",
+  "type": "module"
+}

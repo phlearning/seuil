@@ -1,0 +1,7 @@
+{
+  "name": "@seuil/review",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Local web UI for the guided audit of criteria that need a human, opened by `seuil review` (week 4).",
+  "type": "module"
+}

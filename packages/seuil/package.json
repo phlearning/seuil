@@ -1,0 +1,22 @@
+{
+  "name": "seuil",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Compliance gate: accessibility (WCAG 2.2 AA, eCH-0059), data protection (nLPD) and security checks for design systems and web products.",
+  "type": "module",
+  "bin": {
+    "seuil": "dist/cli.js"
+  },
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "commander": "15.1.0"
+  }
+}

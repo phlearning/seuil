@@ -1,0 +1,17 @@
+{
+  "tokens": {
+    "path": "packages/tokens/src",
+    "themes": ["sante", "admin", "energie"],
+    "pairs": [
+      ["color.text.default", "color.bg.default"],
+      ["color.text.muted", "color.bg.default"],
+      ["color.action.text", "color.action.bg"]
+    ]
+  },
+  "targets": ["http://localhost:6006"],
+  "firstParty": ["localhost"],
+  "allowThirdParties": [],
+  "level": "AA",
+  "failOn": "error",
+  "offline": false
+}

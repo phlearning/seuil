@@ -1,0 +1,7 @@
+{
+  "name": "@seuil/tokens",
+  "version": "0.0.0",
+  "private": true,
+  "description": "DTCG design tokens with three client themes, built with Style Dictionary (week 1).",
+  "type": "module"
+}

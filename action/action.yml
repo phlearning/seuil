@@ -1,0 +1,14 @@
+# Week 5: wired to the published Seuil Docker image.
+name: Seuil
+description: Compliance gate for accessibility, data protection and security.
+inputs:
+  config:
+    description: Path to seuil.config.json
+    default: seuil.config.json
+runs:
+  using: docker
+  image: ../Dockerfile
+  args:
+    - check
+    - --config
+    - ${{ inputs.config }}

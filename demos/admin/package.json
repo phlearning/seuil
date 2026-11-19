@@ -1,0 +1,7 @@
+{
+  "name": "@seuil/demo-admin",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Fictional client: Commune de Valfleurie (public administration). Pages: online procedure, confirmation (week 3).",
+  "type": "module"
+}

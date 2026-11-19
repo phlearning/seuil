@@ -1,0 +1,13 @@
+{
+  "color": {
+    "bg": { "default": { "$type": "color", "$value": "#f7f9fc" } },
+    "text": {
+      "default": { "$type": "color", "$value": "#14213d" },
+      "muted": { "$type": "color", "$value": "#4b5670" }
+    },
+    "action": {
+      "bg": { "$type": "color", "$value": "#1d4ed8" },
+      "text": { "$type": "color", "$value": "#ffffff" }
+    }
+  }
+}
