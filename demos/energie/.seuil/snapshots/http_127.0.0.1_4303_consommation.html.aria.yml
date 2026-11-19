@@ -39,6 +39,10 @@
       - row "Novembre 312":
         - rowheader "Novembre"
         - cell "312"
+    - rowgroup:
+      - row "Total 1573":
+        - rowheader "Total"
+        - cell "1573"
 - contentinfo:
   - paragraph:
     - link "Plan du site":

@@ -30,6 +30,12 @@ mount(
           </tr>
         ))}
       </tbody>
+      <tfoot>
+        <tr>
+          <th scope="row">Total</th>
+          <td>{MONTHS.reduce((total, [, kwh]) => total + kwh, 0)}</td>
+        </tr>
+      </tfoot>
     </table>
   </>,
 );

@@ -3,6 +3,7 @@ import "@seuil/ui/styles.css";
 import { Header } from "@seuil/ui";
 import { StrictMode, type ReactNode } from "react";
 import { createRoot } from "react-dom/client";
+import { countPageView } from "./stats.js";
 
 export const PAGES = [
   { label: "Espace client", href: "./index.html" },
@@ -10,6 +11,7 @@ export const PAGES = [
 ];
 
 export function mount(current: string, children: ReactNode) {
+  countPageView();
   createRoot(document.getElementById("root")!).render(
     <StrictMode>
       <div data-theme="energie" className="seuil-root">
