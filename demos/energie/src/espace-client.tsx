@@ -1,14 +1,30 @@
 import { Alert, Button, Card, Modal } from "@seuil/ui";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { mount } from "./layout.js";
 
 function EBill() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(false);
+  const confirmation = useRef<HTMLParagraphElement>(null);
+
+  // The button that opened the dialog disappears once activated: focus the confirmation
+  // instead of letting it fall back to the top of the page (WCAG 2.4.3, 4.1.3).
+  useEffect(() => {
+    if (active) confirmation.current?.focus();
+  }, [active]);
+
   return (
     <Card title="Facture électronique">
-      <p>{active ? "Vous recevez vos factures par e-mail." : "Recevez vos factures par e-mail plutôt que par courrier."}</p>
-      {!active && <Button onClick={() => setOpen(true)}>Activer la e-facture</Button>}
+      {active ? (
+        <p ref={confirmation} tabIndex={-1}>
+          E-facture activée : vous recevez désormais vos factures par e-mail.
+        </p>
+      ) : (
+        <>
+          <p>Recevez vos factures par e-mail plutôt que par courrier.</p>
+          <Button onClick={() => setOpen(true)}>Activer la e-facture</Button>
+        </>
+      )}
       <Modal
         open={open}
         onClose={() => setOpen(false)}
@@ -16,8 +32,8 @@ function EBill() {
         actions={
           <Button
             onClick={() => {
-              setActive(true);
               setOpen(false);
+              setActive(true);
             }}
           >
             Activer

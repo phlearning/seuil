@@ -45,6 +45,8 @@ export async function checkCommand(options: CheckOptions): Promise<CommandOutcom
 
     if (config.offline) {
       sections.push("security/deps: skipped (offline).");
+    } else if (config.lockfiles.length === 0) {
+      sections.push("security/deps: no lockfile configured or found, dependencies not checked.");
     } else {
       rules.push("security/deps");
       for (const lockfile of config.lockfiles) {

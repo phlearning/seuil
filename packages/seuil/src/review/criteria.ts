@@ -26,7 +26,8 @@ export interface CriteriaFile {
 const RELATIVE = "data/wcag/criteria.json";
 
 export function loadCriteria(): CriteriaFile {
-  const candidates: string[] = [];
+  // SEUIL_DATA points at the data folder when Seuil runs outside the monorepo (Docker image).
+  const candidates: string[] = process.env.SEUIL_DATA ? [join(process.env.SEUIL_DATA, "wcag/criteria.json")] : [];
   for (let dir = process.cwd(); ; dir = dirname(dir)) {
     candidates.push(join(dir, RELATIVE));
     if (dirname(dir) === dir) break;

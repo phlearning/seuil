@@ -1,14 +1,103 @@
-# Week 5: wired to the published Seuil Docker image.
 name: Seuil
-description: Compliance gate for accessibility, data protection and security.
+description: Compliance gate for accessibility (WCAG 2.2 AA, eCH-0059), data protection (nLPD) and security. Blocks the pull request and comments the findings.
+author: phlearning
+branding:
+  icon: shield
+  color: green
+
 inputs:
   config:
-    description: Path to seuil.config.json
+    description: Path to seuil.config.json, relative to the working directory.
     default: seuil.config.json
+  working-directory:
+    description: Folder to run in (for monorepos with one config per project).
+    default: .
+  name:
+    description: Short name for this run, used for the comment and the artifact when several projects are checked.
+    default: seuil
+  image:
+    description: Seuil Docker image.
+    default: ghcr.io/phlearning/seuil:latest
+  client:
+    description: Client name printed in the HTML report.
+    default: Client
+  lang:
+    description: Report language, fr or en.
+    default: fr
+  comment:
+    description: Post (and keep updated) a comment on the pull request.
+    default: "true"
+  github-token:
+    description: Token used to comment; needs pull-requests write permission.
+    default: ${{ github.token }}
+
+outputs:
+  exit-code:
+    description: 0 compliant, 1 findings at or above failOn, 2 checks could not run.
+    value: ${{ steps.check.outputs.exit-code }}
+
 runs:
-  using: docker
-  image: ../Dockerfile
-  args:
-    - check
-    - --config
-    - ${{ inputs.config }}
+  using: composite
+  steps:
+    - id: check
+      name: Run seuil check and render the reports
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+      env:
+        IMAGE: ${{ inputs.image }}
+        CONFIG: ${{ inputs.config }}
+        LANG_: ${{ inputs.lang }}
+        CLIENT: ${{ inputs.client }}
+        NAME: ${{ inputs.name }}
+      run: |
+        set +e
+        # Whole repository mounted (configs may point outside their folder, e.g. ../../packages/tokens),
+        # runner's user (files stay owned by it), host network to reach pages served on the runner.
+        rel="$(realpath --relative-to="$GITHUB_WORKSPACE" "$PWD")"
+        seuil() { docker run --rm --network host --user "$(id -u):$(id -g)" -e HOME=/tmp -v "$GITHUB_WORKSPACE:/work" -w "/work/$rel" "$IMAGE" "$@"; }
+        seuil check --config "$CONFIG"
+        code=$?
+        echo "exit-code=$code" >> "$GITHUB_OUTPUT"
+        mkdir -p seuil-report
+        seuil report --format md --lang "$LANG_" -o seuil-report/comment.md
+        seuil report --format html --lang "$LANG_" --client "$CLIENT" -o seuil-report/report.html
+        seuil report --format csv --lang "$LANG_" -o seuil-report/register.csv
+        # One comment per project: the marker carries the run name.
+        sed -i "1s#.*#<!-- seuil-report:$NAME -->#" seuil-report/comment.md
+        sed -i "2s#\$# ($NAME)#" seuil-report/comment.md
+        cat seuil-report/comment.md >> "$GITHUB_STEP_SUMMARY"
+        exit 0
+
+    - name: Comment on the pull request
+      if: inputs.comment == 'true' && github.event_name == 'pull_request'
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+      env:
+        GH_TOKEN: ${{ inputs.github-token }}
+        PR: ${{ github.event.pull_request.number }}
+        REPO: ${{ github.repository }}
+        NAME: ${{ inputs.name }}
+      run: |
+        # Update this project's existing comment instead of adding one per push.
+        marker="<!-- seuil-report:$NAME -->"
+        id=$(gh api "repos/$REPO/issues/$PR/comments" --paginate --jq ".[] | select(.body | startswith(\"$marker\")) | .id" | head -n 1)
+        if [ -n "$id" ]; then
+          gh api -X PATCH "repos/$REPO/issues/comments/$id" -F body=@seuil-report/comment.md > /dev/null
+        else
+          gh api -X POST "repos/$REPO/issues/$PR/comments" -F body=@seuil-report/comment.md > /dev/null
+        fi
+
+    - name: Upload the reports
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ inputs.name }}-report
+        path: |
+          ${{ inputs.working-directory }}/seuil-results.json
+          ${{ inputs.working-directory }}/seuil-report/
+
+    - name: Fail on findings
+      if: steps.check.outputs.exit-code != '0'
+      shell: bash
+      run: |
+        echo "::error title=Seuil (${{ inputs.name }})::Compliance gate failed (exit code ${{ steps.check.outputs.exit-code }}). See the pull request comment and the ${{ inputs.name }}-report artifact."
+        exit 1

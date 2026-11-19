@@ -1,0 +1,31 @@
+- banner:
+  - link "Aller au contenu":
+    - /url: "#contenu"
+  - link "Commune de Valfleurie":
+    - /url: ./index.html
+  - navigation "Navigation principale":
+    - list:
+      - listitem:
+        - link "Démarches en ligne":
+          - /url: ./index.html
+- main:
+  - heading "Demander une attestation de domicile" [level=1]
+  - paragraph: "L'attestation vous est envoyée par courrier sous trois jours ouvrables. Émolument : 20 francs."
+  - text: Nom et prénom
+  - textbox "Nom et prénom"
+  - text: Numéro AVS 13 chiffres, par exemple 756.1234.5678.97
+  - textbox "Numéro AVS"
+  - text: Usage de l'attestation
+  - combobox "Usage de l'attestation":
+    - option "Choisir un usage" [selected]
+    - option "Pour un employeur"
+    - option "Pour une banque"
+    - option "Autre usage"
+  - checkbox "Je confirme l'exactitude des informations fournies"
+  - text: Je confirme l'exactitude des informations fournies
+  - button "Envoyer la demande"
+- contentinfo:
+  - paragraph:
+    - link "Plan du site":
+      - /url: ./plan-du-site.html
+  - paragraph: Commune fictive, créée pour la démonstration de Seuil.

@@ -1,0 +1,610 @@
+{
+  "version": 1,
+  "entries": {
+    "1.1.1": {
+      "verdict": "na",
+      "comment": "Aucune image ni autre contenu non textuel sur les 3 pages (inventaire : 0 image).",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.518Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "1.2.1": {
+      "verdict": "na",
+      "comment": "Aucun média audio ou vidéo.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.521Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "1.2.2": {
+      "verdict": "na",
+      "comment": "Aucun média audio ou vidéo.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.620Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "1.2.3": {
+      "verdict": "na",
+      "comment": "Aucun média audio ou vidéo.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.624Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "1.2.4": {
+      "verdict": "na",
+      "comment": "Aucune diffusion en direct.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.721Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "1.2.5": {
+      "verdict": "na",
+      "comment": "Aucun média vidéo.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.725Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "1.3.1": {
+      "verdict": "ok",
+      "comment": "Titres h1 cohérents, repères présents, chaque champ relié à son label, case à cocher avec label.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.726Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "1.3.2": {
+      "verdict": "ok",
+      "comment": "L'ordre du code suit l'ordre visuel sur les 3 pages.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.728Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "1.3.3": {
+      "verdict": "ok",
+      "comment": "Aucune consigne fondée sur la forme, la position ou la couleur.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.730Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "1.3.4": {
+      "verdict": "ok",
+      "comment": "Aucun verrouillage d'orientation (ni CSS ni script) ; mise en page fluide.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.734Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "1.3.5": {
+      "verdict": "ok",
+      "comment": "Nom : autocomplete=name. Le numéro AVS n'a pas de finalité définie par WCAG ; aucun autre champ ne concerne l'utilisateur.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.736Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "1.4.1": {
+      "verdict": "ok",
+      "comment": "Erreurs annoncées par le texte « Erreur : », liens soulignés.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.737Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "1.4.2": {
+      "verdict": "na",
+      "comment": "Aucun son.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.738Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "1.4.3": {
+      "verdict": "ok",
+      "comment": "Thème administration : texte 16.48:1, texte secondaire 7.57:1, texte des boutons 7.16:1 (mesuré) ; axe-core sans défaut.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.739Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "1.4.4": {
+      "verdict": "ok",
+      "comment": "Contrôle automatique à 640 px (équivalent du zoom à 200 %) sans texte coupé ; mise en page fluide qui suit le zoom du navigateur.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.741Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "1.4.5": {
+      "verdict": "na",
+      "comment": "Aucune image, donc aucun texte sous forme d'image.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.742Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "1.4.10": {
+      "verdict": "ok",
+      "comment": "Contrôle automatique à 320 px : aucun défilement horizontal ni texte coupé.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.744Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "1.4.11": {
+      "verdict": "ok",
+      "comment": "Bordures de champs 7.57:1, bordure des boutons 7.16:1 sur fond blanc (mesuré).",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.746Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "1.4.12": {
+      "verdict": "ok",
+      "comment": "Contrôle automatique avec espacements WCAG : aucun texte coupé.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.747Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "1.4.13": {
+      "verdict": "na",
+      "comment": "Aucun contenu affiché au survol ou au focus.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.748Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "2.1.1": {
+      "verdict": "ok",
+      "comment": "Parcours complet au clavier (contrôle automatique) et formulaire testé à la main ; uniquement des contrôles natifs.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.750Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "2.1.2": {
+      "verdict": "ok",
+      "comment": "Aucun piège détecté ; aucune fenêtre modale sur ce site.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.751Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "2.1.4": {
+      "verdict": "na",
+      "comment": "Aucun raccourci clavier.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.752Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "2.2.1": {
+      "verdict": "na",
+      "comment": "Aucune limite de temps.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.754Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "2.2.2": {
+      "verdict": "na",
+      "comment": "Aucun contenu en mouvement ou mis à jour automatiquement.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.756Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "2.3.1": {
+      "verdict": "ok",
+      "comment": "Aucun contenu clignotant.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.819Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "2.4.1": {
+      "verdict": "ok",
+      "comment": "Lien « Aller au contenu » au premier arrêt de tabulation, repères header, nav, main et footer.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.821Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "2.4.2": {
+      "verdict": "ok",
+      "comment": "Titres uniques : « Attestation de domicile », « Demande enregistrée », « Plan du site », suivis du nom de la commune.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.825Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "2.4.3": {
+      "verdict": "ok",
+      "comment": "Ordre : lien d'évitement, accueil, menu, formulaire, pied de page ; en cas d'erreur, le focus va sur le résumé (testé).",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.827Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "2.4.4": {
+      "verdict": "ok",
+      "comment": "Liens explicites : Démarches en ligne, Faire une autre demande, Plan du site.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.828Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "2.4.5": {
+      "verdict": "ok",
+      "comment": "Menu principal et plan du site sur chaque page ; la page de confirmation est le résultat d'un processus (exception).",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.829Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "2.4.6": {
+      "verdict": "ok",
+      "comment": "Titres et étiquettes décrivent le sujet ou la fonction.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.831Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "2.4.7": {
+      "verdict": "ok",
+      "comment": "Contrôle automatique : indicateur de focus visible sur chaque élément atteint.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.832Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "2.4.11": {
+      "verdict": "ok",
+      "comment": "Aucun élément fixe ; contrôle automatique sans focus masqué.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.834Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "2.5.1": {
+      "verdict": "na",
+      "comment": "Aucun geste multipoint ou de tracé.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.836Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "2.5.2": {
+      "verdict": "ok",
+      "comment": "Contrôles natifs, déclenchés au relâchement.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.838Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "2.5.3": {
+      "verdict": "ok",
+      "comment": "Noms accessibles identiques aux étiquettes visibles (l'astérisque est masqué aux lecteurs d'écran).",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.840Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "2.5.4": {
+      "verdict": "na",
+      "comment": "Aucune fonction activée par le mouvement de l'appareil.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.842Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "2.5.7": {
+      "verdict": "na",
+      "comment": "Aucun glisser-déposer.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:25.968Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "2.5.8": {
+      "verdict": "ok",
+      "comment": "Contrôle automatique ; boutons et champs de 44 px de haut.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.034Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "3.1.1": {
+      "verdict": "ok",
+      "comment": "lang=\"fr\" sur les 3 pages, contenu entièrement en français.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.037Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "3.1.2": {
+      "verdict": "na",
+      "comment": "Aucun passage dans une autre langue.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.040Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "3.2.1": {
+      "verdict": "ok",
+      "comment": "Aucun changement de contexte au focus.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.042Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "3.2.2": {
+      "verdict": "ok",
+      "comment": "Le choix de l'usage ou de la case ne déclenche rien ; l'envoi passe uniquement par le bouton.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.046Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "3.2.3": {
+      "verdict": "ok",
+      "comment": "Menu et pied de page identiques, dans le même ordre, sur les 3 pages.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.048Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "3.2.4": {
+      "verdict": "ok",
+      "comment": "Mêmes libellés pour les mêmes fonctions sur tout le site.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.050Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "3.2.6": {
+      "verdict": "na",
+      "comment": "Aucun mécanisme d'aide répété sur plusieurs pages.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.052Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "3.3.1": {
+      "verdict": "ok",
+      "comment": "Envoi à vide testé : résumé d'erreurs focalisé, 4 champs marqués aria-invalid dont la case à cocher, erreurs décrites en texte.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.056Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "3.3.2": {
+      "verdict": "ok",
+      "comment": "Étiquettes visibles, format du numéro AVS indiqué avec un exemple, champs obligatoires signalés.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.058Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "3.3.3": {
+      "verdict": "ok",
+      "comment": "Chaque message indique la correction attendue (le numéro AVS commence par 756).",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.060Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "3.3.4": {
+      "verdict": "ok",
+      "comment": "Démarche payante (20 francs) : une case de confirmation obligatoire précède l'envoi (technique G155).",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.062Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "3.3.7": {
+      "verdict": "na",
+      "comment": "Formulaire en une seule étape, aucune information redemandée.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.064Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "3.3.8": {
+      "verdict": "na",
+      "comment": "Aucune authentification.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.067Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "4.1.2": {
+      "verdict": "ok",
+      "comment": "Contrôles natifs ; noms, rôles et états vérifiés dans l'arbre d'accessibilité (a11y/names).",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.069Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    },
+    "4.1.3": {
+      "verdict": "ok",
+      "comment": "Les erreurs prennent le focus via le résumé ; la confirmation s'affiche sur une nouvelle page. Envoi valide non testé à la main (il exige un numéro AVS), vérifié dans le code.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.071Z",
+      "pages": {
+        "http://127.0.0.1:4302/": "b069431599ce9848",
+        "http://127.0.0.1:4302/confirmation.html": "f7cf00e505051774",
+        "http://127.0.0.1:4302/plan-du-site.html": "dafa311f6483fb2a"
+      }
+    }
+  }
+}

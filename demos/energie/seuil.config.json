@@ -1,0 +1,38 @@
+{
+  "tokens": {
+    "path": "../../packages/tokens/src",
+    "themes": [
+      "energie"
+    ],
+    "pairs": [
+      [
+        "color.text.default",
+        "color.bg.default"
+      ],
+      [
+        "color.text.muted",
+        "color.bg.default"
+      ],
+      [
+        "color.action.text",
+        "color.action.bg"
+      ]
+    ]
+  },
+  "audit": {
+    "snapshots": ".seuil/snapshots"
+  },
+  "targets": [
+    "http://127.0.0.1:4303/",
+    "http://127.0.0.1:4303/consommation.html",
+    "http://127.0.0.1:4303/plan-du-site.html"
+  ],
+  "lockfiles": [
+    "../../pnpm-lock.yaml"
+  ],
+  "firstParty": [],
+  "allowThirdParties": [],
+  "level": "AA",
+  "failOn": "error",
+  "offline": false
+}

@@ -1,0 +1,78 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Typecheck, unit and browser tests
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g pnpm@12.19.0
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm geoip
+      - run: pnpm --filter seuil exec playwright install --with-deps chromium
+      - run: pnpm build
+      - run: pnpm typecheck
+      - run: pnpm test
+
+  # Seuil checks the three fictional clients with its own GitHub Action, using an image built from this commit.
+  gate:
+    name: Seuil gate (${{ matrix.demo }})
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      pull-requests: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - demo: sante
+            port: 4301
+            client: Clinique des Aubépines
+          - demo: admin
+            port: 4302
+            client: Commune de Valfleurie
+          - demo: energie
+            port: 4303
+            client: Cascade Énergie
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g pnpm@12.19.0
+      - run: pnpm install --frozen-lockfile --filter "@seuil/demo-${{ matrix.demo }}..."
+      - run: pnpm --filter @seuil/tokens build && pnpm --filter "@seuil/demo-${{ matrix.demo }}" build
+      - name: Serve the demo
+        run: |
+          pnpm --filter "@seuil/demo-${{ matrix.demo }}" preview > preview.log 2>&1 &
+          for i in $(seq 1 30); do curl -sf "http://127.0.0.1:${{ matrix.port }}/" > /dev/null && exit 0; sleep 1; done
+          cat preview.log; exit 1
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          load: true
+          tags: seuil:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - uses: ./action
+        with:
+          image: seuil:ci
+          working-directory: demos/${{ matrix.demo }}
+          name: ${{ matrix.demo }}
+          client: ${{ matrix.client }}

@@ -1,0 +1,21 @@
+- banner:
+  - link "Aller au contenu":
+    - /url: "#contenu"
+  - link "Commune de Valfleurie":
+    - /url: ./index.html
+  - navigation "Navigation principale":
+    - list:
+      - listitem:
+        - link "Démarches en ligne":
+          - /url: ./index.html
+- main:
+  - heading "Plan du site" [level=1]
+  - list:
+    - listitem:
+      - link "Attestation de domicile":
+        - /url: ./index.html
+- contentinfo:
+  - paragraph:
+    - link "Plan du site":
+      - /url: ./plan-du-site.html
+  - paragraph: Commune fictive, créée pour la démonstration de Seuil.

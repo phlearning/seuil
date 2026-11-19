@@ -4,7 +4,7 @@ import { Header } from "@seuil/ui";
 import { StrictMode, type ReactNode } from "react";
 import { createRoot } from "react-dom/client";
 
-const NAV = [
+export const PAGES = [
   { label: "Espace client", href: "./index.html" },
   { label: "Consommation", href: "./consommation.html" },
 ];
@@ -13,11 +13,17 @@ export function mount(current: string, children: ReactNode) {
   createRoot(document.getElementById("root")!).render(
     <StrictMode>
       <div data-theme="energie" className="seuil-root">
-        <Header siteName="Cascade Énergie" homeHref="./index.html" nav={NAV.map((n) => ({ ...n, current: n.href === current }))} />
+        <Header siteName="Cascade Énergie" homeHref="./index.html" nav={PAGES.map((n) => ({ ...n, current: n.href === current }))} />
         <main id="contenu" className="demo-main">
           {children}
         </main>
         <footer className="demo-footer">
+          {/* Second way to reach every page, besides the menu (WCAG 2.4.5). */}
+          <p>
+            <a href="./plan-du-site.html" aria-current={current === "./plan-du-site.html" ? "page" : undefined}>
+              Plan du site
+            </a>
+          </p>
           <p>Fournisseur fictif, créé pour la démonstration de Seuil.</p>
         </footer>
       </div>

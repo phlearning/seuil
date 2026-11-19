@@ -1,0 +1,27 @@
+- banner:
+  - link "Aller au contenu":
+    - /url: "#contenu"
+  - link "Cascade Énergie":
+    - /url: ./index.html
+  - navigation "Navigation principale":
+    - list:
+      - listitem:
+        - link "Espace client":
+          - /url: ./index.html
+      - listitem:
+        - link "Consommation":
+          - /url: ./consommation.html
+- main:
+  - heading "Plan du site" [level=1]
+  - list:
+    - listitem:
+      - link "Espace client":
+        - /url: ./index.html
+    - listitem:
+      - link "Consommation":
+        - /url: ./consommation.html
+- contentinfo:
+  - paragraph:
+    - link "Plan du site":
+      - /url: ./plan-du-site.html
+  - paragraph: Fournisseur fictif, créé pour la démonstration de Seuil.

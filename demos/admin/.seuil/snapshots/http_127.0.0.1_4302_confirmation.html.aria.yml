@@ -1,0 +1,24 @@
+- banner:
+  - link "Aller au contenu":
+    - /url: "#contenu"
+  - link "Commune de Valfleurie":
+    - /url: ./index.html
+  - navigation "Navigation principale":
+    - list:
+      - listitem:
+        - link "Démarches en ligne":
+          - /url: ./index.html
+- main:
+  - heading "Demande enregistrée" [level=1]
+  - status:
+    - paragraph:
+      - strong: Votre demande a bien été reçue
+    - text: Vous recevrez l'attestation de domicile par courrier sous trois jours ouvrables, avec un bulletin de versement de 20 francs.
+  - paragraph:
+    - link "Faire une autre demande":
+      - /url: ./index.html
+- contentinfo:
+  - paragraph:
+    - link "Plan du site":
+      - /url: ./plan-du-site.html
+  - paragraph: Commune fictive, créée pour la démonstration de Seuil.

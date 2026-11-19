@@ -1,12 +1,24 @@
-# Seuil template for GitLab CI, including self-hosted instances.
-# Usage in a project's .gitlab-ci.yml:
+# Seuil for GitLab CI, including self-hosted GitLab.
+#
+# In the project's .gitlab-ci.yml:
 #   include:
-#     - remote: <url of this file>
-# Week 5: point SEUIL_IMAGE at the published image.
+#     - remote: https://raw.githubusercontent.com/phlearning/seuil/main/gitlab/seuil.gitlab-ci.yml
+#   seuil:
+#     variables:
+#       SEUIL_CONFIG: seuil.config.json
+#       SEUIL_CLIENT: "Commune de Valfleurie"
+#
+# The pages listed in seuil.config.json must be reachable from the job (deploy a
+# review app first, or start the site in before_script).
+# To get a merge request comment, add a project access token with the "api" scope
+# as the masked CI/CD variable SEUIL_GITLAB_TOKEN. Without it, the job still blocks
+# the merge request and keeps the reports as artifacts.
 
 variables:
-  SEUIL_IMAGE: seuil:latest
+  SEUIL_IMAGE: ghcr.io/phlearning/seuil:latest
   SEUIL_CONFIG: seuil.config.json
+  SEUIL_CLIENT: Client
+  SEUIL_LANG: fr
 
 seuil:
   stage: test
@@ -14,8 +26,23 @@ seuil:
     name: $SEUIL_IMAGE
     entrypoint: [""]
   script:
-    - node /app/dist/cli.js check --config "$SEUIL_CONFIG"
+    - set +e
+    - node /app/dist/cli.js check --config "$SEUIL_CONFIG"; code=$?
+    - mkdir -p seuil-report
+    - node /app/dist/cli.js report --format md --lang "$SEUIL_LANG" -o seuil-report/comment.md
+    - node /app/dist/cli.js report --format html --lang "$SEUIL_LANG" --client "$SEUIL_CLIENT" -o seuil-report/report.html
+    - node /app/dist/cli.js report --format csv --lang "$SEUIL_LANG" -o seuil-report/register.csv
+    - |
+      if [ -n "$SEUIL_GITLAB_TOKEN" ] && [ -n "$CI_MERGE_REQUEST_IID" ]; then
+        node /app/dist/gitlab-comment.js seuil-report/comment.md || echo "Could not post the merge request comment."
+      fi
+    - exit $code
   artifacts:
     when: always
+    expose_as: Seuil report
     paths:
       - seuil-results.json
+      - seuil-report/
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

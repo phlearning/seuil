@@ -1,0 +1,610 @@
+{
+  "version": 1,
+  "entries": {
+    "1.1.1": {
+      "verdict": "na",
+      "comment": "Aucune image ni autre contenu non textuel sur les 3 pages (inventaire : 0 image).",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.076Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "1.2.1": {
+      "verdict": "na",
+      "comment": "Aucun média audio ou vidéo.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.079Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "1.2.2": {
+      "verdict": "na",
+      "comment": "Aucun média audio ou vidéo.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.090Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "1.2.3": {
+      "verdict": "na",
+      "comment": "Aucun média audio ou vidéo.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.091Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "1.2.4": {
+      "verdict": "na",
+      "comment": "Aucune diffusion en direct.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.093Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "1.2.5": {
+      "verdict": "na",
+      "comment": "Aucun média vidéo.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.094Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "1.3.1": {
+      "verdict": "ok",
+      "comment": "Titres h1 puis h2 cohérents, repères présents, tableau de consommation avec légende et en-têtes de ligne et de colonne.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.095Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "1.3.2": {
+      "verdict": "ok",
+      "comment": "L'ordre du code suit l'ordre visuel sur les 3 pages.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.097Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "1.3.3": {
+      "verdict": "ok",
+      "comment": "Aucune consigne fondée sur la forme, la position ou la couleur.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.098Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "1.3.4": {
+      "verdict": "ok",
+      "comment": "Aucun verrouillage d'orientation (ni CSS ni script) ; mise en page fluide.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.100Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "1.3.5": {
+      "verdict": "na",
+      "comment": "Aucun champ de saisie.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.102Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "1.4.1": {
+      "verdict": "ok",
+      "comment": "Aucune information portée par la couleur seule ; liens soulignés, page courante en gras et aria-current.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.104Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "1.4.2": {
+      "verdict": "na",
+      "comment": "Aucun son.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.105Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "1.4.3": {
+      "verdict": "ok",
+      "comment": "Thème énergie : texte 15.14:1, texte secondaire 6.95:1, texte des boutons 6.70:1 (mesuré) ; axe-core sans défaut.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.106Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "1.4.4": {
+      "verdict": "ok",
+      "comment": "Contrôle automatique à 640 px (équivalent du zoom à 200 %) sans texte coupé ; mise en page fluide qui suit le zoom du navigateur.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.108Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "1.4.5": {
+      "verdict": "na",
+      "comment": "Aucune image, donc aucun texte sous forme d'image.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.109Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "1.4.10": {
+      "verdict": "ok",
+      "comment": "Contrôle automatique à 320 px : aucun défilement horizontal ni texte coupé.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.111Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "1.4.11": {
+      "verdict": "ok",
+      "comment": "Bordures 6.95:1 et bordure des boutons 6.35:1 sur le fond #f7f9fc (mesuré).",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.112Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "1.4.12": {
+      "verdict": "ok",
+      "comment": "Contrôle automatique avec espacements WCAG : aucun texte coupé.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.175Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "1.4.13": {
+      "verdict": "na",
+      "comment": "Aucun contenu affiché au survol ou au focus.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.177Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "2.1.1": {
+      "verdict": "ok",
+      "comment": "Parcours complet au clavier (contrôle automatique) ; activation de la e-facture testée au clavier seul.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.179Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "2.1.2": {
+      "verdict": "ok",
+      "comment": "La fenêtre de confirmation (dialog natif) se ferme avec Échap et rend le focus ; aucun piège détecté.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.181Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "2.1.4": {
+      "verdict": "na",
+      "comment": "Aucun raccourci clavier.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.182Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "2.2.1": {
+      "verdict": "na",
+      "comment": "Aucune limite de temps.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.183Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "2.2.2": {
+      "verdict": "na",
+      "comment": "Aucun contenu en mouvement ou mis à jour automatiquement.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.185Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "2.3.1": {
+      "verdict": "ok",
+      "comment": "Aucun contenu clignotant.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.186Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "2.4.1": {
+      "verdict": "ok",
+      "comment": "Lien « Aller au contenu » au premier arrêt de tabulation, repères header, nav, main et footer.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.187Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "2.4.2": {
+      "verdict": "ok",
+      "comment": "Titres uniques : « Espace client », « Consommation », « Plan du site », suivis du nom du fournisseur.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.188Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "2.4.3": {
+      "verdict": "ok",
+      "comment": "Ordre logique ; la fenêtre prend le focus, puis le focus va sur la confirmation « E-facture activée » (testé).",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.191Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "2.4.4": {
+      "verdict": "ok",
+      "comment": "Liens explicites ou explicites dans leur contexte : « Voir le détail » dans la carte « Consommation de novembre ».",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.192Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "2.4.5": {
+      "verdict": "ok",
+      "comment": "Menu principal et plan du site sur chaque page.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.195Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "2.4.6": {
+      "verdict": "ok",
+      "comment": "Titres et étiquettes décrivent le sujet ou la fonction.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.196Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "2.4.7": {
+      "verdict": "ok",
+      "comment": "Contrôle automatique : indicateur de focus visible sur chaque élément atteint.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.198Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "2.4.11": {
+      "verdict": "ok",
+      "comment": "Aucun élément fixe ; contrôle automatique sans focus masqué.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.234Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "2.5.1": {
+      "verdict": "na",
+      "comment": "Aucun geste multipoint ou de tracé.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.284Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "2.5.2": {
+      "verdict": "ok",
+      "comment": "Contrôles natifs, déclenchés au relâchement.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.316Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "2.5.3": {
+      "verdict": "ok",
+      "comment": "Noms accessibles identiques aux textes visibles des boutons et liens.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.346Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "2.5.4": {
+      "verdict": "na",
+      "comment": "Aucune fonction activée par le mouvement de l'appareil.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.394Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "2.5.7": {
+      "verdict": "na",
+      "comment": "Aucun glisser-déposer.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.396Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "2.5.8": {
+      "verdict": "ok",
+      "comment": "Contrôle automatique ; boutons et champs de 44 px de haut.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.399Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "3.1.1": {
+      "verdict": "ok",
+      "comment": "lang=\"fr\" sur les 3 pages, contenu entièrement en français.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.403Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "3.1.2": {
+      "verdict": "na",
+      "comment": "Aucun passage dans une autre langue.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.405Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "3.2.1": {
+      "verdict": "ok",
+      "comment": "Aucun changement de contexte au focus.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.407Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "3.2.2": {
+      "verdict": "na",
+      "comment": "Aucun champ de saisie.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.410Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "3.2.3": {
+      "verdict": "ok",
+      "comment": "Menu et pied de page identiques, dans le même ordre, sur les 3 pages.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.413Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "3.2.4": {
+      "verdict": "ok",
+      "comment": "Mêmes libellés pour les mêmes fonctions sur tout le site.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.416Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "3.2.6": {
+      "verdict": "na",
+      "comment": "Aucun mécanisme d'aide répété sur plusieurs pages.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.419Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "3.3.1": {
+      "verdict": "na",
+      "comment": "Aucun champ de saisie.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.422Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "3.3.2": {
+      "verdict": "na",
+      "comment": "Aucun champ de saisie.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.426Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "3.3.3": {
+      "verdict": "na",
+      "comment": "Aucun champ de saisie.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.430Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "3.3.4": {
+      "verdict": "ok",
+      "comment": "L'activation de la e-facture modifie une donnée du compte : une fenêtre de confirmation la précède (technique G168).",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.433Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "3.3.7": {
+      "verdict": "na",
+      "comment": "Aucun processus en plusieurs étapes.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.438Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "3.3.8": {
+      "verdict": "na",
+      "comment": "Aucune authentification.",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.442Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "4.1.2": {
+      "verdict": "ok",
+      "comment": "Contrôles natifs ; noms, rôles et états vérifiés dans l'arbre d'accessibilité (a11y/names).",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.445Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    },
+    "4.1.3": {
+      "verdict": "ok",
+      "comment": "Le relevé de compteur est dans une région role=status ; après l'activation, le focus est placé sur le message de confirmation (testé).",
+      "reviewer": "Audit de démonstration (à valider)",
+      "at": "2026-11-19T23:18:26.449Z",
+      "pages": {
+        "http://127.0.0.1:4303/": "8f97e0e686eb92d7",
+        "http://127.0.0.1:4303/consommation.html": "49af869ad6e0020f",
+        "http://127.0.0.1:4303/plan-du-site.html": "828dfee239593185"
+      }
+    }
+  }
+}

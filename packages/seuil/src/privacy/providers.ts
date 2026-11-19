@@ -31,6 +31,7 @@ export function loadProviders(explicit?: string): Provider[] {
   const candidates = explicit
     ? [resolve(explicit)]
     : [
+        ...(process.env.SEUIL_DATA ? [join(process.env.SEUIL_DATA, "providers/providers.json")] : []),
         ...ancestors(process.cwd()).map((dir) => join(dir, "data/providers/providers.json")),
         join(dirname(fileURLToPath(import.meta.url)), "../../../../data/providers/providers.json"),
       ];

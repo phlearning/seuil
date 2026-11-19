@@ -27,12 +27,11 @@
     "http://127.0.0.1:4301/rendez-vous.html",
     "http://127.0.0.1:4301/plan-du-site.html"
   ],
-  "lockfiles": [
-    "../../pnpm-lock.yaml"
-  ],
+  "lockfiles": [],
   "firstParty": [],
   "allowThirdParties": [],
   "level": "AA",
   "failOn": "error",
-  "offline": false
+  "offline": false,
+  "$comment": "Dependencies are checked once, by the energie demo and the root config (they share the monorepo lockfile)."
 }

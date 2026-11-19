@@ -25,6 +25,9 @@ export function isLocalAddress(ip: string): boolean {
 function findDatabase(explicit?: string): string | undefined {
   if (explicit) return existsSync(resolve(explicit)) ? resolve(explicit) : undefined;
   if (process.env.SEUIL_GEOIP && existsSync(process.env.SEUIL_GEOIP)) return process.env.SEUIL_GEOIP;
+  if (process.env.SEUIL_DATA && existsSync(join(process.env.SEUIL_DATA, "geoip/dbip-country-lite.mmdb"))) {
+    return join(process.env.SEUIL_DATA, "geoip/dbip-country-lite.mmdb");
+  }
   let dir = process.cwd();
   for (;;) {
     const file = join(dir, GEOIP_FILE);
