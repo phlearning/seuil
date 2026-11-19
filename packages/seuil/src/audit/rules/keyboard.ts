@@ -103,10 +103,14 @@ export const keyboardRule: Rule = {
     let exhausted = true;
     let cycleStart = -1;
     let emptySteps = 0;
+    // Tab pressed and focus stayed on the same element (without passing through the document): a trap.
+    let stuck = false;
+    let passedDocument = false;
     for (let step = 0; step < maxSteps; step++) {
       await page.keyboard.press("Tab");
       const current = await focused(page);
       if (!current) {
+        passedDocument = true;
         if (++emptySteps > 2) {
           exhausted = false;
           break;
@@ -117,9 +121,11 @@ export const keyboardRule: Rule = {
       const seen = sequence.findIndex((s) => s.selector === current.selector);
       if (seen !== -1) {
         cycleStart = seen;
+        stuck = seen === sequence.length - 1 && !passedDocument && sequence.length < tabbables.length;
         exhausted = false;
         break;
       }
+      passedDocument = false;
       sequence.push(current);
       if (!(await hasVisibleFocus(page))) {
         add("error", "2.4.7", current, "Keyboard focus is not visible on this element.", "Keep the browser outline or add a :focus-visible style with at least 3:1 contrast.");
@@ -129,13 +135,16 @@ export const keyboardRule: Rule = {
       }
     }
 
-    const trapped = cycleStart > 0;
+    const trapped = cycleStart > 0 || stuck;
     if (trapped) {
+      const trapAt = stuck ? sequence.length - 1 : cycleStart;
       add(
         "error",
         "2.1.2",
-        sequence[cycleStart]!,
-        `Keyboard trap: Tab keeps cycling from here and never returns to the ${cycleStart} element(s) before it.`,
+        sequence[trapAt]!,
+        stuck
+          ? `Keyboard trap: Tab does not move focus away from this element; ${tabbables.length - sequence.length} other focusable element(s) stay out of reach.`
+          : `Keyboard trap: Tab keeps cycling from here and never returns to the ${cycleStart} element(s) before it.`,
         "Let Tab and Shift+Tab move focus out, or provide a documented way to leave (Escape for dialogs).",
       );
     } else if (exhausted && sequence.length >= MAX_TAB_STEPS / 2) {

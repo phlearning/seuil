@@ -35,6 +35,18 @@ describe("a11y/keyboard", () => {
     expect(findings.find((f) => f.references[0]?.id === "2.1.2")?.target.selector).toBe("#trap");
   });
 
+  it("reports one trap, not a list of unreachable elements, when focus is held from the start", async () => {
+    const html = page(
+      `<div id="popup"><p>Info</p><button id="ok">J'ai compris</button></div><a href="#a">Accueil</a><button>Envoyer</button>`,
+      `<script>addEventListener("DOMContentLoaded", () => {
+         const ok = document.getElementById("ok");
+         document.addEventListener("keydown", (e) => { if (e.key === "Tab") { e.preventDefault(); ok.focus(); } });
+       });</script>`,
+    );
+    const findings = await h.run(keyboardRule, html);
+    expect(findings.map((f) => `${f.references[0]?.id} ${f.target.selector}`)).toEqual(["2.1.2 #ok"]);
+  });
+
   it("flags a custom button that cannot be reached by keyboard (2.1.1)", async () => {
     const findings = await h.run(keyboardRule, page(`<button>Ok</button><div role="button" id="fake">Valider</div>`));
     expect(criteria(findings)).toEqual(["2.1.1"]);
