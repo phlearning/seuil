@@ -41,6 +41,23 @@ describe("a11y/keyboard", () => {
     expect(findings[0]?.target.selector).toBe("#fake");
   });
 
+  it("treats a radio group as one tab stop (arrows move inside it)", async () => {
+    const html = page(`<fieldset><legend>Verdict</legend>
+      <label><input type="radio" name="v" value="ok"> Conforme</label>
+      <label><input type="radio" name="v" value="ko"> Non conforme</label>
+      <label><input type="radio" name="v" value="na"> Non applicable</label></fieldset><button>Enregistrer</button>`);
+    expect(await h.run(keyboardRule, html)).toEqual([]);
+  });
+
+  it("accepts a heading with tabindex=-1 as a programmatic focus target", async () => {
+    expect(await h.run(keyboardRule, page(`<h2 tabindex="-1" id="t">Titre</h2><button>Ok</button>`))).toEqual([]);
+  });
+
+  it("still flags a native button removed from the tab order", async () => {
+    const findings = await h.run(keyboardRule, page(`<button>Ok</button><button tabindex="-1" id="hidden">Envoyer</button>`));
+    expect(findings.map((f) => f.target.selector)).toEqual(["#hidden"]);
+  });
+
   it("warns about a positive tabindex (2.4.3)", async () => {
     const findings = await h.run(keyboardRule, page(`<button>Un</button><button tabindex="3" id="jump">Deux</button>`));
     expect(findings).toHaveLength(1);

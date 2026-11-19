@@ -1,27 +1,47 @@
 {
   "tokens": {
     "path": "packages/tokens/src",
-    "themes": ["sante", "admin", "energie"],
+    "themes": [
+      "sante",
+      "admin",
+      "energie"
+    ],
     "pairs": [
-      ["color.text.default", "color.bg.default"],
-      ["color.text.muted", "color.bg.default"],
-      ["color.action.text", "color.action.bg"]
+      [
+        "color.text.default",
+        "color.bg.default"
+      ],
+      [
+        "color.text.muted",
+        "color.bg.default"
+      ],
+      [
+        "color.action.text",
+        "color.action.bg"
+      ]
     ]
   },
   "audit": {
-    "storybookGlobals": ["theme:sante", "theme:admin", "theme:energie"],
+    "storybookGlobals": [
+      "theme:sante",
+      "theme:admin",
+      "theme:energie"
+    ],
     "snapshots": ".seuil/snapshots"
   },
   "targets": [
     "packages/ui/storybook-static",
     "http://127.0.0.1:4301/",
     "http://127.0.0.1:4301/rendez-vous.html",
+    "http://127.0.0.1:4301/plan-du-site.html",
     "http://127.0.0.1:4302/",
     "http://127.0.0.1:4302/confirmation.html",
     "http://127.0.0.1:4303/",
     "http://127.0.0.1:4303/consommation.html"
   ],
-  "lockfiles": ["pnpm-lock.yaml"],
+  "lockfiles": [
+    "pnpm-lock.yaml"
+  ],
   "firstParty": [],
   "allowThirdParties": [],
   "level": "AA",

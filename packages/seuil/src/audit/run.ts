@@ -4,6 +4,7 @@ import { axeRule } from "./rules/axe.js";
 import { keyboardRule } from "./rules/keyboard.js";
 import { motionRule, reflowRule, targetSizeRule, textSpacingRule } from "./rules/layout.js";
 import { headersRule } from "./rules/headers.js";
+import { inventoryRule } from "./rules/inventory.js";
 import { namesRule } from "./rules/names.js";
 import { consentRule, thirdPartiesRule } from "./rules/privacy.js";
 import type { AuditTarget, Rule, RuleContext } from "./types.js";
@@ -19,6 +20,7 @@ export const ALL_RULES: Rule[] = [
   thirdPartiesRule,
   consentRule,
   headersRule,
+  inventoryRule,
 ];
 
 export interface AuditRun {

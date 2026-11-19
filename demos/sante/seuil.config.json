@@ -1,0 +1,38 @@
+{
+  "tokens": {
+    "path": "../../packages/tokens/src",
+    "themes": [
+      "sante"
+    ],
+    "pairs": [
+      [
+        "color.text.default",
+        "color.bg.default"
+      ],
+      [
+        "color.text.muted",
+        "color.bg.default"
+      ],
+      [
+        "color.action.text",
+        "color.action.bg"
+      ]
+    ]
+  },
+  "audit": {
+    "snapshots": ".seuil/snapshots"
+  },
+  "targets": [
+    "http://127.0.0.1:4301/",
+    "http://127.0.0.1:4301/rendez-vous.html",
+    "http://127.0.0.1:4301/plan-du-site.html"
+  ],
+  "lockfiles": [
+    "../../pnpm-lock.yaml"
+  ],
+  "firstParty": [],
+  "allowThirdParties": [],
+  "level": "AA",
+  "failOn": "error",
+  "offline": false
+}

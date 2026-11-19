@@ -1,0 +1,965 @@
+{
+  "$comment": "WCAG 2.2 levels A and AA (55 success criteria; 4.1.1 was removed in 2.2). French titles from the W3C authorized French translation (2025-03-17). eCH-0059 v3.0 requires WCAG 2.1 AA: wcag21 marks the criteria it covers. checks lists the Seuil rules that test part of a criterion; none of them proves a criterion alone, hence the guided review.",
+  "sources": {
+    "wcag": "https://www.w3.org/TR/WCAG22/",
+    "fr": "https://www.w3.org/Translations/WCAG22-fr-20250317/",
+    "ech0059": "https://www.ech.ch/fr/ech/ech-0059"
+  },
+  "principles": {
+    "1": {
+      "fr": "Perceptible",
+      "en": "Perceivable"
+    },
+    "2": {
+      "fr": "Utilisable",
+      "en": "Operable"
+    },
+    "3": {
+      "fr": "Compréhensible",
+      "en": "Understandable"
+    },
+    "4": {
+      "fr": "Robuste",
+      "en": "Robust"
+    }
+  },
+  "criteria": [
+    {
+      "id": "1.1.1",
+      "level": "A",
+      "principle": "1",
+      "wcag21": true,
+      "title": {
+        "fr": "Contenu non textuel",
+        "en": "Non-text Content"
+      },
+      "checks": [
+        "a11y/axe"
+      ],
+      "notApplicableWithout": "images",
+      "checklist": {
+        "fr": "Chaque image porteuse d'information a un texte alternatif qui dit la même chose ; les images décoratives ont alt=\"\".",
+        "en": "Every informative image has a text alternative that conveys the same thing; decorative images have alt=\"\"."
+      }
+    },
+    {
+      "id": "1.2.1",
+      "level": "A",
+      "principle": "1",
+      "wcag21": true,
+      "title": {
+        "fr": "Contenus seulement audio et seulement vidéo (pré-enregistrés)",
+        "en": "Audio-only and Video-only (Prerecorded)"
+      },
+      "checks": [],
+      "notApplicableWithout": "media",
+      "checklist": {
+        "fr": "Chaque contenu seulement audio a une transcription ; chaque vidéo sans son a une transcription ou une piste audio.",
+        "en": "Every audio-only file has a transcript; every silent video has a transcript or an audio track."
+      }
+    },
+    {
+      "id": "1.2.2",
+      "level": "A",
+      "principle": "1",
+      "wcag21": true,
+      "title": {
+        "fr": "Sous-titres (pré-enregistrés)",
+        "en": "Captions (Prerecorded)"
+      },
+      "checks": [],
+      "notApplicableWithout": "media",
+      "checklist": {
+        "fr": "Chaque vidéo avec du son a des sous-titres synchronisés et exacts.",
+        "en": "Every video with sound has accurate, synchronised captions."
+      }
+    },
+    {
+      "id": "1.2.3",
+      "level": "A",
+      "principle": "1",
+      "wcag21": true,
+      "title": {
+        "fr": "Audio-description ou version de remplacement pour un média temporel (pré-enregistré)",
+        "en": "Audio Description or Media Alternative (Prerecorded)"
+      },
+      "checks": [],
+      "notApplicableWithout": "media",
+      "checklist": {
+        "fr": "Les informations visuelles des vidéos sont décrites (audio-description ou transcription complète).",
+        "en": "Visual information in videos is described (audio description or full text alternative)."
+      }
+    },
+    {
+      "id": "1.2.4",
+      "level": "AA",
+      "principle": "1",
+      "wcag21": true,
+      "title": {
+        "fr": "Sous-titres (en direct)",
+        "en": "Captions (Live)"
+      },
+      "checks": [],
+      "notApplicableWithout": "media",
+      "checklist": {
+        "fr": "Les diffusions en direct avec du son sont sous-titrées.",
+        "en": "Live broadcasts with sound are captioned."
+      }
+    },
+    {
+      "id": "1.2.5",
+      "level": "AA",
+      "principle": "1",
+      "wcag21": true,
+      "title": {
+        "fr": "Audio-description (pré-enregistrée)",
+        "en": "Audio Description (Prerecorded)"
+      },
+      "checks": [],
+      "notApplicableWithout": "media",
+      "checklist": {
+        "fr": "Les vidéos pré-enregistrées ont une audio-description quand l'image porte une information absente du son.",
+        "en": "Prerecorded videos have audio description when the picture carries information missing from the sound."
+      }
+    },
+    {
+      "id": "1.3.1",
+      "level": "A",
+      "principle": "1",
+      "wcag21": true,
+      "title": {
+        "fr": "Information et relations",
+        "en": "Info and Relationships"
+      },
+      "checks": [
+        "a11y/axe",
+        "a11y/names"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Titres, listes, tableaux, groupes de champs et libellés sont balisés comme ils apparaissent (structure visible = structure codée).",
+        "en": "Headings, lists, tables, field groups and labels are marked up as they appear (visible structure = coded structure)."
+      }
+    },
+    {
+      "id": "1.3.2",
+      "level": "A",
+      "principle": "1",
+      "wcag21": true,
+      "title": {
+        "fr": "Ordre séquentiel logique",
+        "en": "Meaningful Sequence"
+      },
+      "checks": [
+        "a11y/keyboard"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "L'ordre de lecture du code (lecteur d'écran) garde le sens du contenu.",
+        "en": "The reading order in the code (screen reader) keeps the content's meaning."
+      }
+    },
+    {
+      "id": "1.3.3",
+      "level": "A",
+      "principle": "1",
+      "wcag21": true,
+      "title": {
+        "fr": "Caractéristiques sensorielles",
+        "en": "Sensory Characteristics"
+      },
+      "checks": [],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Aucune consigne ne repose seulement sur la forme, la position, la couleur ou le son (« le bouton vert à droite »).",
+        "en": "No instruction relies only on shape, position, colour or sound (\"the green button on the right\")."
+      }
+    },
+    {
+      "id": "1.3.4",
+      "level": "AA",
+      "principle": "1",
+      "wcag21": true,
+      "title": {
+        "fr": "Orientation",
+        "en": "Orientation"
+      },
+      "checks": [],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Le contenu fonctionne en portrait et en paysage, sans blocage d'orientation.",
+        "en": "Content works in portrait and landscape, with no orientation lock."
+      }
+    },
+    {
+      "id": "1.3.5",
+      "level": "AA",
+      "principle": "1",
+      "wcag21": true,
+      "title": {
+        "fr": "Identifier la finalité de la saisie",
+        "en": "Identify Input Purpose"
+      },
+      "checks": [
+        "a11y/axe"
+      ],
+      "notApplicableWithout": "forms",
+      "checklist": {
+        "fr": "Les champs qui concernent l'utilisateur (nom, e-mail, téléphone, adresse) ont le bon attribut autocomplete.",
+        "en": "Fields about the user (name, email, phone, address) have the right autocomplete attribute."
+      }
+    },
+    {
+      "id": "1.4.1",
+      "level": "A",
+      "principle": "1",
+      "wcag21": true,
+      "title": {
+        "fr": "Utilisation de la couleur",
+        "en": "Use of Color"
+      },
+      "checks": [
+        "a11y/axe"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "La couleur n'est jamais le seul moyen de transmettre une information (erreurs, liens, états).",
+        "en": "Colour is never the only way to convey information (errors, links, states)."
+      }
+    },
+    {
+      "id": "1.4.2",
+      "level": "A",
+      "principle": "1",
+      "wcag21": true,
+      "title": {
+        "fr": "Contrôle du son",
+        "en": "Audio Control"
+      },
+      "checks": [],
+      "notApplicableWithout": "media",
+      "checklist": {
+        "fr": "Aucun son ne démarre seul plus de 3 secondes sans moyen de l'arrêter.",
+        "en": "No sound plays automatically for more than 3 seconds without a way to stop it."
+      }
+    },
+    {
+      "id": "1.4.3",
+      "level": "AA",
+      "principle": "1",
+      "wcag21": true,
+      "title": {
+        "fr": "Contraste (minimum)",
+        "en": "Contrast (Minimum)"
+      },
+      "checks": [
+        "tokens/contrast",
+        "a11y/axe"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Le texte a un contraste d'au moins 4.5:1 (3:1 pour le grand texte), y compris sur les images de fond et dans tous les états.",
+        "en": "Text has at least 4.5:1 contrast (3:1 for large text), including over background images and in every state."
+      }
+    },
+    {
+      "id": "1.4.4",
+      "level": "AA",
+      "principle": "1",
+      "wcag21": true,
+      "title": {
+        "fr": "Redimensionnement du texte",
+        "en": "Resize Text"
+      },
+      "checks": [
+        "a11y/reflow"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "À 200 % de zoom, aucun texte n'est coupé ni superposé et toutes les fonctions restent utilisables.",
+        "en": "At 200% zoom, no text is cut off or overlapping and every function still works."
+      }
+    },
+    {
+      "id": "1.4.5",
+      "level": "AA",
+      "principle": "1",
+      "wcag21": true,
+      "title": {
+        "fr": "Texte sous forme d'image",
+        "en": "Images of Text"
+      },
+      "checks": [],
+      "notApplicableWithout": "images",
+      "checklist": {
+        "fr": "Aucun texte n'est affiché sous forme d'image, sauf les logos.",
+        "en": "No text is shown as an image, except logos."
+      }
+    },
+    {
+      "id": "1.4.10",
+      "level": "AA",
+      "principle": "1",
+      "wcag21": true,
+      "title": {
+        "fr": "Redistribution",
+        "en": "Reflow"
+      },
+      "checks": [
+        "a11y/reflow"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "À 320 px de large, tout le contenu se lit sans défilement horizontal et sans perte d'information.",
+        "en": "At 320 px wide, all content reads without horizontal scrolling and without loss of information."
+      }
+    },
+    {
+      "id": "1.4.11",
+      "level": "AA",
+      "principle": "1",
+      "wcag21": true,
+      "title": {
+        "fr": "Contraste du contenu non textuel",
+        "en": "Non-text Contrast"
+      },
+      "checks": [
+        "tokens/contrast"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Bordures de champs, icônes utiles et indicateurs de focus ont un contraste d'au moins 3:1 avec leur entourage.",
+        "en": "Field borders, meaningful icons and focus indicators have at least 3:1 contrast with their surroundings."
+      }
+    },
+    {
+      "id": "1.4.12",
+      "level": "AA",
+      "principle": "1",
+      "wcag21": true,
+      "title": {
+        "fr": "Espacement du texte",
+        "en": "Text Spacing"
+      },
+      "checks": [
+        "a11y/text-spacing"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Avec un espacement augmenté (interligne 1.5, lettres 0.12em, mots 0.16em), rien n'est coupé ni superposé.",
+        "en": "With increased spacing (line 1.5, letters 0.12em, words 0.16em), nothing is cut off or overlapping."
+      }
+    },
+    {
+      "id": "1.4.13",
+      "level": "AA",
+      "principle": "1",
+      "wcag21": true,
+      "title": {
+        "fr": "Contenu au survol ou au focus",
+        "en": "Content on Hover or Focus"
+      },
+      "checks": [],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Les infobulles et menus qui apparaissent au survol peuvent être fermés (Échap), survolés, et restent affichés tant qu'on en a besoin.",
+        "en": "Tooltips and menus shown on hover can be dismissed (Escape), hovered, and stay visible while needed."
+      }
+    },
+    {
+      "id": "2.1.1",
+      "level": "A",
+      "principle": "2",
+      "wcag21": true,
+      "title": {
+        "fr": "Clavier",
+        "en": "Keyboard"
+      },
+      "checks": [
+        "a11y/keyboard"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Toutes les fonctions sont utilisables au clavier seul, sans délai imposé entre les touches.",
+        "en": "Every function works with the keyboard alone, without timing between keystrokes."
+      }
+    },
+    {
+      "id": "2.1.2",
+      "level": "A",
+      "principle": "2",
+      "wcag21": true,
+      "title": {
+        "fr": "Pas de piège au clavier",
+        "en": "No Keyboard Trap"
+      },
+      "checks": [
+        "a11y/keyboard"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Le focus peut toujours quitter un composant au clavier (Tab, Maj+Tab, Échap pour les fenêtres).",
+        "en": "Focus can always leave a component by keyboard (Tab, Shift+Tab, Escape for dialogs)."
+      }
+    },
+    {
+      "id": "2.1.4",
+      "level": "A",
+      "principle": "2",
+      "wcag21": true,
+      "title": {
+        "fr": "Raccourcis clavier utilisant des caractères",
+        "en": "Character Key Shortcuts"
+      },
+      "checks": [],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Aucun raccourci à une seule lettre, ou bien il peut être désactivé ou modifié.",
+        "en": "No single-character shortcut, or it can be turned off or remapped."
+      }
+    },
+    {
+      "id": "2.2.1",
+      "level": "A",
+      "principle": "2",
+      "wcag21": true,
+      "title": {
+        "fr": "Réglage du délai",
+        "en": "Timing Adjustable"
+      },
+      "checks": [],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Toute limite de temps (session, formulaire) peut être désactivée, ajustée ou prolongée.",
+        "en": "Any time limit (session, form) can be turned off, adjusted or extended."
+      }
+    },
+    {
+      "id": "2.2.2",
+      "level": "A",
+      "principle": "2",
+      "wcag21": true,
+      "title": {
+        "fr": "Mettre en pause, arrêter, masquer",
+        "en": "Pause, Stop, Hide"
+      },
+      "checks": [
+        "a11y/motion"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Tout contenu qui bouge, défile ou se met à jour seul plus de 5 secondes peut être mis en pause ou masqué.",
+        "en": "Any content that moves, scrolls or updates on its own for more than 5 seconds can be paused or hidden."
+      }
+    },
+    {
+      "id": "2.3.1",
+      "level": "A",
+      "principle": "2",
+      "wcag21": true,
+      "title": {
+        "fr": "Pas plus de trois flashs ou sous le seuil critique",
+        "en": "Three Flashes or Below Threshold"
+      },
+      "checks": [],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Rien ne flashe plus de trois fois par seconde.",
+        "en": "Nothing flashes more than three times per second."
+      }
+    },
+    {
+      "id": "2.4.1",
+      "level": "A",
+      "principle": "2",
+      "wcag21": true,
+      "title": {
+        "fr": "Contourner des blocs",
+        "en": "Bypass Blocks"
+      },
+      "checks": [
+        "a11y/axe"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Un lien d'évitement ou des repères (header, nav, main) permettent d'aller directement au contenu.",
+        "en": "A skip link or landmarks (header, nav, main) let users go straight to the content."
+      }
+    },
+    {
+      "id": "2.4.2",
+      "level": "A",
+      "principle": "2",
+      "wcag21": true,
+      "title": {
+        "fr": "Titre de page",
+        "en": "Page Titled"
+      },
+      "checks": [
+        "a11y/axe"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Chaque page a un titre unique qui décrit son sujet ou sa fonction.",
+        "en": "Every page has a unique title that describes its topic or purpose."
+      }
+    },
+    {
+      "id": "2.4.3",
+      "level": "A",
+      "principle": "2",
+      "wcag21": true,
+      "title": {
+        "fr": "Parcours du focus",
+        "en": "Focus Order"
+      },
+      "checks": [
+        "a11y/keyboard"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "L'ordre de tabulation suit un ordre logique qui préserve le sens et l'usage.",
+        "en": "Tab order follows a logical order that preserves meaning and use."
+      }
+    },
+    {
+      "id": "2.4.4",
+      "level": "A",
+      "principle": "2",
+      "wcag21": true,
+      "title": {
+        "fr": "Fonction du lien (selon le contexte)",
+        "en": "Link Purpose (In Context)"
+      },
+      "checks": [
+        "a11y/axe"
+      ],
+      "notApplicableWithout": "links",
+      "checklist": {
+        "fr": "La fonction de chaque lien se comprend par son texte ou son contexte immédiat (pas de « cliquez ici » isolé).",
+        "en": "Each link's purpose is clear from its text or immediate context (no lone \"click here\")."
+      }
+    },
+    {
+      "id": "2.4.5",
+      "level": "AA",
+      "principle": "2",
+      "wcag21": true,
+      "title": {
+        "fr": "Accès multiples",
+        "en": "Multiple Ways"
+      },
+      "checks": [],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Il existe au moins deux moyens de trouver une page (menu, recherche, plan du site), sauf pour une étape d'un processus.",
+        "en": "There are at least two ways to find a page (menu, search, sitemap), except for steps in a process."
+      }
+    },
+    {
+      "id": "2.4.6",
+      "level": "AA",
+      "principle": "2",
+      "wcag21": true,
+      "title": {
+        "fr": "En-têtes et étiquettes",
+        "en": "Headings and Labels"
+      },
+      "checks": [
+        "a11y/names"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Titres et libellés décrivent le sujet ou la fonction.",
+        "en": "Headings and labels describe the topic or purpose."
+      }
+    },
+    {
+      "id": "2.4.7",
+      "level": "AA",
+      "principle": "2",
+      "wcag21": true,
+      "title": {
+        "fr": "Visibilité du focus",
+        "en": "Focus Visible"
+      },
+      "checks": [
+        "a11y/keyboard"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "L'élément qui a le focus clavier est toujours visible.",
+        "en": "The element with keyboard focus is always visible."
+      }
+    },
+    {
+      "id": "2.4.11",
+      "level": "AA",
+      "principle": "2",
+      "wcag21": false,
+      "title": {
+        "fr": "Focus non masqué (minimum)",
+        "en": "Focus Not Obscured (Minimum)"
+      },
+      "checks": [
+        "a11y/keyboard"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "L'élément qui a le focus n'est jamais entièrement caché par un bandeau, une fenêtre ou un pied de page fixe.",
+        "en": "The focused element is never entirely hidden by a sticky header, footer or overlay."
+      }
+    },
+    {
+      "id": "2.5.1",
+      "level": "A",
+      "principle": "2",
+      "wcag21": true,
+      "title": {
+        "fr": "Gestes pour le contrôle du pointeur",
+        "en": "Pointer Gestures"
+      },
+      "checks": [],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Toute fonction à plusieurs doigts ou à tracé (pincer, balayer) a une alternative à un seul pointeur.",
+        "en": "Any multipoint or path-based gesture (pinch, swipe) has a single-pointer alternative."
+      }
+    },
+    {
+      "id": "2.5.2",
+      "level": "A",
+      "principle": "2",
+      "wcag21": true,
+      "title": {
+        "fr": "Annulation de l'action du pointeur",
+        "en": "Pointer Cancellation"
+      },
+      "checks": [],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Les actions se déclenchent au relâchement du clic, ou peuvent être annulées.",
+        "en": "Actions fire on release, or can be aborted or undone."
+      }
+    },
+    {
+      "id": "2.5.3",
+      "level": "A",
+      "principle": "2",
+      "wcag21": true,
+      "title": {
+        "fr": "Étiquette dans le nom",
+        "en": "Label in Name"
+      },
+      "checks": [
+        "a11y/axe",
+        "a11y/names"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Le nom accessible des boutons et champs contient le texte visible (pour la commande vocale).",
+        "en": "The accessible name of buttons and fields contains the visible text (for voice control)."
+      }
+    },
+    {
+      "id": "2.5.4",
+      "level": "A",
+      "principle": "2",
+      "wcag21": true,
+      "title": {
+        "fr": "Activation par le mouvement",
+        "en": "Motion Actuation"
+      },
+      "checks": [],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Aucune fonction ne dépend de secouer ou d'incliner l'appareil sans alternative.",
+        "en": "No function depends on shaking or tilting the device without an alternative."
+      }
+    },
+    {
+      "id": "2.5.7",
+      "level": "AA",
+      "principle": "2",
+      "wcag21": false,
+      "title": {
+        "fr": "Mouvements de glissement",
+        "en": "Dragging Movements"
+      },
+      "checks": [],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Tout glisser-déposer a une alternative par simples clics.",
+        "en": "Every drag-and-drop has a simple click alternative."
+      }
+    },
+    {
+      "id": "2.5.8",
+      "level": "AA",
+      "principle": "2",
+      "wcag21": false,
+      "title": {
+        "fr": "Taille de la cible (minimum)",
+        "en": "Target Size (Minimum)"
+      },
+      "checks": [
+        "a11y/target-size"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Les cibles font au moins 24 x 24 px ou sont assez espacées (exceptions : liens dans le texte, contrôles natifs).",
+        "en": "Targets are at least 24 x 24 px or spaced enough (exceptions: inline links, native controls)."
+      }
+    },
+    {
+      "id": "3.1.1",
+      "level": "A",
+      "principle": "3",
+      "wcag21": true,
+      "title": {
+        "fr": "Langue de la page",
+        "en": "Language of Page"
+      },
+      "checks": [
+        "a11y/axe"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "La langue principale de chaque page est déclarée et correcte (lang=\"fr\").",
+        "en": "Each page declares its main language correctly (lang=\"fr\")."
+      }
+    },
+    {
+      "id": "3.1.2",
+      "level": "AA",
+      "principle": "3",
+      "wcag21": true,
+      "title": {
+        "fr": "Langue d'un passage",
+        "en": "Language of Parts"
+      },
+      "checks": [
+        "a11y/axe"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Les passages dans une autre langue sont balisés avec leur langue.",
+        "en": "Passages in another language are marked with their language."
+      }
+    },
+    {
+      "id": "3.2.1",
+      "level": "A",
+      "principle": "3",
+      "wcag21": true,
+      "title": {
+        "fr": "Au focus",
+        "en": "On Focus"
+      },
+      "checks": [],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Donner le focus à un élément ne change pas de page, n'ouvre pas de fenêtre et n'envoie rien.",
+        "en": "Focusing an element does not change page, open a window or submit anything."
+      }
+    },
+    {
+      "id": "3.2.2",
+      "level": "A",
+      "principle": "3",
+      "wcag21": true,
+      "title": {
+        "fr": "À la saisie",
+        "en": "On Input"
+      },
+      "checks": [],
+      "notApplicableWithout": "forms",
+      "checklist": {
+        "fr": "Changer une valeur (liste, case) ne provoque pas de changement de contexte sans prévenir.",
+        "en": "Changing a value (select, checkbox) does not change context without warning."
+      }
+    },
+    {
+      "id": "3.2.3",
+      "level": "AA",
+      "principle": "3",
+      "wcag21": true,
+      "title": {
+        "fr": "Navigation cohérente",
+        "en": "Consistent Navigation"
+      },
+      "checks": [],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Les menus répétés apparaissent dans le même ordre sur toutes les pages.",
+        "en": "Repeated menus appear in the same order on every page."
+      }
+    },
+    {
+      "id": "3.2.4",
+      "level": "AA",
+      "principle": "3",
+      "wcag21": true,
+      "title": {
+        "fr": "Identification cohérente",
+        "en": "Consistent Identification"
+      },
+      "checks": [],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Les éléments qui ont la même fonction ont le même nom partout.",
+        "en": "Elements with the same function have the same name everywhere."
+      }
+    },
+    {
+      "id": "3.2.6",
+      "level": "A",
+      "principle": "3",
+      "wcag21": false,
+      "title": {
+        "fr": "Aide cohérente",
+        "en": "Consistent Help"
+      },
+      "checks": [],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Si une aide (contact, téléphone, FAQ) est proposée sur plusieurs pages, elle est au même endroit.",
+        "en": "If help (contact, phone, FAQ) is offered on several pages, it is in the same place."
+      }
+    },
+    {
+      "id": "3.3.1",
+      "level": "A",
+      "principle": "3",
+      "wcag21": true,
+      "title": {
+        "fr": "Identification des erreurs",
+        "en": "Error Identification"
+      },
+      "checks": [],
+      "notApplicableWithout": "forms",
+      "checklist": {
+        "fr": "Les erreurs de saisie sont détectées, l'élément en erreur est identifié et l'erreur est décrite en texte.",
+        "en": "Input errors are detected, the field is identified and the error is described in text."
+      }
+    },
+    {
+      "id": "3.3.2",
+      "level": "A",
+      "principle": "3",
+      "wcag21": true,
+      "title": {
+        "fr": "Étiquettes ou instructions",
+        "en": "Labels or Instructions"
+      },
+      "checks": [
+        "a11y/axe"
+      ],
+      "notApplicableWithout": "forms",
+      "checklist": {
+        "fr": "Chaque champ a une étiquette visible et les formats attendus sont indiqués.",
+        "en": "Every field has a visible label and expected formats are stated."
+      }
+    },
+    {
+      "id": "3.3.3",
+      "level": "AA",
+      "principle": "3",
+      "wcag21": true,
+      "title": {
+        "fr": "Suggestion après une erreur",
+        "en": "Error Suggestion"
+      },
+      "checks": [],
+      "notApplicableWithout": "forms",
+      "checklist": {
+        "fr": "Quand une erreur est détectée et qu'une correction est connue, elle est suggérée.",
+        "en": "When an error is detected and a fix is known, it is suggested."
+      }
+    },
+    {
+      "id": "3.3.4",
+      "level": "AA",
+      "principle": "3",
+      "wcag21": true,
+      "title": {
+        "fr": "Prévention des erreurs (juridiques, financières, de données)",
+        "en": "Error Prevention (Legal, Financial, Data)"
+      },
+      "checks": [],
+      "notApplicableWithout": "forms",
+      "checklist": {
+        "fr": "Pour les engagements juridiques, financiers ou les données personnelles, l'envoi est vérifiable, réversible ou confirmé.",
+        "en": "For legal or financial commitments and personal data, submissions can be checked, reversed or confirmed."
+      }
+    },
+    {
+      "id": "3.3.7",
+      "level": "A",
+      "principle": "3",
+      "wcag21": false,
+      "title": {
+        "fr": "Saisie redondante",
+        "en": "Redundant Entry"
+      },
+      "checks": [],
+      "notApplicableWithout": "forms",
+      "checklist": {
+        "fr": "Une information déjà donnée dans le même processus n'est pas redemandée, ou est préremplie.",
+        "en": "Information already given in the same process is not asked again, or is prefilled."
+      }
+    },
+    {
+      "id": "3.3.8",
+      "level": "AA",
+      "principle": "3",
+      "wcag21": false,
+      "title": {
+        "fr": "Authentification accessible (minimum)",
+        "en": "Accessible Authentication (Minimum)"
+      },
+      "checks": [],
+      "notApplicableWithout": "password",
+      "checklist": {
+        "fr": "La connexion ne demande pas de test cognitif (mémoriser, recopier) sans alternative ; le copier-coller et les gestionnaires de mots de passe fonctionnent.",
+        "en": "Login does not require a cognitive test (remembering, transcribing) without an alternative; paste and password managers work."
+      }
+    },
+    {
+      "id": "4.1.2",
+      "level": "A",
+      "principle": "4",
+      "wcag21": true,
+      "title": {
+        "fr": "Nom, rôle et valeur",
+        "en": "Name, Role, Value"
+      },
+      "checks": [
+        "a11y/axe",
+        "a11y/keyboard",
+        "a11y/names"
+      ],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Chaque composant d'interface expose son nom, son rôle et son état aux technologies d'assistance.",
+        "en": "Every UI component exposes its name, role and state to assistive technologies."
+      }
+    },
+    {
+      "id": "4.1.3",
+      "level": "AA",
+      "principle": "4",
+      "wcag21": true,
+      "title": {
+        "fr": "Messages d'état",
+        "en": "Status Messages"
+      },
+      "checks": [],
+      "notApplicableWithout": null,
+      "checklist": {
+        "fr": "Les messages de succès, d'erreur ou de progression sont annoncés sans déplacer le focus (role status ou alert).",
+        "en": "Success, error and progress messages are announced without moving focus (role status or alert)."
+      }
+    }
+  ]
+}

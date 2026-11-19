@@ -26,4 +26,7 @@
     - heading "Horaires" [level=2]
     - paragraph: Lundi à vendredi de 7 h 30 à 19 h, samedi de 8 h à 12 h.
 - contentinfo:
+  - paragraph:
+    - link "Plan du site":
+      - /url: ./plan-du-site.html
   - paragraph: Clinique fictive, créée pour la démonstration de Seuil.

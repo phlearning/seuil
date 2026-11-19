@@ -1,0 +1,32 @@
+- banner:
+  - link "Aller au contenu":
+    - /url: "#contenu"
+  - link "Clinique des Aubépines":
+    - /url: ./index.html
+  - navigation "Navigation principale":
+    - list:
+      - listitem:
+        - link "Accueil":
+          - /url: ./index.html
+      - listitem:
+        - link "Prendre rendez-vous":
+          - /url: ./rendez-vous.html
+- main:
+  - heading "Bienvenue à la Clinique des Aubépines" [level=1]
+  - paragraph: Consultations de médecine générale, de pédiatrie et de physiothérapie, du lundi au samedi.
+  - region "Prendre rendez-vous":
+    - heading "Prendre rendez-vous" [level=2]
+    - paragraph: Choisissez un créneau en ligne, sans attente au téléphone.
+    - link "Réserver une consultation":
+      - /url: ./rendez-vous.html
+  - region "Urgences":
+    - heading "Urgences" [level=2]
+    - paragraph: En cas d'urgence vitale, appelez le 144.
+  - region "Horaires":
+    - heading "Horaires" [level=2]
+    - paragraph: Lundi à vendredi de 7 h 30 à 19 h, samedi de 8 h à 12 h.
+- contentinfo:
+  - paragraph:
+    - link "Plan du site":
+      - /url: ./plan-du-site.html
+  - paragraph: Clinique fictive, créée pour la démonstration de Seuil.

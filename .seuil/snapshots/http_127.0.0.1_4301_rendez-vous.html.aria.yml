@@ -30,4 +30,7 @@
   - text: Recevoir un rappel par SMS la veille
   - button "Demander un rendez-vous"
 - contentinfo:
+  - paragraph:
+    - link "Plan du site":
+      - /url: ./plan-du-site.html
   - paragraph: Clinique fictive, créée pour la démonstration de Seuil.

@@ -16,3 +16,4 @@ data/geoip/*.mmdb
 .env
 debug-storybook.log
 data/geoip/SOURCE.txt
+**/.seuil/screens/

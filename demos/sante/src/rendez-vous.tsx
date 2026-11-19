@@ -1,5 +1,5 @@
-import { Alert, Checkbox, Form, Select, TextField, type FormError } from "@seuil/ui";
-import { useState } from "react";
+import { Checkbox, Form, Select, TextField, type FormError } from "@seuil/ui";
+import { useEffect, useRef, useState } from "react";
 import { mount } from "./layout.js";
 
 const MOTIFS = [
@@ -8,6 +8,20 @@ const MOTIFS = [
   { value: "physio", label: "Physiothérapie" },
 ];
 
+/** Replaces the form: takes focus so keyboard and screen reader users land on it (WCAG 4.1.3, 2.4.3). */
+function Confirmation() {
+  const heading = useRef<HTMLHeadingElement>(null);
+  useEffect(() => heading.current?.focus(), []);
+  return (
+    <div className="seuil-alert">
+      <h2 ref={heading} tabIndex={-1} className="seuil-alert__title">
+        Demande envoyée
+      </h2>
+      <p>Nous vous confirmerons le créneau par e-mail dans la journée.</p>
+    </div>
+  );
+}
+
 function Booking() {
   const [errors, setErrors] = useState<FormError[]>([]);
   const [sent, setSent] = useState(false);
@@ -15,16 +29,14 @@ function Booking() {
   const submit = (data: FormData) => {
     const found: FormError[] = [];
     if (!String(data.get("nom") ?? "").trim()) found.push({ fieldId: "nom", message: "Indiquez votre nom et prénom" });
-    if (!String(data.get("email") ?? "").includes("@")) found.push({ fieldId: "email", message: "Indiquez une adresse e-mail valide" });
+    if (!String(data.get("email") ?? "").includes("@")) found.push({ fieldId: "email", message: "Indiquez une adresse e-mail valide, par exemple marie@exemple.ch" });
     if (!data.get("motif")) found.push({ fieldId: "motif", message: "Choisissez le motif de consultation" });
     setErrors(found);
     setSent(found.length === 0);
   };
   const error = (id: string) => errors.find((e) => e.fieldId === id)?.message;
 
-  if (sent) {
-    return <Alert title="Demande envoyée">Nous vous confirmerons le créneau par e-mail dans la journée.</Alert>;
-  }
+  if (sent) return <Confirmation />;
   return (
     <Form onSubmit={submit} errors={errors} submitLabel="Demander un rendez-vous">
       <TextField id="nom" name="nom" label="Nom et prénom" autoComplete="name" required error={error("nom")} />

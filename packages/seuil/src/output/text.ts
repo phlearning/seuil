@@ -41,7 +41,9 @@ export function formatFindings(findings: Finding[]): string {
 }
 
 /** One line per rule: "a11y/axe  2 errors, 1 warning". */
-export function formatSummary(findings: Finding[], rules: string[]): string {
+export function formatSummary(findings: Finding[], allRules: string[]): string {
+  // seuil/* entries collect material, they are not checks.
+  const rules = allRules.filter((r) => !r.startsWith("seuil/"));
   return rules
     .map((rule) => {
       const own = findings.filter((f) => f.rule === rule);

@@ -6,7 +6,7 @@
 
 Seuil is a compliance gate for agencies that ship web products to regulated clients (health, public administration, energy). It plugs into the delivery chain, from design tokens to deployed pages, and blocks a pull request until accessibility, data protection and security checks pass. It then produces an audit report the agency can hand to its client as is.
 
-**Status: week 3 of 5.** `seuil tokens`, `seuil audit` and `seuil check` work: accessibility, third parties and consent, data-flow register, security headers and dependencies. The guided audit, reports and CI integrations come next. See [docs/SPEC.md](docs/SPEC.md) (in French) for the full specification and the 5-week plan.
+**Status: week 4 of 5.** Every command works: `tokens`, `audit`, `check`, `review` (guided audit of the 55 WCAG 2.2 A/AA criteria) and `report` (client report in HTML, PR comment in Markdown, data-flow register in CSV). CI integrations and the public showcase come next. See [docs/SPEC.md](docs/SPEC.md) (in French) for the full specification and the 5-week plan.
 
 ```bash
 $ seuil tokens
@@ -51,6 +51,15 @@ pnpm audit:storybook   # Seuil audits its own Storybook
 pnpm geoip             # once a month: DB-IP Lite country database (CC BY 4.0)
 pnpm demos:serve       # the three fictional clients on ports 4301-4303 (keep running)
 pnpm check             # tokens, Storybook, demo pages and dependencies -> seuil-results.json
+```
+
+The health demo has a complete guided review (`demos/sante/seuil-review.json`, 55/55 criteria):
+
+```bash
+cd demos/sante
+node ../../packages/seuil/dist/cli.js check          # needs pnpm demos:serve running
+node ../../packages/seuil/dist/cli.js review         # local UI on http://127.0.0.1:4310
+node ../../packages/seuil/dist/cli.js report --client "Clinique des Aubépines" -o seuil-report/rapport.html
 ```
 
 Accessibility tree snapshots live in `.seuil/snapshots` and are committed. After an intended change, accept it with `seuil audit <target> --update-snapshots`.

@@ -8,6 +8,8 @@ export interface AuditConfig {
   storybookGlobals: string[];
   /** Folder of accessibility tree snapshots, committed with the code. */
   snapshots: string;
+  /** Folder of page screenshots for the guided review (not committed). */
+  screenshots: string;
 }
 
 export interface SeuilConfig {
@@ -25,7 +27,7 @@ export interface SeuilConfig {
 }
 
 const DEFAULTS: SeuilConfig = {
-  audit: { storybookGlobals: [], snapshots: ".seuil/snapshots" },
+  audit: { storybookGlobals: [], snapshots: ".seuil/snapshots", screenshots: ".seuil/screens" },
   targets: [],
   lockfiles: [],
   firstParty: [],
@@ -48,7 +50,7 @@ function isPair(p: unknown): p is PairInput {
 export function parseConfig(raw: unknown, baseDir: string): SeuilConfig {
   if (typeof raw !== "object" || raw === null) throw new ConfigError("Configuration must be a JSON object");
   const input = raw as Record<string, unknown>;
-  const config: SeuilConfig = { ...DEFAULTS, audit: { ...DEFAULTS.audit, snapshots: resolve(baseDir, DEFAULTS.audit.snapshots) } };
+  const config: SeuilConfig = { ...DEFAULTS, audit: { ...DEFAULTS.audit, snapshots: resolve(baseDir, DEFAULTS.audit.snapshots), screenshots: resolve(baseDir, DEFAULTS.audit.screenshots) } };
 
   if (input.audit !== undefined) {
     const a = input.audit as Record<string, unknown>;

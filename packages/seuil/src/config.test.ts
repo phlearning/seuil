@@ -26,7 +26,7 @@ describe("parseConfig", () => {
 
   it("reads the audit section and resolves the snapshots folder", () => {
     const config = parseConfig({ audit: { storybookGlobals: ["theme:sante"], snapshots: "snaps" } }, "/repo");
-    expect(config.audit).toEqual({ storybookGlobals: ["theme:sante"], snapshots: "/repo/snaps" });
+    expect(config.audit).toEqual({ storybookGlobals: ["theme:sante"], snapshots: "/repo/snaps", screenshots: "/repo/.seuil/screens" });
   });
 
   it("defaults snapshots to .seuil/snapshots next to the config", () => {

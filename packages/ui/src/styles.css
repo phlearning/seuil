@@ -240,6 +240,10 @@
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
 }
 
+.demo-footer a {
+  color: var(--color-text-default);
+}
+
 .demo-footer {
   border-top: 1px solid var(--color-text-muted);
   color: var(--color-text-muted);

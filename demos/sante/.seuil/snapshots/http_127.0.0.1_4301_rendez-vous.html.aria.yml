@@ -1,0 +1,36 @@
+- banner:
+  - link "Aller au contenu":
+    - /url: "#contenu"
+  - link "Clinique des Aubépines":
+    - /url: ./index.html
+  - navigation "Navigation principale":
+    - list:
+      - listitem:
+        - link "Accueil":
+          - /url: ./index.html
+      - listitem:
+        - link "Prendre rendez-vous":
+          - /url: ./rendez-vous.html
+- main:
+  - heading "Prendre rendez-vous" [level=1]
+  - paragraph: Les champs marqués d'un astérisque sont obligatoires.
+  - text: Nom et prénom
+  - textbox "Nom et prénom"
+  - text: Adresse e-mail
+  - textbox "Adresse e-mail"
+  - text: Date de naissance Par exemple 14.03.1985
+  - textbox "Date de naissance"
+  - text: Motif de consultation
+  - combobox "Motif de consultation":
+    - option "Choisir un motif" [selected]
+    - option "Médecine générale"
+    - option "Pédiatrie"
+    - option "Physiothérapie"
+  - checkbox "Recevoir un rappel par SMS la veille"
+  - text: Recevoir un rappel par SMS la veille
+  - button "Demander un rendez-vous"
+- contentinfo:
+  - paragraph:
+    - link "Plan du site":
+      - /url: ./plan-du-site.html
+  - paragraph: Clinique fictive, créée pour la démonstration de Seuil.

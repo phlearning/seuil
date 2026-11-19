@@ -4,6 +4,9 @@ import { wcag } from "../../wcag.js";
 import { locate, openTarget } from "../page.js";
 import type { Rule } from "../types.js";
 
+/** Upper bound of Tab presses per page (each focused element is also screenshotted twice). */
+export const MAX_TAB_STEPS = 1000;
+
 import type { Described } from "../page.js";
 
 const focused = (page: Page) =>
@@ -73,7 +76,13 @@ export const keyboardRule: Rule = {
         ...(suggestion && { suggestion }),
       });
 
-    const tabbables = await page.evaluate(() => window.__seuil.tabbables().map((el) => window.__seuil.describe(el)));
+    // Radio buttons sharing a name are one tab stop: Tab enters the group, arrows move inside it.
+    const tabbables = await page.evaluate(() =>
+      window.__seuil.tabbables().map((el) => ({
+        ...window.__seuil.describe(el),
+        radioGroup: el instanceof HTMLInputElement && el.type === "radio" && el.name ? `${el.form?.id ?? ""}:${el.name}` : null,
+      })),
+    );
 
     for (const el of await page.evaluate(() =>
       [...document.querySelectorAll("[tabindex]")].filter((e) => (e as HTMLElement).tabIndex > 0).map((e) => window.__seuil.describe(e)),
@@ -90,20 +99,25 @@ export const keyboardRule: Rule = {
     // Walk the page with real Tab presses.
     await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
     const sequence: Described[] = [];
-    const maxSteps = Math.min(200, tabbables.length * 2 + 4);
+    const maxSteps = Math.min(MAX_TAB_STEPS, tabbables.length * 2 + 4);
+    let exhausted = true;
     let cycleStart = -1;
     let emptySteps = 0;
     for (let step = 0; step < maxSteps; step++) {
       await page.keyboard.press("Tab");
       const current = await focused(page);
       if (!current) {
-        if (++emptySteps > 2) break;
+        if (++emptySteps > 2) {
+          exhausted = false;
+          break;
+        }
         continue;
       }
       emptySteps = 0;
       const seen = sequence.findIndex((s) => s.selector === current.selector);
       if (seen !== -1) {
         cycleStart = seen;
+        exhausted = false;
         break;
       }
       sequence.push(current);
@@ -124,10 +138,20 @@ export const keyboardRule: Rule = {
         `Keyboard trap: Tab keeps cycling from here and never returns to the ${cycleStart} element(s) before it.`,
         "Let Tab and Shift+Tab move focus out, or provide a documented way to leave (Escape for dialogs).",
       );
+    } else if (exhausted && sequence.length >= MAX_TAB_STEPS / 2) {
+      // The walk hit its step limit before coming back to the start: unvisited elements were not tested, not proven unreachable.
+      add(
+        "warning",
+        "2.1.1",
+        sequence.at(-1)!,
+        `Keyboard walk stopped after ${sequence.length} elements; ${tabbables.length - sequence.length} focusable element(s) after this point were not checked.`,
+        "Audit smaller pages, or check the end of this page by hand.",
+      );
     } else {
       const visited = new Set(sequence.map((s) => s.selector));
-      for (const el of tabbables.filter((t) => !visited.has(t.selector))) {
-        add("error", "2.1.1", el, "Focusable element that Tab never reaches.", "Check for focus being stolen or for elements hidden from the tab order by scripts.");
+      const visitedGroups = new Set(tabbables.filter((t) => t.radioGroup && visited.has(t.selector)).map((t) => t.radioGroup));
+      for (const t of tabbables.filter((t) => !visited.has(t.selector) && !(t.radioGroup && visitedGroups.has(t.radioGroup)))) {
+        add("error", "2.1.1", { selector: t.selector, snippet: t.snippet }, "Focusable element that Tab never reaches.", "Check for focus being stolen or for elements hidden from the tab order by scripts.");
       }
     }
     return findings;

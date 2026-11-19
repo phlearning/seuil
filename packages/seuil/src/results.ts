@@ -39,7 +39,6 @@ export interface Finding {
 
 /** Status of one WCAG criterion in the final report (SPEC section 4.3). */
 export type CriterionStatus =
-  | "auto-ok"
   | "auto-fail"
   | "to-review"
   | "reviewed-ok"
@@ -64,6 +63,27 @@ export interface DataFlow {
   nlpd: string[];
 }
 
+/** What a page contains: material for the guided review (SPEC 4.3). */
+export interface PageInventory {
+  /** Target id, plus theme for Storybook stories. */
+  page: string;
+  url: string;
+  /** Changes when the page's content or structure changes: a review of it is then stale. */
+  hash: string;
+  title: string;
+  lang: string;
+  headings: { level: number; text: string }[];
+  landmarks: string[];
+  images: { selector: string; snippet: string; alt: string | null; src: string }[];
+  links: { text: string; href: string }[];
+  fields: { selector: string; snippet: string; type: string; label: string; autocomplete: string; required: boolean }[];
+  media: number;
+  passwordFields: number;
+  langParts: { lang: string; text: string }[];
+  /** File name in the screenshots folder. */
+  screenshot?: string;
+}
+
 export interface Results {
   version: 1;
   generatedAt: string;
@@ -74,6 +94,10 @@ export interface Results {
   errors?: string[];
   /** Data-flow register (third parties contacted). */
   dataFlows?: DataFlow[];
+  /** Page inventories for the guided review. */
+  inventory?: PageInventory[];
+  /** Tool version that produced the results. */
+  tool?: { name: "seuil"; version: string };
 }
 
 export function exitCode(results: Results, failOn: Severity = "error"): 0 | 1 | 2 {

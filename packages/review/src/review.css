@@ -1,0 +1,156 @@
+.review-header,
+.review-main {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.review-header h1 {
+  margin-bottom: var(--space-1);
+}
+
+.review-muted {
+  color: var(--color-text-muted);
+}
+
+.review-progress progress {
+  width: 100%;
+  height: 12px;
+  accent-color: var(--color-action-bg);
+}
+
+.review-filter {
+  margin: var(--space-4) 0;
+}
+
+.review-card {
+  border: 1px solid var(--color-text-muted);
+  border-left-width: 6px;
+  border-radius: var(--space-1);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.review-card--auto-fail,
+.review-card--reviewed-fail {
+  border-left-color: var(--color-action-bg);
+}
+
+.review-card__head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  align-items: baseline;
+}
+
+.review-card__head h3 {
+  margin: 0;
+  flex: 1 1 20rem;
+  font-size: 1.1rem;
+}
+
+.review-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.review-tags span {
+  color: var(--color-text-muted);
+}
+
+.review-toggle {
+  font: inherit;
+  min-height: 44px;
+  background: none;
+  border: 1px solid var(--color-text-muted);
+  border-radius: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  color: var(--color-text-default);
+  cursor: pointer;
+}
+
+.review-card h3:focus-visible,
+.review-toggle:focus-visible,
+.review-radio input:focus-visible,
+.review-material a:focus-visible {
+  outline: 3px solid var(--color-text-default);
+  outline-offset: 2px;
+}
+
+.review-checklist {
+  font-weight: 600;
+}
+
+.review-page {
+  border-top: 1px solid var(--color-text-muted);
+  padding-top: var(--space-2);
+}
+
+.review-page h4 {
+  margin: var(--space-2) 0;
+}
+
+.review-material a {
+  color: var(--color-text-default);
+}
+
+.review-outline {
+  list-style: none;
+  padding: 0;
+}
+
+.review-form fieldset {
+  border: 1px solid var(--color-text-muted);
+  border-radius: var(--space-1);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  margin: var(--space-3) 0;
+}
+
+.review-radio {
+  display: inline-flex;
+  gap: var(--space-2);
+  align-items: center;
+  min-height: 44px;
+}
+
+.review-radio input {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  accent-color: var(--color-action-bg);
+}
+
+.review-textarea {
+  max-width: 100%;
+  font: inherit;
+}
+
+.review-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.review-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Tables scroll inside their own box at narrow widths instead of the whole page (WCAG 1.4.10). */
+.review-table-wrap {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.review-table-wrap:focus-visible {
+  outline: 3px solid var(--color-text-default);
+  outline-offset: 2px;
+}

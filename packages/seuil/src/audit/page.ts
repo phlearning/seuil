@@ -25,7 +25,9 @@ declare global {
  */
 const HELPERS = String.raw`
 (() => {
-  const INTERACTIVE = 'a[href], button, input:not([type="hidden"]), select, textarea, summary, [tabindex], [contenteditable="true"], [role="button"], [role="link"], [role="checkbox"], [role="radio"], [role="switch"], [role="tab"], [role="menuitem"], [role="option"], [role="slider"]';
+  // Controls: native or by role. A bare tabindex="-1" (a focus target such as a heading) is not one.
+  const CONTROLS = 'a[href], button, input:not([type="hidden"]), select, textarea, summary, [contenteditable="true"], [role="button"], [role="link"], [role="checkbox"], [role="radio"], [role="switch"], [role="tab"], [role="menuitem"], [role="option"], [role="slider"]';
+  const INTERACTIVE = CONTROLS + ', [tabindex]';
 
   const cssPath = (el) => {
     if (!(el instanceof Element)) return "";
@@ -65,7 +67,7 @@ const HELPERS = String.raw`
     );
 
   const interactive = () =>
-    [...modalScope().querySelectorAll(INTERACTIVE)].filter((el) => !el.disabled && !el.closest("[inert]") && isVisible(el));
+    [...modalScope().querySelectorAll(CONTROLS)].filter((el) => !el.disabled && !el.closest("[inert]") && isVisible(el));
 
   const describe = (el) => ({ selector: cssPath(el), snippet: snippet(el) });
 
@@ -74,6 +76,9 @@ const HELPERS = String.raw`
     const out = [];
     for (const el of (root || document.body).querySelectorAll("*")) {
       if (!isVisible(el) || !el.textContent || !el.textContent.trim()) continue;
+      // Visually hidden text for screen readers (1 px box) is meant to be clipped.
+      const box = el.getBoundingClientRect();
+      if (box.width <= 2 || box.height <= 2) continue;
       const s = getComputedStyle(el);
       const hidesX = /hidden|clip/.test(s.overflowX);
       const hidesY = /hidden|clip/.test(s.overflowY);

@@ -27,6 +27,13 @@ describe("a11y/reflow", () => {
     expect(findings.length).toBeGreaterThan(0);
   });
 
+  it("ignores visually hidden text meant for screen readers", async () => {
+    const srOnly = `position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap`;
+    const html = page(`<button>Replier<span style="${srOnly}"> le critère 1.1.1 Contenu non textuel</span></button>`);
+    expect(await h.run(reflowRule, html)).toEqual([]);
+    expect(await h.run(textSpacingRule, html)).toEqual([]);
+  });
+
   it("flags text cut off at 200% (1.4.4)", async () => {
     const text = "Votre demande a bien été enregistrée et sera traitée dans les meilleurs délais par nos services.";
     const findings = await h.run(reflowRule, page(`<p id="box" style="height:24px;overflow:hidden;width:50%">${text}</p>`));

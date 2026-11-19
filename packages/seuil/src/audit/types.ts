@@ -1,5 +1,5 @@
 import type { Page } from "playwright";
-import type { DataFlow, Finding } from "../results.js";
+import type { DataFlow, Finding, PageInventory } from "../results.js";
 import type { GeoLookup } from "../privacy/geo.js";
 import type { Provider } from "../privacy/providers.js";
 
@@ -25,6 +25,10 @@ export interface RuleContext {
   geo: GeoLookup;
   /** Collects data flows for the register (privacy rules). */
   recordFlow(flow: DataFlow): void;
+  /** Collects page inventories for the guided review; absent when not needed. */
+  recordInventory?(inventory: PageInventory): void;
+  /** Where page screenshots for the review are saved; none when absent. */
+  screenshotsDir?: string;
 }
 
 export interface Rule {

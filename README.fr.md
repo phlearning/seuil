@@ -6,7 +6,7 @@
 
 Seuil est une porte de conformité pour les agences qui livrent des produits web à des clients réglementés (santé, administration publique, énergie). Il s'insère dans la chaîne de livraison, des design tokens jusqu'aux pages déployées, et bloque une pull request tant que les contrôles d'accessibilité, de protection des données et de sécurité échouent. Il produit ensuite un rapport d'audit que l'agence peut remettre tel quel à son client.
 
-**Statut : semaine 3 sur 5.** `seuil tokens`, `seuil audit` et `seuil check` fonctionnent : accessibilité, tiers et consentement, registre des flux, en-têtes de sécurité et dépendances. L'audit guidé, les rapports et les intégrations CI arrivent ensuite. La spécification complète et le planning sur 5 semaines sont dans [docs/SPEC.md](docs/SPEC.md).
+**Statut : semaine 4 sur 5.** Toutes les commandes fonctionnent : `tokens`, `audit`, `check`, `review` (audit guidé des 55 critères WCAG 2.2 A et AA) et `report` (rapport client en HTML, commentaire de PR en Markdown, registre des flux en CSV). Les intégrations CI et la vitrine publique arrivent ensuite. La spécification complète et le planning sur 5 semaines sont dans [docs/SPEC.md](docs/SPEC.md).
 
 ```bash
 $ seuil tokens
@@ -51,6 +51,15 @@ pnpm audit:storybook   # Seuil audite son propre Storybook
 pnpm geoip             # une fois par mois : base pays DB-IP Lite (CC BY 4.0)
 pnpm demos:serve       # les trois clients fictifs sur les ports 4301 à 4303 (à laisser tourner)
 pnpm check             # tokens, Storybook, pages des démos et dépendances -> seuil-results.json
+```
+
+La démo santé a un audit guidé complet (`demos/sante/seuil-review.json`, 55 critères sur 55) :
+
+```bash
+cd demos/sante
+node ../../packages/seuil/dist/cli.js check          # nécessite pnpm demos:serve en cours
+node ../../packages/seuil/dist/cli.js review         # interface locale sur http://127.0.0.1:4310
+node ../../packages/seuil/dist/cli.js report --client "Clinique des Aubépines" -o seuil-report/rapport.html
 ```
 
 Les snapshots de l'arbre d'accessibilité sont dans `.seuil/snapshots` et sont versionnés. Après un changement voulu, on l'accepte avec `seuil audit <cible> --update-snapshots`.

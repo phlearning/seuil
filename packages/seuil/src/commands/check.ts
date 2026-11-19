@@ -8,6 +8,7 @@ import { loadTheme } from "../tokens/dtcg.js";
 import { formatFindings } from "../output/text.js";
 import { auditTargets, describeAudit, type AuditRunOptions } from "./audit.js";
 import type { CommandOutcome } from "./tokens.js";
+import { TOOL } from "../version.js";
 
 export interface CheckOptions extends AuditRunOptions {
   config: string;
@@ -64,6 +65,8 @@ export async function checkCommand(options: CheckOptions): Promise<CommandOutcom
       scope: { targets: audit?.targets ?? 0, rules },
       ...(errors.length > 0 && { errors }),
       ...(audit && audit.dataFlows.length > 0 && { dataFlows: audit.dataFlows }),
+      ...(audit && audit.inventory.length > 0 && { inventory: audit.inventory }),
+      tool: TOOL,
     };
     writeFileSync(options.output, JSON.stringify(results, null, 2) + "\n");
 

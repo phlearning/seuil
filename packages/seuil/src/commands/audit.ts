@@ -1,6 +1,6 @@
 import { writeFileSync } from "node:fs";
 import { ConfigError, loadConfig, type SeuilConfig } from "../config.js";
-import { exitCode, type DataFlow, type Finding, type Results } from "../results.js";
+import { exitCode, type DataFlow, type Finding, type PageInventory, type Results } from "../results.js";
 import { ALL_RULES, runAudit } from "../audit/run.js";
 import { resolveTargets } from "../audit/targets.js";
 import type { AuditTarget } from "../audit/types.js";
@@ -8,6 +8,7 @@ import { createGeoLookup, GEOIP_ATTRIBUTION } from "../privacy/geo.js";
 import { loadProviders } from "../privacy/providers.js";
 import { formatFindings, formatRegister, formatSummary } from "../output/text.js";
 import type { CommandOutcome } from "./tokens.js";
+import { TOOL } from "../version.js";
 
 export interface AuditRunOptions {
   /** Overrides audit.storybookGlobals from the config. */
@@ -23,6 +24,7 @@ export interface AuditOutcome {
   findings: Finding[];
   errors: string[];
   dataFlows: DataFlow[];
+  inventory: PageInventory[];
   targets: number;
   rules: string[];
   geoip: boolean;
@@ -38,6 +40,7 @@ export async function auditTargets(inputs: string[], config: SeuilConfig, option
   const targets: AuditTarget[] = resolved.flatMap((r) => r.targets);
   const geo = createGeoLookup();
   const flows = new Map<string, DataFlow>();
+  const inventory = new Map<string, PageInventory>();
   try {
     const run = await runAudit(
       targets,
@@ -50,11 +53,14 @@ export async function auditTargets(inputs: string[], config: SeuilConfig, option
         providers: loadProviders(),
         geo: geo.lookup,
         recordFlow: (flow) => flows.set(`${flow.target}\u0000${flow.host}`, flow),
+        recordInventory: (page) => inventory.set(page.page, page),
+        screenshotsDir: config.audit.screenshots,
       },
       { ...(options.concurrency && { concurrency: options.concurrency }), ...(options.onProgress && { onProgress: options.onProgress }) },
     );
     const dataFlows = [...flows.values()].sort((a, b) => `${a.host}${a.target}`.localeCompare(`${b.host}${b.target}`));
-    return { ...run, dataFlows, targets: targets.length, rules: rules.map((r) => r.id), geoip: geo.database !== undefined };
+    const pages = [...inventory.values()].sort((a, b) => a.page.localeCompare(b.page));
+    return { ...run, dataFlows, inventory: pages, targets: targets.length, rules: rules.map((r) => r.id), geoip: geo.database !== undefined };
   } finally {
     await Promise.all(resolved.map((r) => r.close()));
   }
@@ -93,6 +99,8 @@ export async function auditCommand(options: AuditOptions): Promise<CommandOutcom
       scope: { targets: outcome.targets, rules: outcome.rules },
       ...(outcome.errors.length > 0 && { errors: outcome.errors }),
       ...(outcome.dataFlows.length > 0 && { dataFlows: outcome.dataFlows }),
+      ...(outcome.inventory.length > 0 && { inventory: outcome.inventory }),
+      tool: TOOL,
     };
     if (options.json) writeFileSync(options.json, JSON.stringify(results, null, 2) + "\n");
     return { code: exitCode(results, config.failOn), output: describeAudit(outcome), results };
