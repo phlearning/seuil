@@ -22,7 +22,8 @@ export interface StaticServer {
   close(): Promise<void>;
 }
 
-export async function serveDirectory(dir: string): Promise<StaticServer> {
+/** headers are added to every response (used to test security header checks). */
+export async function serveDirectory(dir: string, headers: Record<string, string> = {}): Promise<StaticServer> {
   const root = resolve(dir);
   const server: Server = createServer((req, res) => {
     const pathname = decodeURIComponent(new URL(req.url ?? "/", "http://x").pathname);
@@ -37,7 +38,7 @@ export async function serveDirectory(dir: string): Promise<StaticServer> {
       res.writeHead(404).end();
       return;
     }
-    res.writeHead(200, { "content-type": TYPES[extname(file)] ?? "application/octet-stream" });
+    res.writeHead(200, { ...headers, "content-type": TYPES[extname(file)] ?? "application/octet-stream" });
     createReadStream(file).pipe(res);
   });
   await new Promise<void>((done) => server.listen(0, "127.0.0.1", done));

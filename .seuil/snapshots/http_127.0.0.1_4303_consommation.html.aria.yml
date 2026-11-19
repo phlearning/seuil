@@ -1,0 +1,43 @@
+- banner:
+  - link "Aller au contenu":
+    - /url: "#contenu"
+  - link "Cascade Énergie":
+    - /url: ./index.html
+  - navigation "Navigation principale":
+    - list:
+      - listitem:
+        - link "Espace client":
+          - /url: ./index.html
+      - listitem:
+        - link "Consommation":
+          - /url: ./consommation.html
+- main:
+  - heading "Consommation d'électricité" [level=1]
+  - paragraph: Relevés mensuels de votre compteur, en kilowattheures.
+  - table "Consommation des six derniers mois":
+    - caption: Consommation des six derniers mois
+    - rowgroup:
+      - row "Mois kWh":
+        - columnheader "Mois"
+        - columnheader "kWh"
+    - rowgroup:
+      - row "Juin 228":
+        - rowheader "Juin"
+        - cell "228"
+      - row "Juillet 214":
+        - rowheader "Juillet"
+        - cell "214"
+      - row "Août 221":
+        - rowheader "Août"
+        - cell "221"
+      - row "Septembre 259":
+        - rowheader "Septembre"
+        - cell "259"
+      - row "Octobre 339":
+        - rowheader "Octobre"
+        - cell "339"
+      - row "Novembre 312":
+        - rowheader "Novembre"
+        - cell "312"
+- contentinfo:
+  - paragraph: Fournisseur fictif, créé pour la démonstration de Seuil.

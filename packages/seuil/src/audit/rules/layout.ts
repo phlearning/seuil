@@ -77,7 +77,12 @@ export const textSpacingRule: Rule = {
   async run(page, target) {
     await openTarget(page, target);
     const before = new Set((await page.evaluate(() => window.__seuil.clipped())).map((d) => d.selector));
-    await page.addStyleTag({ content: SPACING_CSS });
+    // A constructed stylesheet, not a <style> tag, so a strict CSP (style-src) does not block it.
+    await page.evaluate((css) => {
+      const sheet = new CSSStyleSheet();
+      sheet.replaceSync(css);
+      document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet];
+    }, SPACING_CSS);
     await page.evaluate(() => new Promise((done) => requestAnimationFrame(() => requestAnimationFrame(done))));
     const after = await page.evaluate(() => window.__seuil.clipped());
     return after

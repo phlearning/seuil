@@ -3,10 +3,23 @@ import type { Finding } from "../results.js";
 import { axeRule } from "./rules/axe.js";
 import { keyboardRule } from "./rules/keyboard.js";
 import { motionRule, reflowRule, targetSizeRule, textSpacingRule } from "./rules/layout.js";
+import { headersRule } from "./rules/headers.js";
 import { namesRule } from "./rules/names.js";
+import { consentRule, thirdPartiesRule } from "./rules/privacy.js";
 import type { AuditTarget, Rule, RuleContext } from "./types.js";
 
-export const ALL_RULES: Rule[] = [axeRule, keyboardRule, reflowRule, textSpacingRule, motionRule, targetSizeRule, namesRule];
+export const ALL_RULES: Rule[] = [
+  axeRule,
+  keyboardRule,
+  reflowRule,
+  textSpacingRule,
+  motionRule,
+  targetSizeRule,
+  namesRule,
+  thirdPartiesRule,
+  consentRule,
+  headersRule,
+];
 
 export interface AuditRun {
   findings: Finding[];
@@ -27,24 +40,22 @@ export async function runAudit(
   let next = 0;
   let done = 0;
 
+  // A fresh browser context per check: no cache (a 304 would hide the real headers)
+  // and no cookies carried from one page into another page's consent check.
   const worker = async () => {
-    const browserContext = await browser.newContext();
-    try {
-      while (next < jobs.length) {
-        const { target, rule } = jobs[next++]!;
+    while (next < jobs.length) {
+      const { target, rule } = jobs[next++]!;
+      const browserContext = await browser.newContext();
+      try {
         const page = await browserContext.newPage();
-        try {
-          findings.push(...(await rule.run(page, target, context)));
-        } catch (error) {
-          const where = [target.id, target.theme].filter(Boolean).join(" / ");
-          errors.push(`${rule.id} on ${where}: ${(error as Error).message.split("\n")[0]}`);
-        } finally {
-          await page.close();
-          onProgress?.(++done, jobs.length);
-        }
+        findings.push(...(await rule.run(page, target, context)));
+      } catch (error) {
+        const where = [target.id, target.theme].filter(Boolean).join(" / ");
+        errors.push(`${rule.id} on ${where}: ${(error as Error).message.split("\n")[0]}`);
+      } finally {
+        await browserContext.close();
+        onProgress?.(++done, jobs.length);
       }
-    } finally {
-      await browserContext.close();
     }
   };
 

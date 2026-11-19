@@ -1,5 +1,7 @@
 import type { Page } from "playwright";
-import type { Finding } from "../results.js";
+import type { DataFlow, Finding } from "../results.js";
+import type { GeoLookup } from "../privacy/geo.js";
+import type { Provider } from "../privacy/providers.js";
 
 export interface AuditTarget {
   /** Storybook story id, or the URL for a plain page. */
@@ -15,6 +17,14 @@ export interface RuleContext {
   /** Folder for accessibility tree snapshots (a11y/names). */
   snapshotsDir: string;
   updateSnapshots: boolean;
+  /** Hosts treated as first party, besides the target's own host. */
+  firstParty: string[];
+  /** Third-party hosts or provider ids the agency has reviewed and accepted. */
+  allowThirdParties: string[];
+  providers: Provider[];
+  geo: GeoLookup;
+  /** Collects data flows for the register (privacy rules). */
+  recordFlow(flow: DataFlow): void;
 }
 
 export interface Rule {

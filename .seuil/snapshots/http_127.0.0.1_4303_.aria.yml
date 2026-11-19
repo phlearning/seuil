@@ -1,0 +1,33 @@
+- banner:
+  - link "Aller au contenu":
+    - /url: "#contenu"
+  - link "Cascade Énergie":
+    - /url: ./index.html
+  - navigation "Navigation principale":
+    - list:
+      - listitem:
+        - link "Espace client":
+          - /url: ./index.html
+      - listitem:
+        - link "Consommation":
+          - /url: ./consommation.html
+- main:
+  - heading "Bonjour Marie Rochat" [level=1]
+  - status:
+    - paragraph:
+      - strong: Relevé de compteur
+    - text: Votre relevé du 2 décembre sera estimé si vous ne le transmettez pas avant cette date.
+  - region "Consommation de novembre":
+    - heading "Consommation de novembre" [level=2]
+    - paragraph: 312 kWh, soit 8 % de moins qu'en octobre.
+    - link "Voir le détail":
+      - /url: ./consommation.html
+  - region "Prochaine facture":
+    - heading "Prochaine facture" [level=2]
+    - paragraph: CHF 84.60, échéance le 15 décembre.
+  - region "Facture électronique":
+    - heading "Facture électronique" [level=2]
+    - paragraph: Recevez vos factures par e-mail plutôt que par courrier.
+    - button "Activer la e-facture"
+- contentinfo:
+  - paragraph: Fournisseur fictif, créé pour la démonstration de Seuil.

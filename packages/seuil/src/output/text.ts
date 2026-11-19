@@ -1,4 +1,25 @@
-import type { Finding } from "../results.js";
+import type { DataFlow, Finding } from "../results.js";
+
+/** Aligned plain-text table. */
+function table(rows: string[][]): string {
+  const widths = rows[0]!.map((_, col) => Math.max(...rows.map((r) => (r[col] ?? "").length)));
+  return rows.map((r) => "  " + r.map((cell, col) => cell.padEnd(widths[col]!)).join("  ").trimEnd()).join("\n");
+}
+
+export function formatRegister(flows: DataFlow[]): string {
+  return table([
+    ["Host", "Provider", "Company (country)", "Server", "On load", "Declared", "nLPD"],
+    ...flows.map((f) => [
+      f.host,
+      f.provider?.name ?? "unknown",
+      f.provider ? `${f.provider.company} (${f.provider.country})` : "-",
+      f.serverCountry ?? "?",
+      f.beforeInteraction ? "yes" : "no",
+      f.allowed ? "yes" : "NO",
+      f.nlpd.join(", "),
+    ]),
+  ]);
+}
 
 const where = (f: Finding) => {
   const t = f.target;
@@ -27,7 +48,7 @@ export function formatSummary(findings: Finding[], rules: string[]): string {
       const errors = own.filter((f) => f.severity === "error").length;
       const warnings = own.length - errors;
       const status = own.length === 0 ? "ok" : [errors && `${errors} error${errors > 1 ? "s" : ""}`, warnings && `${warnings} warning${warnings > 1 ? "s" : ""}`].filter(Boolean).join(", ");
-      return `  ${rule.padEnd(20)} ${status}`;
+      return `  ${rule.padEnd(Math.max(...rules.map((r) => r.length)) + 2)}${status}`;
     })
     .join("\n");
 }

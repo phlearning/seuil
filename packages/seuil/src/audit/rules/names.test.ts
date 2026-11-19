@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { chromium, type Browser } from "playwright";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { serveDirectory, type StaticServer } from "../serve.js";
-import { page } from "../testing.js";
+import { page, testContext } from "../testing.js";
 import { namesRule, snapshotFile } from "./names.js";
 
 // One stable target whose HTML changes between runs, as a story does between commits.
@@ -27,7 +27,7 @@ async function run(snapshotsDir: string, html: string, updateSnapshots = false) 
   writeFileSync(join(dir, "rdv.html"), html);
   const tab = await browser.newPage();
   try {
-    return await namesRule.run(tab, target(), { snapshotsDir, updateSnapshots });
+    return await namesRule.run(tab, target(), testContext({ snapshotsDir, updateSnapshots }));
   } finally {
     await tab.close();
   }

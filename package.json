@@ -10,11 +10,16 @@
     "build": "pnpm -r --if-present build",
     "test": "pnpm -r --if-present test",
     "typecheck": "pnpm -r --if-present typecheck",
-    "audit:storybook": "node packages/seuil/dist/cli.js audit packages/ui/storybook-static"
+    "audit:storybook": "node packages/seuil/dist/cli.js audit packages/ui/storybook-static",
+    "geoip": "node scripts/fetch-geoip.mjs",
+    "demos:serve": "pnpm -r --parallel --filter \"./demos/*\" preview",
+    "check": "node packages/seuil/dist/cli.js check"
   },
   "devDependencies": {
     "@types/node": "26.6.6",
+    "@vitejs/plugin-react": "6.3.0",
     "typescript": "7.0.2",
+    "vite": "8.3.8",
     "vitest": "5.1.0"
   }
 }

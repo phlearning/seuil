@@ -13,7 +13,10 @@ export interface AuditConfig {
 export interface SeuilConfig {
   tokens?: { path: string; themes: string[]; pairs: PairInput[] };
   audit: AuditConfig;
+  /** URLs, Storybook URLs or folders (resolved against the config file). */
   targets: string[];
+  /** Lockfiles checked by security/deps; detected next to the config when empty. */
+  lockfiles: string[];
   firstParty: string[];
   allowThirdParties: string[];
   level: "AA";
@@ -24,6 +27,7 @@ export interface SeuilConfig {
 const DEFAULTS: SeuilConfig = {
   audit: { storybookGlobals: [], snapshots: ".seuil/snapshots" },
   targets: [],
+  lockfiles: [],
   firstParty: [],
   allowThirdParties: [],
   level: "AA",
@@ -64,11 +68,17 @@ export function parseConfig(raw: unknown, baseDir: string): SeuilConfig {
     if (input.failOn !== "error" && input.failOn !== "warning") throw new ConfigError(`failOn must be "error" or "warning"`);
     config.failOn = input.failOn;
   }
-  for (const key of ["targets", "firstParty", "allowThirdParties"] as const) {
+  for (const key of ["targets", "lockfiles", "firstParty", "allowThirdParties"] as const) {
     const value = input[key];
     if (value === undefined) continue;
     if (!Array.isArray(value) || !value.every((v) => typeof v === "string")) throw new ConfigError(`${key} must be a list of strings`);
     config[key] = value;
+  }
+  // Folders and files are relative to the config file; URLs stay as they are.
+  config.targets = config.targets.map((t) => (/^https?:\/\//.test(t) ? t : resolve(baseDir, t)));
+  config.lockfiles = config.lockfiles.map((f) => resolve(baseDir, f));
+  if (config.lockfiles.length === 0) {
+    config.lockfiles = ["pnpm-lock.yaml", "package-lock.json"].map((f) => resolve(baseDir, f)).filter((f) => existsSync(f));
   }
   if (input.offline !== undefined) config.offline = Boolean(input.offline);
 

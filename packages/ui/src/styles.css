@@ -223,6 +223,48 @@
   font-weight: 600;
 }
 
+/* Page layout used by the demos. */
+.demo-main {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: var(--space-4) 0;
+}
+
+.demo-main a {
+  color: var(--color-text-default);
+}
+
+.demo-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+}
+
+.demo-footer {
+  border-top: 1px solid var(--color-text-muted);
+  color: var(--color-text-muted);
+  margin-top: var(--space-5);
+  padding-top: var(--space-3);
+}
+
+.demo-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 32rem;
+}
+
+.demo-table th,
+.demo-table td {
+  border-bottom: 1px solid var(--color-text-muted);
+  padding: var(--space-2);
+  text-align: left;
+}
+
+.demo-table td:last-child,
+.demo-table th:last-child {
+  text-align: right;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .seuil-button {
     transition: filter 120ms ease;

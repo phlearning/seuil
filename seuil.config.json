@@ -12,8 +12,17 @@
     "storybookGlobals": ["theme:sante", "theme:admin", "theme:energie"],
     "snapshots": ".seuil/snapshots"
   },
-  "targets": ["http://localhost:6006"],
-  "firstParty": ["localhost"],
+  "targets": [
+    "packages/ui/storybook-static",
+    "http://127.0.0.1:4301/",
+    "http://127.0.0.1:4301/rendez-vous.html",
+    "http://127.0.0.1:4302/",
+    "http://127.0.0.1:4302/confirmation.html",
+    "http://127.0.0.1:4303/",
+    "http://127.0.0.1:4303/consommation.html"
+  ],
+  "lockfiles": ["pnpm-lock.yaml"],
+  "firstParty": [],
   "allowThirdParties": [],
   "level": "AA",
   "failOn": "error",

@@ -6,7 +6,7 @@
 
 Seuil est une porte de conformité pour les agences qui livrent des produits web à des clients réglementés (santé, administration publique, énergie). Il s'insère dans la chaîne de livraison, des design tokens jusqu'aux pages déployées, et bloque une pull request tant que les contrôles d'accessibilité, de protection des données et de sécurité échouent. Il produit ensuite un rapport d'audit que l'agence peut remettre tel quel à son client.
 
-**Statut : semaine 2 sur 5.** `seuil tokens` et `seuil audit` (règles d'accessibilité) fonctionnent. La protection des données, la sécurité, l'audit guidé et les rapports arrivent ensuite. La spécification complète et le planning sur 5 semaines sont dans [docs/SPEC.md](docs/SPEC.md).
+**Statut : semaine 3 sur 5.** `seuil tokens`, `seuil audit` et `seuil check` fonctionnent : accessibilité, tiers et consentement, registre des flux, en-têtes de sécurité et dépendances. L'audit guidé, les rapports et les intégrations CI arrivent ensuite. La spécification complète et le planning sur 5 semaines sont dans [docs/SPEC.md](docs/SPEC.md).
 
 ```bash
 $ seuil tokens
@@ -47,7 +47,10 @@ pnpm install
 pnpm test
 pnpm build
 node packages/seuil/dist/cli.js --help
-pnpm audit:storybook   # Seuil audite son propre Storybook : 10 stories x 3 thèmes x 7 règles
+pnpm audit:storybook   # Seuil audite son propre Storybook
+pnpm geoip             # une fois par mois : base pays DB-IP Lite (CC BY 4.0)
+pnpm demos:serve       # les trois clients fictifs sur les ports 4301 à 4303 (à laisser tourner)
+pnpm check             # tokens, Storybook, pages des démos et dépendances -> seuil-results.json
 ```
 
 Les snapshots de l'arbre d'accessibilité sont dans `.seuil/snapshots` et sont versionnés. Après un changement voulu, on l'accepte avec `seuil audit <cible> --update-snapshots`.

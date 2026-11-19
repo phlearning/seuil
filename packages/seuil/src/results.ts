@@ -5,7 +5,7 @@
 
 export type Severity = "error" | "warning";
 
-export type TargetKind = "token" | "component" | "page";
+export type TargetKind = "token" | "component" | "page" | "dependency";
 
 export interface Target {
   kind: TargetKind;
@@ -46,6 +46,24 @@ export type CriterionStatus =
   | "reviewed-fail"
   | "not-applicable";
 
+/** One row of the data-flow register handed to the client's DPO (SPEC 4.4). */
+export interface DataFlow {
+  /** Page (or story) where the flow was observed. */
+  target: string;
+  host: string;
+  provider?: { id: string; name: string; company: string; country: string; cloudAct: boolean; category: string };
+  serverIp?: string;
+  /** ISO code, "local", or undefined when unknown. */
+  serverCountry?: string;
+  resourceTypes: string[];
+  /** Data that leaves the browser with these requests. */
+  data: string[];
+  beforeInteraction: boolean;
+  allowed: boolean;
+  /** Swiss FADP / nLPD articles to look at for this flow. */
+  nlpd: string[];
+}
+
 export interface Results {
   version: 1;
   generatedAt: string;
@@ -54,6 +72,8 @@ export interface Results {
   scope?: { targets: number; rules: string[] };
   /** Checks that could not run: the results are incomplete. */
   errors?: string[];
+  /** Data-flow register (third parties contacted). */
+  dataFlows?: DataFlow[];
 }
 
 export function exitCode(results: Results, failOn: Severity = "error"): 0 | 1 | 2 {

@@ -1,5 +1,6 @@
 import { Command } from "commander";
 import { auditCommand } from "./commands/audit.js";
+import { checkCommand } from "./commands/check.js";
 import { tokensCommand } from "./commands/tokens.js";
 
 /** Exit code for runtime errors (SPEC section 5.1). */
@@ -61,9 +62,25 @@ export function createProgram(): Command {
 
   program
     .command("check")
-    .description("run every check configured in seuil.config.json")
+    .description("run every check configured in seuil.config.json and write seuil-results.json")
     .option("-c, --config <file>", "configuration file", "seuil.config.json")
-    .action(notImplemented("check", 3));
+    .option("-o, --output <file>", "results file", "seuil-results.json")
+    .option("-u, --update-snapshots", "accept the current accessibility trees as the new reference")
+    .option("--concurrency <n>", "pages audited in parallel", "4")
+    .action(async (opts: { config: string; output: string; updateSnapshots?: boolean; concurrency: string }) => {
+      const progress = process.stderr.isTTY
+        ? (done: number, total: number) => process.stderr.write(`\r  ${done}/${total} checks${done === total ? "\n" : ""}`)
+        : undefined;
+      const outcome = await checkCommand({
+        config: opts.config,
+        output: opts.output,
+        ...(opts.updateSnapshots && { updateSnapshots: true }),
+        concurrency: Number(opts.concurrency) || 4,
+        ...(progress && { onProgress: progress }),
+      });
+      (outcome.code === 2 ? console.error : console.log)(outcome.output);
+      process.exitCode = outcome.code;
+    });
 
   program
     .command("review")

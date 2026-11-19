@@ -1,4 +1,115 @@
 {
-  "$comment": "Known third-party providers: parent company jurisdiction, used next to the server country (SPEC 4.4). Filled in week 3; each entry needs a cited source.",
-  "providers": []
+  "$comment": "Known third-party providers (SPEC 4.4). country = headquarters of the company that operates the service; cloudAct = company subject to US jurisdiction (US CLOUD Act). source = the provider's own privacy page. Review before relying on it: ownership changes. Last reviewed 2026-11-19.",
+  "providers": [
+    {
+      "id": "google-fonts",
+      "name": "Google Fonts",
+      "company": "Google LLC",
+      "country": "US",
+      "cloudAct": true,
+      "category": "fonts",
+      "domains": ["fonts.googleapis.com", "fonts.gstatic.com"],
+      "source": "https://developers.google.com/fonts/faq/privacy"
+    },
+    {
+      "id": "google-analytics",
+      "name": "Google Analytics",
+      "company": "Google LLC",
+      "country": "US",
+      "cloudAct": true,
+      "category": "analytics",
+      "domains": ["google-analytics.com", "analytics.google.com"],
+      "source": "https://policies.google.com/privacy"
+    },
+    {
+      "id": "google-tag-manager",
+      "name": "Google Tag Manager",
+      "company": "Google LLC",
+      "country": "US",
+      "cloudAct": true,
+      "category": "tag-manager",
+      "domains": ["googletagmanager.com"],
+      "source": "https://policies.google.com/privacy"
+    },
+    {
+      "id": "google-maps",
+      "name": "Google Maps",
+      "company": "Google LLC",
+      "country": "US",
+      "cloudAct": true,
+      "category": "maps",
+      "domains": ["maps.googleapis.com", "maps.gstatic.com"],
+      "source": "https://policies.google.com/privacy"
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "company": "Google LLC",
+      "country": "US",
+      "cloudAct": true,
+      "category": "video",
+      "domains": ["youtube.com", "youtube-nocookie.com", "ytimg.com", "googlevideo.com"],
+      "source": "https://policies.google.com/privacy"
+    },
+    {
+      "id": "meta-pixel",
+      "name": "Meta Pixel",
+      "company": "Meta Platforms, Inc.",
+      "country": "US",
+      "cloudAct": true,
+      "category": "advertising",
+      "domains": ["connect.facebook.net", "facebook.com"],
+      "source": "https://www.facebook.com/privacy/policy/"
+    },
+    {
+      "id": "linkedin-insight",
+      "name": "LinkedIn Insight Tag",
+      "company": "LinkedIn Corporation",
+      "country": "US",
+      "cloudAct": true,
+      "category": "advertising",
+      "domains": ["snap.licdn.com", "px.ads.linkedin.com"],
+      "source": "https://www.linkedin.com/legal/privacy-policy"
+    },
+    {
+      "id": "microsoft-clarity",
+      "name": "Microsoft Clarity",
+      "company": "Microsoft Corporation",
+      "country": "US",
+      "cloudAct": true,
+      "category": "analytics",
+      "domains": ["clarity.ms"],
+      "source": "https://privacy.microsoft.com/privacystatement"
+    },
+    {
+      "id": "hotjar",
+      "name": "Hotjar",
+      "company": "Hotjar Ltd",
+      "country": "MT",
+      "cloudAct": false,
+      "category": "analytics",
+      "domains": ["hotjar.com", "hotjar.io"],
+      "source": "https://www.hotjar.com/legal/policies/privacy/"
+    },
+    {
+      "id": "cdnjs",
+      "name": "cdnjs",
+      "company": "Cloudflare, Inc.",
+      "country": "US",
+      "cloudAct": true,
+      "category": "cdn",
+      "domains": ["cdnjs.cloudflare.com"],
+      "source": "https://www.cloudflare.com/privacypolicy/"
+    },
+    {
+      "id": "vimeo",
+      "name": "Vimeo",
+      "company": "Vimeo.com, Inc.",
+      "country": "US",
+      "cloudAct": true,
+      "category": "video",
+      "domains": ["player.vimeo.com", "vimeocdn.com"],
+      "source": "https://vimeo.com/privacy"
+    }
+  ]
 }

@@ -1,4 +1,4 @@
-import type { Page } from "playwright";
+import type { Page, Response } from "playwright";
 import type { AuditTarget } from "./types.js";
 
 export interface Described {
@@ -93,14 +93,17 @@ export interface OpenOptions {
 
 export const DEFAULT_VIEWPORT = { width: 1280, height: 800 };
 
-/** Loads a target in a known state and installs the helpers. */
-export async function openTarget(page: Page, target: AuditTarget, options: OpenOptions = {}): Promise<void> {
+/** Loads a target in a known state and installs the helpers. Returns the main document's response. */
+export async function openTarget(page: Page, target: AuditTarget, options: OpenOptions = {}): Promise<Response | null> {
   await page.setViewportSize(options.viewport ?? DEFAULT_VIEWPORT);
   await page.emulateMedia({ reducedMotion: options.reducedMotion ?? "no-preference" });
-  await page.goto(target.url, { waitUntil: "load" });
+  const response = await page.goto(target.url, { waitUntil: "load" });
   if (target.root) await page.waitForSelector(`${target.root} > *`, { state: "attached", timeout: 15_000 });
   await page.evaluate(() => document.fonts.ready.then(() => undefined));
-  await page.addScriptTag({ content: HELPERS });
+  // evaluate, not addScriptTag: a strict CSP would block an inline script tag, and the
+  // audit must run with the page's real CSP enforced.
+  await page.evaluate(HELPERS);
+  return response;
 }
 
 export function locate(target: AuditTarget, element?: Described) {

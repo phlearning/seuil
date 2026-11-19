@@ -15,6 +15,8 @@ async function readStorybookIndex(base: string): Promise<StorybookIndex | undefi
   try {
     const response = await fetch(`${base}/index.json`);
     if (!response.ok) return undefined;
+    // Single-page app servers answer any path with their HTML: only real JSON counts.
+    if (!(response.headers.get("content-type") ?? "").includes("json")) return undefined;
     const index = (await response.json()) as StorybookIndex;
     return index.entries ? index : undefined;
   } catch {
@@ -46,7 +48,8 @@ export async function resolveTargets(input: string, storybookGlobals: string[] =
 
   const index = await readStorybookIndex(base);
   if (!index?.entries) {
-    return { targets: [{ id: input, url: base + "/", kind: "page" }], close };
+    const url = /^https?:\/\//.test(input) ? input : base + "/";
+    return { targets: [{ id: input, url, kind: "page" }], close };
   }
 
   const stories = Object.values(index.entries).filter((e) => (e.type ?? "story") === "story");
