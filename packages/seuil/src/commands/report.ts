@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import type { Results } from "../results.js";
 import { loadCriteria, type Lang } from "../review/criteria.js";
@@ -30,6 +30,7 @@ export function reportCommand(options: ReportOptions): CommandOutcome {
     const rendered = options.format === "html" ? renderHtml(model) : options.format === "md" ? renderMarkdown(model) : renderCsv(model);
 
     if (options.output) {
+      mkdirSync(dirname(options.output), { recursive: true });
       writeFileSync(options.output, rendered);
       return { code: 0, output: `Report written to ${options.output} (${model.summary.resolved}/${model.summary.total} criteria assessed, ${model.summary.verdict}).` };
     }
