@@ -1,4 +1,13 @@
 {
+  "font": {
+    "family": {
+      "base": {
+        "$type": "fontFamily",
+        "$description": "New commune brand: system fonts only, so nothing is downloaded from a third party.",
+        "$value": ["Avenir Next", "Segoe UI", "Roboto", "Helvetica Neue", "system-ui", "sans-serif"]
+      }
+    }
+  },
   "color": {
     "bg": { "default": { "$type": "color", "$value": "#ffffff" } },
     "text": {
