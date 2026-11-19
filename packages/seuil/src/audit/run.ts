@@ -2,6 +2,7 @@ import { chromium } from "playwright";
 import type { Finding } from "../results.js";
 import { axeRule } from "./rules/axe.js";
 import { keyboardRule } from "./rules/keyboard.js";
+import { labelsRule } from "./rules/labels.js";
 import { motionRule, reflowRule, targetSizeRule, textSpacingRule } from "./rules/layout.js";
 import { headersRule } from "./rules/headers.js";
 import { inventoryRule } from "./rules/inventory.js";
@@ -12,6 +13,7 @@ import type { AuditTarget, Rule, RuleContext } from "./types.js";
 export const ALL_RULES: Rule[] = [
   axeRule,
   keyboardRule,
+  labelsRule,
   reflowRule,
   textSpacingRule,
   motionRule,

@@ -133,7 +133,8 @@
       },
       "checks": [
         "a11y/axe",
-        "a11y/names"
+        "a11y/names",
+        "a11y/labels"
       ],
       "notApplicableWithout": null,
       "checklist": {
@@ -853,7 +854,8 @@
         "en": "Labels or Instructions"
       },
       "checks": [
-        "a11y/axe"
+        "a11y/axe",
+        "a11y/labels"
       ],
       "notApplicableWithout": "forms",
       "checklist": {
