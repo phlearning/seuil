@@ -17,3 +17,5 @@ data/geoip/*.mmdb
 debug-storybook.log
 data/geoip/SOURCE.txt
 **/.seuil/screens/
+**/review-export/
+site/dist/

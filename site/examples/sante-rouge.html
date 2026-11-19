@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rapport d'audit de conformité - Clinique des Aubépines</title>
+<style>
+  :root { --ink: #1b1f24; --muted: #4a5560; --line: #c9ced4; --ok: #146c2e; --fail: #a4161a; --todo: #7a4b00; --na: #4a5560; }
+  * { box-sizing: border-box; }
+  body { font: 15px/1.5 system-ui, sans-serif; color: var(--ink); background: #fff; margin: 0; padding: 32px 16px; }
+  main { max-width: 64rem; margin: 0 auto; }
+  h1 { font-size: 1.8rem; margin: 0 0 4px; }
+  h2 { font-size: 1.3rem; margin: 40px 0 12px; border-bottom: 2px solid var(--ink); padding-bottom: 4px; }
+  .meta, .lede { color: var(--muted); }
+  .cards { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); }
+  .card { border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; }
+  .card strong { display: block; font-size: 1.2rem; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+  th, td { text-align: left; vertical-align: top; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+  thead th { border-bottom: 2px solid var(--ink); }
+  tr.group th { background: #eef0f2; font-size: 1rem; }
+  .badge { display: inline-block; padding: 1px 8px; border-radius: 999px; border: 1.5px solid currentColor; font-weight: 600; white-space: nowrap; }
+  .ok { color: var(--ok); } .fail { color: var(--fail); } .todo { color: var(--todo); } .na { color: var(--na); }
+  .findings { list-style: none; padding: 0; }
+  .findings li { border-left: 4px solid var(--todo); padding: 4px 12px; margin: 0 0 12px; }
+  .findings li.error { border-color: var(--fail); }
+  .findings p { margin: 2px 0; }
+  code { font-size: 0.85em; overflow-wrap: anywhere; }
+  .table-wrap { overflow-x: auto; }
+  a { color: #0b4f9c; }
+  @media print { body { padding: 0; } h2 { break-after: avoid; } tr, li { break-inside: avoid; } a { color: inherit; } }
+</style>
+</head>
+<body>
+<main>
+<h1>Rapport d'audit de conformité</h1>
+<p class="lede">Client : <strong>Clinique des Aubépines</strong> · Date : 20 novembre 2026 à 00:28 · Outil : seuil 0.0.0</p>
+
+<h2>Synthèse</h2>
+<div class="cards">
+  <div class="card"><span>WCAG 2.2 AA</span><strong class="fail">Non conforme</strong><span class="meta">3 critères sur 55 évalués (5 %), 3 non conforme(s).</span></div>
+  <div class="card"><span>eCH-0059 v3.0 (WCAG 2.1 AA)</span><strong class="fail">Non conforme</strong><span class="meta">3 critères sur 49 évalués (6 %), 3 non conforme(s).</span></div>
+  <div class="card"><span>Protection des données</span><strong>0 erreur(s), 0 avertissement(s)</strong><span class="meta">Registre des flux de données vers des tiers : 0</span></div>
+  <div class="card"><span>Sécurité</span><strong>0 erreur(s), 0 avertissement(s)</strong></div>
+</div>
+
+
+<h2>Périmètre</h2>
+<p><strong>Pages auditées</strong></p>
+<ul><li><code>http://127.0.0.1:4301/</code></li><li><code>http://127.0.0.1:4301/plan-du-site.html</code></li><li><code>http://127.0.0.1:4301/rendez-vous.html</code></li></ul>
+<p><strong>Contrôles automatiques exécutés</strong> : <code>tokens/contrast</code>, <code>a11y/axe</code>, <code>a11y/keyboard</code>, <code>a11y/labels</code>, <code>a11y/reflow</code>, <code>a11y/text-spacing</code>, <code>a11y/motion</code>, <code>a11y/target-size</code>, <code>a11y/names</code>, <code>privacy/third-parties</code>, <code>privacy/consent</code>, <code>security/headers</code></p>
+<p>Référentiels : WCAG 2.2 niveaux A et AA, eCH-0059 v3.0, nLPD (RS 235.1), LTC art. 45c.</p>
+
+<h2>Couverture des critères WCAG 2.2 A et AA</h2>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">Critère</th><th scope="col">Niveau</th><th scope="col">eCH-0059</th><th scope="col">Statut</th><th scope="col">Détail</th></tr></thead>
+<tbody>
+<tr class="group"><th colspan="5" scope="colgroup">1. Perceptible</th></tr>
+<tr><th scope="row">1.1.1 Contenu non textuel</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Probablement non applicable : aucune page auditée n'est concernée.<br>Aucune image ni autre contenu non textuel sur les 3 pages (inventaire : 0 image).</td></tr>
+<tr><th scope="row">1.2.1 Contenus seulement audio et seulement vidéo (pré-enregistrés)</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Probablement non applicable : aucune page auditée n'est concernée.<br>Aucun média audio ou vidéo.</td></tr>
+<tr><th scope="row">1.2.2 Sous-titres (pré-enregistrés)</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Probablement non applicable : aucune page auditée n'est concernée.<br>Aucun média audio ou vidéo.</td></tr>
+<tr><th scope="row">1.2.3 Audio-description ou version de remplacement pour un média temporel (pré-enregistré)</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Probablement non applicable : aucune page auditée n'est concernée.<br>Aucun média audio ou vidéo.</td></tr>
+<tr><th scope="row">1.2.4 Sous-titres (en direct)</th><td>AA</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Probablement non applicable : aucune page auditée n'est concernée.<br>Aucune diffusion en direct.</td></tr>
+<tr><th scope="row">1.2.5 Audio-description (pré-enregistrée)</th><td>AA</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Probablement non applicable : aucune page auditée n'est concernée.<br>Aucun média vidéo.</td></tr>
+<tr><th scope="row">1.3.1 Information et relations</th><td>A</td><td>oui</td><td><span class="badge fail">Non conforme (contrôle automatique)</span></td><td>2 défaut(s) détecté(s) automatiquement.<br>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Titres h1 puis h2 cohérents, repères header, nav, main et footer, chaque champ relié à son label (vérifié dans l'inventaire et l'arbre d'accessibilité).</td></tr>
+<tr><th scope="row">1.3.2 Ordre séquentiel logique</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>L'ordre du code suit l'ordre visuel sur les 3 pages.</td></tr>
+<tr><th scope="row">1.3.3 Caractéristiques sensorielles</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Aucune consigne fondée sur la forme, la position ou la couleur ; l'astérisque des champs obligatoires est expliqué en texte.</td></tr>
+<tr><th scope="row">1.3.4 Orientation</th><td>AA</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Aucun verrouillage d'orientation (ni CSS ni script) ; mise en page fluide.</td></tr>
+<tr><th scope="row">1.3.5 Identifier la finalité de la saisie</th><td>AA</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Nom : autocomplete=name, e-mail : email, date de naissance : bday.</td></tr>
+<tr><th scope="row">1.4.1 Utilisation de la couleur</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Erreurs annoncées par le texte « Erreur : », liens soulignés, page courante en gras et aria-current.</td></tr>
+<tr><th scope="row">1.4.2 Contrôle du son</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Probablement non applicable : aucune page auditée n'est concernée.<br>Aucun son.</td></tr>
+<tr><th scope="row">1.4.3 Contraste (minimum)</th><td>AA</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Paires de tokens du thème santé conformes (texte 14.73:1, texte des boutons 6.05:1) ; axe-core sans défaut.</td></tr>
+<tr><th scope="row">1.4.4 Redimensionnement du texte</th><td>AA</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Contrôle automatique à 640 px (équivalent du zoom à 200 %) sans texte coupé ; mise en page fluide qui suit le zoom du navigateur.</td></tr>
+<tr><th scope="row">1.4.5 Texte sous forme d'image</th><td>AA</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Probablement non applicable : aucune page auditée n'est concernée.<br>Aucune image, donc aucun texte sous forme d'image.</td></tr>
+<tr><th scope="row">1.4.10 Redistribution</th><td>AA</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Contrôle automatique à 320 px : aucun défilement horizontal ni texte coupé.</td></tr>
+<tr><th scope="row">1.4.11 Contraste du contenu non textuel</th><td>AA</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Bordures de champs 7.15:1, bordure des boutons 6.05:1, contour de focus 14.73:1 sur fond blanc (mesuré).</td></tr>
+<tr><th scope="row">1.4.12 Espacement du texte</th><td>AA</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Contrôle automatique avec espacements WCAG : aucun texte coupé.</td></tr>
+<tr><th scope="row">1.4.13 Contenu au survol ou au focus</th><td>AA</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Aucun contenu affiché au survol ou au focus.</td></tr>
+<tr class="group"><th colspan="5" scope="colgroup">2. Utilisable</th></tr>
+<tr><th scope="row">2.1.1 Clavier</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Parcours complet au clavier (contrôle automatique et test manuel du formulaire) ; uniquement des contrôles natifs.</td></tr>
+<tr><th scope="row">2.1.2 Pas de piège au clavier</th><td>A</td><td>oui</td><td><span class="badge fail">Non conforme (contrôle automatique)</span></td><td>1 défaut(s) détecté(s) automatiquement.<br>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Aucun piège détecté ; aucune fenêtre modale sur ce site.</td></tr>
+<tr><th scope="row">2.1.4 Raccourcis clavier utilisant des caractères</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Aucun raccourci clavier.</td></tr>
+<tr><th scope="row">2.2.1 Réglage du délai</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Aucune limite de temps.</td></tr>
+<tr><th scope="row">2.2.2 Mettre en pause, arrêter, masquer</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Aucun contenu en mouvement ou mis à jour automatiquement.</td></tr>
+<tr><th scope="row">2.3.1 Pas plus de trois flashs ou sous le seuil critique</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Aucun contenu clignotant.</td></tr>
+<tr><th scope="row">2.4.1 Contourner des blocs</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Lien « Aller au contenu » au premier arrêt de tabulation, repères présents.</td></tr>
+<tr><th scope="row">2.4.2 Titre de page</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Titres uniques : « Accueil », « Prendre rendez-vous », « Plan du site », suivis du nom de la clinique.</td></tr>
+<tr><th scope="row">2.4.3 Parcours du focus</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Ordre : lien d'évitement, accueil, menu, contenu, pied de page. Après l'envoi du formulaire, le focus va sur la confirmation (testé).</td></tr>
+<tr><th scope="row">2.4.4 Fonction du lien (selon le contexte)</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Liens explicites : Accueil, Prendre rendez-vous, Réserver une consultation, Plan du site.</td></tr>
+<tr><th scope="row">2.4.5 Accès multiples</th><td>AA</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Deux moyens sur chaque page : le menu principal et le plan du site (pied de page).</td></tr>
+<tr><th scope="row">2.4.6 En-têtes et étiquettes</th><td>AA</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Titres et étiquettes décrivent le sujet ou la fonction.</td></tr>
+<tr><th scope="row">2.4.7 Visibilité du focus</th><td>AA</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Contrôle automatique : indicateur de focus visible sur chaque élément atteint.</td></tr>
+<tr><th scope="row">2.4.11 Focus non masqué (minimum)</th><td>AA</td><td>non</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Aucun élément fixe ; contrôle automatique sans focus masqué.</td></tr>
+<tr><th scope="row">2.5.1 Gestes pour le contrôle du pointeur</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Aucun geste multipoint ou de tracé.</td></tr>
+<tr><th scope="row">2.5.2 Annulation de l'action du pointeur</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Contrôles natifs, déclenchés au relâchement.</td></tr>
+<tr><th scope="row">2.5.3 Étiquette dans le nom</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Noms accessibles identiques aux étiquettes visibles (l'astérisque est masqué aux lecteurs d'écran).</td></tr>
+<tr><th scope="row">2.5.4 Activation par le mouvement</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Aucune fonction activée par le mouvement de l'appareil.</td></tr>
+<tr><th scope="row">2.5.7 Mouvements de glissement</th><td>AA</td><td>non</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Aucun glisser-déposer.</td></tr>
+<tr><th scope="row">2.5.8 Taille de la cible (minimum)</th><td>AA</td><td>non</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Contrôle automatique ; boutons et champs de 44 px de haut, case à cocher de 24 px.</td></tr>
+<tr class="group"><th colspan="5" scope="colgroup">3. Compréhensible</th></tr>
+<tr><th scope="row">3.1.1 Langue de la page</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>lang=&quot;fr&quot; sur les 3 pages, contenu entièrement en français.</td></tr>
+<tr><th scope="row">3.1.2 Langue d'un passage</th><td>AA</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Aucun passage dans une autre langue.</td></tr>
+<tr><th scope="row">3.2.1 Au focus</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Aucun changement de contexte au focus.</td></tr>
+<tr><th scope="row">3.2.2 À la saisie</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Le choix d'un motif ou d'une case ne déclenche rien ; l'envoi passe uniquement par le bouton.</td></tr>
+<tr><th scope="row">3.2.3 Navigation cohérente</th><td>AA</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Menu et pied de page identiques, dans le même ordre, sur les 3 pages.</td></tr>
+<tr><th scope="row">3.2.4 Identification cohérente</th><td>AA</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Mêmes libellés pour les mêmes fonctions sur tout le site.</td></tr>
+<tr><th scope="row">3.2.6 Aide cohérente</th><td>A</td><td>non</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Aucun mécanisme d'aide répété sur plusieurs pages.</td></tr>
+<tr><th scope="row">3.3.1 Identification des erreurs</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Envoi à vide testé : résumé d'erreurs focalisé, champs marqués aria-invalid, erreurs décrites en texte.</td></tr>
+<tr><th scope="row">3.3.2 Étiquettes ou instructions</th><td>A</td><td>oui</td><td><span class="badge fail">Non conforme (contrôle automatique)</span></td><td>2 défaut(s) détecté(s) automatiquement.<br>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Étiquettes visibles, format de la date indiqué, champs obligatoires signalés.</td></tr>
+<tr><th scope="row">3.3.3 Suggestion après une erreur</th><td>AA</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Chaque message indique la correction attendue (exemple d'adresse e-mail fourni).</td></tr>
+<tr><th scope="row">3.3.4 Prévention des erreurs (juridiques, financières, de données)</th><td>AA</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>La demande de rendez-vous n'est ni un engagement juridique ou financier, ni la modification de données enregistrées : la clinique confirme le créneau par e-mail.</td></tr>
+<tr><th scope="row">3.3.7 Saisie redondante</th><td>A</td><td>non</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Formulaire en une seule étape, aucune information redemandée.</td></tr>
+<tr><th scope="row">3.3.8 Authentification accessible (minimum)</th><td>AA</td><td>non</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Probablement non applicable : aucune page auditée n'est concernée.<br>Aucune authentification.</td></tr>
+<tr class="group"><th colspan="5" scope="colgroup">4. Robuste</th></tr>
+<tr><th scope="row">4.1.2 Nom, rôle et valeur</th><td>A</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Contrôles natifs ; noms, rôles et états vérifiés dans l'arbre d'accessibilité (a11y/names).</td></tr>
+<tr><th scope="row">4.1.3 Messages d'état</th><td>AA</td><td>oui</td><td><span class="badge todo">À vérifier</span></td><td>Revue à refaire : page(s) modifiée(s) depuis (http://127.0.0.1:4301/rendez-vous.html).<br>Après l'envoi, le focus est placé sur le titre « Demande envoyée », qui est donc annoncé (testé).</td></tr>
+</tbody></table></div>
+
+<h2>Accessibilité : défauts détectés</h2>
+<ul class="findings"><li class="error">
+  <p><strong>Erreur</strong> <code>a11y/keyboard</code> <a href="https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html">WCAG 2.2 2.1.2</a></p>
+  <p>Keyboard trap: Tab does not move focus away from this element; 13 other focusable element(s) stay out of reach.</p>
+  <p class="meta">Emplacement : <code>http://127.0.0.1:4301/rendez-vous.html #contenu &gt; div &gt; button</code></p>
+  <p class="meta">Correction : Let Tab and Shift+Tab move focus out, or provide a documented way to leave (Escape for dialogs).</p>
+</li>
+<li class="error">
+  <p><strong>Erreur</strong> <code>a11y/labels</code> <a href="https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html">WCAG 2.2 3.3.2</a>, <a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 2.2 1.3.1</a></p>
+  <p>Field labelled only by its placeholder (&quot;Allergies connues&quot;), which disappears as soon as the user types.</p>
+  <p class="meta">Emplacement : <code>http://127.0.0.1:4301/rendez-vous.html #contenu &gt; form &gt; div:nth-of-type(6) &gt; input:nth-of-type(1)</code></p>
+  <p class="meta">Correction : Add a visible &lt;label for&gt; (the TextField component does it).</p>
+</li>
+<li class="error">
+  <p><strong>Erreur</strong> <code>a11y/labels</code> <a href="https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html">WCAG 2.2 3.3.2</a>, <a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 2.2 1.3.1</a></p>
+  <p>Field labelled only by its placeholder (&quot;Traitement en cours&quot;), which disappears as soon as the user types.</p>
+  <p class="meta">Emplacement : <code>http://127.0.0.1:4301/rendez-vous.html #contenu &gt; form &gt; div:nth-of-type(6) &gt; input:nth-of-type(2)</code></p>
+  <p class="meta">Correction : Add a visible &lt;label for&gt; (the TextField component does it).</p>
+</li>
+<li class="warning">
+  <p><strong>Avertissement</strong> <code>a11y/names</code> <a href="https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html">WCAG 2.2 4.1.2</a></p>
+  <p>Accessibility tree changed since the reference snapshot (roles or accessible names):<br>+ - paragraph: Merci de remplir le questionnaire préalable avant votre consultation.<br>+ - button &quot;J'ai compris&quot;<br>+ - strong: Questionnaire préalable<br>+ - textbox &quot;Allergies connues&quot;<br>+ - textbox &quot;Traitement en cours&quot;</p>
+  <p class="meta">Emplacement : <code>http://127.0.0.1:4301/rendez-vous.html</code></p>
+  <p class="meta">Correction : If the change is intended, run seuil audit --update-snapshots and commit the new snapshot.</p>
+</li></ul>
+
+<h2>Protection des données</h2>
+<p>Aucun défaut détecté.</p>
+<h3>Registre des flux de données vers des tiers</h3>
+<p>Aucun défaut détecté.</p>
+
+<h2>Sécurité</h2>
+<p>Aucun défaut détecté.</p>
+
+<h2>Méthode</h2>
+<ul><li>Contrôles automatiques dans un navigateur Chromium réel : axe-core (règles WCAG A et AA), parcours au clavier, redistribution à 320 px, zoom à 200 %, espacement du texte, animations, taille des cibles, arbre d'accessibilité.</li><li>Contraste vérifié dès les design tokens, pour chaque thème.</li><li>Requêtes réseau observées au chargement, sans aucune interaction : aucun consentement n'est donné.</li><li>Les critères qu'aucune machine ne peut juger sont vérifiés par une personne lors d'un audit guidé, consigné dans seuil-review.json.</li></ul>
+<h3>Limites</h3>
+<ul><li>Les contrôles automatiques ne couvrent qu'une partie de chaque critère : aucun critère n'est déclaré conforme sur leur seule base.</li><li>Le volet protection des données est un constat technique documenté, pas un avis juridique. Le registre est à compléter et valider par la personne responsable de la protection des données.</li><li>La conformité eCH-0059 est évaluée sur les critères WCAG 2.1 AA qu'elle reprend ; vérifier ses exigences complémentaires éventuelles.</li></ul>
+
+</main>
+</body>
+</html>

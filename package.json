@@ -13,7 +13,8 @@
     "audit:storybook": "node packages/seuil/dist/cli.js audit packages/ui/storybook-static",
     "geoip": "node scripts/fetch-geoip.mjs",
     "demos:serve": "pnpm -r --parallel --filter \"./demos/*\" preview",
-    "check": "node packages/seuil/dist/cli.js check"
+    "check": "node packages/seuil/dist/cli.js check",
+    "showcase": "node scripts/showcase.mjs"
   },
   "devDependencies": {
     "@types/node": "26.6.6",
