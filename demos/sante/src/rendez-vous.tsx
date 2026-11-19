@@ -1,4 +1,4 @@
-import { Checkbox, Form, Select, TextField, type FormError } from "@seuil/ui";
+import { Alert, Checkbox, Form, Select, TextField, type FormError } from "@seuil/ui";
 import { useEffect, useRef, useState } from "react";
 import { mount } from "./layout.js";
 
@@ -44,6 +44,11 @@ function Booking() {
       <TextField id="naissance" name="naissance" label="Date de naissance" hint="Par exemple 14.03.1985" autoComplete="bday" />
       <Select id="motif" name="motif" label="Motif de consultation" placeholder="Choisir un motif" options={MOTIFS} required error={error("motif")} />
       <Checkbox id="rappel" name="rappel" label="Recevoir un rappel par SMS la veille" />
+      <fieldset className="demo-fieldset">
+        <legend>Questionnaire préalable (facultatif)</legend>
+        <TextField id="allergies" name="allergies" label="Allergies connues" hint="Médicaments, aliments, latex..." />
+        <TextField id="traitement" name="traitement" label="Traitement en cours" />
+      </fieldset>
     </Form>
   );
 }
@@ -53,6 +58,8 @@ mount(
   <>
     <h1>Prendre rendez-vous</h1>
     <p>Les champs marqués d'un astérisque sont obligatoires.</p>
+    {/* Shown in the page flow: no popup to dismiss, nothing that holds focus. */}
+    <Alert title="Avant votre consultation">Le questionnaire préalable aide le médecin à préparer votre rendez-vous.</Alert>
     <Booking />
   </>,
 );

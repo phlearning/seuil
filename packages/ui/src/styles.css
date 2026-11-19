@@ -277,3 +277,16 @@
     filter: brightness(0.92);
   }
 }
+
+.demo-fieldset {
+  border: 1px solid var(--color-text-muted);
+  border-radius: var(--space-1);
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+}
+
+.demo-fieldset legend {
+  font-weight: 600;
+  padding: 0 var(--space-1);
+}

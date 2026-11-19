@@ -14,6 +14,10 @@
 - main:
   - heading "Prendre rendez-vous" [level=1]
   - paragraph: Les champs marqués d'un astérisque sont obligatoires.
+  - status:
+    - paragraph:
+      - strong: Avant votre consultation
+    - text: Le questionnaire préalable aide le médecin à préparer votre rendez-vous.
   - text: Nom et prénom
   - textbox "Nom et prénom"
   - text: Adresse e-mail
@@ -28,6 +32,11 @@
     - option "Physiothérapie"
   - checkbox "Recevoir un rappel par SMS la veille"
   - text: Recevoir un rappel par SMS la veille
+  - group "Questionnaire préalable (facultatif)":
+    - text: Questionnaire préalable (facultatif) Allergies connues Médicaments, aliments, latex...
+    - textbox "Allergies connues"
+    - text: Traitement en cours
+    - textbox "Traitement en cours"
   - button "Demander un rendez-vous"
 - contentinfo:
   - paragraph:

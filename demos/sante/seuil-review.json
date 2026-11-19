@@ -5,605 +5,605 @@
       "verdict": "na",
       "comment": "Aucune image ni autre contenu non textuel sur les 3 pages (inventaire : 0 image).",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.145Z",
+      "at": "2026-11-19T23:23:55.193Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "1.2.1": {
       "verdict": "na",
       "comment": "Aucun média audio ou vidéo.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.146Z",
+      "at": "2026-11-19T23:23:55.206Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "1.2.2": {
       "verdict": "na",
       "comment": "Aucun média audio ou vidéo.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.148Z",
+      "at": "2026-11-19T23:23:55.208Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "1.2.3": {
       "verdict": "na",
       "comment": "Aucun média audio ou vidéo.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.149Z",
+      "at": "2026-11-19T23:23:55.210Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "1.2.4": {
       "verdict": "na",
       "comment": "Aucune diffusion en direct.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.151Z",
+      "at": "2026-11-19T23:23:55.212Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "1.2.5": {
       "verdict": "na",
       "comment": "Aucun média vidéo.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.152Z",
+      "at": "2026-11-19T23:23:55.214Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "1.3.1": {
       "verdict": "ok",
-      "comment": "Titres h1 puis h2 cohérents, repères header, nav, main et footer, chaque champ relié à son label (vérifié dans l'inventaire et l'arbre d'accessibilité).",
+      "comment": "Titres h1 puis h2 cohérents, repères header, nav, main et footer, chaque champ relié à son label, questionnaire groupé dans un fieldset avec légende.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.153Z",
+      "at": "2026-11-19T23:23:55.216Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "1.3.2": {
       "verdict": "ok",
       "comment": "L'ordre du code suit l'ordre visuel sur les 3 pages.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.155Z",
+      "at": "2026-11-19T23:23:55.218Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "1.3.3": {
       "verdict": "ok",
       "comment": "Aucune consigne fondée sur la forme, la position ou la couleur ; l'astérisque des champs obligatoires est expliqué en texte.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.156Z",
+      "at": "2026-11-19T23:23:55.220Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "1.3.4": {
       "verdict": "ok",
       "comment": "Aucun verrouillage d'orientation (ni CSS ni script) ; mise en page fluide.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.158Z",
+      "at": "2026-11-19T23:23:55.222Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "1.3.5": {
       "verdict": "ok",
-      "comment": "Nom : autocomplete=name, e-mail : email, date de naissance : bday.",
+      "comment": "Nom : autocomplete=name, e-mail : email, date de naissance : bday ; les champs du questionnaire ne concernent pas l'identité de l'utilisateur.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.160Z",
+      "at": "2026-11-19T23:23:55.225Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "1.4.1": {
       "verdict": "ok",
       "comment": "Erreurs annoncées par le texte « Erreur : », liens soulignés, page courante en gras et aria-current.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.161Z",
+      "at": "2026-11-19T23:23:55.228Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "1.4.2": {
       "verdict": "na",
       "comment": "Aucun son.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.162Z",
+      "at": "2026-11-19T23:23:55.231Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "1.4.3": {
       "verdict": "ok",
       "comment": "Paires de tokens du thème santé conformes (texte 14.73:1, texte des boutons 6.05:1) ; axe-core sans défaut.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.163Z",
+      "at": "2026-11-19T23:23:55.233Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "1.4.4": {
       "verdict": "ok",
       "comment": "Contrôle automatique à 640 px (équivalent du zoom à 200 %) sans texte coupé ; mise en page fluide qui suit le zoom du navigateur.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:06:11.721Z",
+      "at": "2026-11-19T23:23:55.247Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "1.4.5": {
       "verdict": "na",
       "comment": "Aucune image, donc aucun texte sous forme d'image.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.166Z",
+      "at": "2026-11-19T23:23:55.292Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "1.4.10": {
       "verdict": "ok",
       "comment": "Contrôle automatique à 320 px : aucun défilement horizontal ni texte coupé.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.235Z",
+      "at": "2026-11-19T23:23:55.297Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "1.4.11": {
       "verdict": "ok",
       "comment": "Bordures de champs 7.15:1, bordure des boutons 6.05:1, contour de focus 14.73:1 sur fond blanc (mesuré).",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.237Z",
+      "at": "2026-11-19T23:23:55.298Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "1.4.12": {
       "verdict": "ok",
       "comment": "Contrôle automatique avec espacements WCAG : aucun texte coupé.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.239Z",
+      "at": "2026-11-19T23:23:55.300Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "1.4.13": {
       "verdict": "na",
       "comment": "Aucun contenu affiché au survol ou au focus.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.241Z",
+      "at": "2026-11-19T23:23:55.302Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "2.1.1": {
       "verdict": "ok",
       "comment": "Parcours complet au clavier (contrôle automatique et test manuel du formulaire) ; uniquement des contrôles natifs.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.243Z",
+      "at": "2026-11-19T23:23:55.304Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "2.1.2": {
       "verdict": "ok",
       "comment": "Aucun piège détecté ; aucune fenêtre modale sur ce site.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.244Z",
+      "at": "2026-11-19T23:23:55.306Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "2.1.4": {
       "verdict": "na",
       "comment": "Aucun raccourci clavier.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.246Z",
+      "at": "2026-11-19T23:23:55.307Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "2.2.1": {
       "verdict": "na",
       "comment": "Aucune limite de temps.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.247Z",
+      "at": "2026-11-19T23:23:55.309Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "2.2.2": {
       "verdict": "na",
       "comment": "Aucun contenu en mouvement ou mis à jour automatiquement.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.248Z",
+      "at": "2026-11-19T23:23:55.310Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "2.3.1": {
       "verdict": "ok",
       "comment": "Aucun contenu clignotant.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.249Z",
+      "at": "2026-11-19T23:23:55.312Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "2.4.1": {
       "verdict": "ok",
       "comment": "Lien « Aller au contenu » au premier arrêt de tabulation, repères présents.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.251Z",
+      "at": "2026-11-19T23:23:55.315Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "2.4.2": {
       "verdict": "ok",
       "comment": "Titres uniques : « Accueil », « Prendre rendez-vous », « Plan du site », suivis du nom de la clinique.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.253Z",
+      "at": "2026-11-19T23:23:55.317Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "2.4.3": {
       "verdict": "ok",
       "comment": "Ordre : lien d'évitement, accueil, menu, contenu, pied de page. Après l'envoi du formulaire, le focus va sur la confirmation (testé).",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.255Z",
+      "at": "2026-11-19T23:23:55.319Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "2.4.4": {
       "verdict": "ok",
       "comment": "Liens explicites : Accueil, Prendre rendez-vous, Réserver une consultation, Plan du site.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.257Z",
+      "at": "2026-11-19T23:23:55.321Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "2.4.5": {
       "verdict": "ok",
       "comment": "Deux moyens sur chaque page : le menu principal et le plan du site (pied de page).",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.260Z",
+      "at": "2026-11-19T23:23:55.508Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "2.4.6": {
       "verdict": "ok",
       "comment": "Titres et étiquettes décrivent le sujet ou la fonction.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.278Z",
+      "at": "2026-11-19T23:23:55.511Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "2.4.7": {
       "verdict": "ok",
       "comment": "Contrôle automatique : indicateur de focus visible sur chaque élément atteint.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.285Z",
+      "at": "2026-11-19T23:23:55.513Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "2.4.11": {
       "verdict": "ok",
       "comment": "Aucun élément fixe ; contrôle automatique sans focus masqué.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.317Z",
+      "at": "2026-11-19T23:23:55.517Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "2.5.1": {
       "verdict": "na",
       "comment": "Aucun geste multipoint ou de tracé.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.374Z",
+      "at": "2026-11-19T23:23:55.519Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "2.5.2": {
       "verdict": "ok",
       "comment": "Contrôles natifs, déclenchés au relâchement.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.423Z",
+      "at": "2026-11-19T23:23:55.521Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "2.5.3": {
       "verdict": "ok",
       "comment": "Noms accessibles identiques aux étiquettes visibles (l'astérisque est masqué aux lecteurs d'écran).",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.468Z",
+      "at": "2026-11-19T23:23:55.524Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "2.5.4": {
       "verdict": "na",
       "comment": "Aucune fonction activée par le mouvement de l'appareil.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.471Z",
+      "at": "2026-11-19T23:23:55.526Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "2.5.7": {
       "verdict": "na",
       "comment": "Aucun glisser-déposer.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.472Z",
+      "at": "2026-11-19T23:23:55.528Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "2.5.8": {
       "verdict": "ok",
       "comment": "Contrôle automatique ; boutons et champs de 44 px de haut, case à cocher de 24 px.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.477Z",
+      "at": "2026-11-19T23:23:55.530Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "3.1.1": {
       "verdict": "ok",
       "comment": "lang=\"fr\" sur les 3 pages, contenu entièrement en français.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.479Z",
+      "at": "2026-11-19T23:23:55.532Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "3.1.2": {
       "verdict": "na",
       "comment": "Aucun passage dans une autre langue.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.481Z",
+      "at": "2026-11-19T23:23:55.535Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "3.2.1": {
       "verdict": "ok",
       "comment": "Aucun changement de contexte au focus.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.485Z",
+      "at": "2026-11-19T23:23:55.537Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "3.2.2": {
       "verdict": "ok",
       "comment": "Le choix d'un motif ou d'une case ne déclenche rien ; l'envoi passe uniquement par le bouton.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.488Z",
+      "at": "2026-11-19T23:23:55.539Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "3.2.3": {
       "verdict": "ok",
       "comment": "Menu et pied de page identiques, dans le même ordre, sur les 3 pages.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.490Z",
+      "at": "2026-11-19T23:23:55.541Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "3.2.4": {
       "verdict": "ok",
       "comment": "Mêmes libellés pour les mêmes fonctions sur tout le site.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.494Z",
+      "at": "2026-11-19T23:23:55.542Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "3.2.6": {
       "verdict": "na",
       "comment": "Aucun mécanisme d'aide répété sur plusieurs pages.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.496Z",
+      "at": "2026-11-19T23:23:55.544Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "3.3.1": {
       "verdict": "ok",
       "comment": "Envoi à vide testé : résumé d'erreurs focalisé, champs marqués aria-invalid, erreurs décrites en texte.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.498Z",
+      "at": "2026-11-19T23:23:55.545Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "3.3.2": {
       "verdict": "ok",
-      "comment": "Étiquettes visibles, format de la date indiqué, champs obligatoires signalés.",
+      "comment": "Étiquettes visibles sur tous les champs, y compris le questionnaire préalable (facultatif, indiqué dans la légende), format de la date indiqué.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.500Z",
+      "at": "2026-11-19T23:23:55.548Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "3.3.3": {
       "verdict": "ok",
       "comment": "Chaque message indique la correction attendue (exemple d'adresse e-mail fourni).",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.503Z",
+      "at": "2026-11-19T23:23:55.580Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "3.3.4": {
       "verdict": "na",
       "comment": "La demande de rendez-vous n'est ni un engagement juridique ou financier, ni la modification de données enregistrées : la clinique confirme le créneau par e-mail.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.505Z",
+      "at": "2026-11-19T23:23:55.610Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "3.3.7": {
       "verdict": "na",
       "comment": "Formulaire en une seule étape, aucune information redemandée.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.509Z",
+      "at": "2026-11-19T23:23:55.612Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "3.3.8": {
       "verdict": "na",
       "comment": "Aucune authentification.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.512Z",
+      "at": "2026-11-19T23:23:55.616Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "4.1.2": {
       "verdict": "ok",
       "comment": "Contrôles natifs ; noms, rôles et états vérifiés dans l'arbre d'accessibilité (a11y/names).",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.515Z",
+      "at": "2026-11-19T23:23:55.617Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     },
     "4.1.3": {
       "verdict": "ok",
-      "comment": "Après l'envoi, le focus est placé sur le titre « Demande envoyée », qui est donc annoncé (testé).",
+      "comment": "Après l'envoi, le focus est placé sur le titre « Demande envoyée », qui est donc annoncé (testé). L'information avant consultation est dans le flux de la page, sans fenêtre.",
       "reviewer": "Audit de démonstration (à valider)",
-      "at": "2026-11-19T23:05:42.520Z",
+      "at": "2026-11-19T23:23:55.619Z",
       "pages": {
         "http://127.0.0.1:4301/": "6b4c08e6c6fac947",
         "http://127.0.0.1:4301/plan-du-site.html": "1bc6225683efc166",
-        "http://127.0.0.1:4301/rendez-vous.html": "d46d88c6fc08d231"
+        "http://127.0.0.1:4301/rendez-vous.html": "1cac2b3dfaa81f0a"
       }
     }
   }
