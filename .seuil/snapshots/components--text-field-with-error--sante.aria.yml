@@ -1,0 +1,3 @@
+- text: Adresse e-mail
+- textbox "Adresse e-mail" [invalid]: marie@
+- text: "Erreur : l'adresse e-mail est incomplète."

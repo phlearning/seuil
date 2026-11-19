@@ -3,8 +3,16 @@ import { dirname, resolve } from "node:path";
 import type { Severity } from "./results.js";
 import type { PairInput } from "./tokens/check.js";
 
+export interface AuditConfig {
+  /** Storybook globals to audit each story under, e.g. ["theme:sante", "theme:admin"]. */
+  storybookGlobals: string[];
+  /** Folder of accessibility tree snapshots, committed with the code. */
+  snapshots: string;
+}
+
 export interface SeuilConfig {
   tokens?: { path: string; themes: string[]; pairs: PairInput[] };
+  audit: AuditConfig;
   targets: string[];
   firstParty: string[];
   allowThirdParties: string[];
@@ -14,6 +22,7 @@ export interface SeuilConfig {
 }
 
 const DEFAULTS: SeuilConfig = {
+  audit: { storybookGlobals: [], snapshots: ".seuil/snapshots" },
   targets: [],
   firstParty: [],
   allowThirdParties: [],
@@ -35,7 +44,21 @@ function isPair(p: unknown): p is PairInput {
 export function parseConfig(raw: unknown, baseDir: string): SeuilConfig {
   if (typeof raw !== "object" || raw === null) throw new ConfigError("Configuration must be a JSON object");
   const input = raw as Record<string, unknown>;
-  const config: SeuilConfig = { ...DEFAULTS };
+  const config: SeuilConfig = { ...DEFAULTS, audit: { ...DEFAULTS.audit, snapshots: resolve(baseDir, DEFAULTS.audit.snapshots) } };
+
+  if (input.audit !== undefined) {
+    const a = input.audit as Record<string, unknown>;
+    if (a.storybookGlobals !== undefined) {
+      if (!Array.isArray(a.storybookGlobals) || !a.storybookGlobals.every((g) => typeof g === "string")) {
+        throw new ConfigError("audit.storybookGlobals must be a list of strings such as \"theme:sante\"");
+      }
+      config.audit.storybookGlobals = a.storybookGlobals;
+    }
+    if (a.snapshots !== undefined) {
+      if (typeof a.snapshots !== "string") throw new ConfigError("audit.snapshots must be a folder path");
+      config.audit.snapshots = resolve(baseDir, a.snapshots);
+    }
+  }
 
   if (input.failOn !== undefined) {
     if (input.failOn !== "error" && input.failOn !== "warning") throw new ConfigError(`failOn must be "error" or "warning"`);
@@ -69,7 +92,7 @@ export function loadConfig(file: string, { required = false } = {}): SeuilConfig
   const path = resolve(file);
   if (!existsSync(path)) {
     if (required) throw new ConfigError(`Configuration file not found: ${path}`);
-    return { ...DEFAULTS };
+    return parseConfig({}, process.cwd());
   }
   let raw: unknown;
   try {

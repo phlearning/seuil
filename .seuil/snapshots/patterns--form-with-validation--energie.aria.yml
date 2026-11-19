@@ -1,0 +1,14 @@
+- text: Nom et prénom
+- textbox "Nom et prénom"
+- text: Adresse e-mail
+- textbox "Adresse e-mail"
+- text: Canton de domicile
+- combobox "Canton de domicile":
+  - option "Choisir un canton" [selected]
+  - option "Genève"
+  - option "Vaud"
+  - option "Valais"
+  - option "Fribourg"
+- checkbox "Recevoir un rappel par SMS la veille"
+- text: Recevoir un rappel par SMS la veille
+- button "Demander un rendez-vous"

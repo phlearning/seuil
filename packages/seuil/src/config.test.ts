@@ -24,6 +24,15 @@ describe("parseConfig", () => {
     expect(() => parseConfig({ tokens: { path: ".", pairs: [{ fg: "a", bg: "b", kind: "huge" }] } }, "/repo")).toThrow(ConfigError);
   });
 
+  it("reads the audit section and resolves the snapshots folder", () => {
+    const config = parseConfig({ audit: { storybookGlobals: ["theme:sante"], snapshots: "snaps" } }, "/repo");
+    expect(config.audit).toEqual({ storybookGlobals: ["theme:sante"], snapshots: "/repo/snaps" });
+  });
+
+  it("defaults snapshots to .seuil/snapshots next to the config", () => {
+    expect(parseConfig({}, "/repo").audit.snapshots).toBe("/repo/.seuil/snapshots");
+  });
+
   it("rejects a bad failOn", () => {
     expect(() => parseConfig({ failOn: "never" }, "/repo")).toThrow(/failOn/);
   });

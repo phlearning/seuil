@@ -1,0 +1,4 @@
+- region "Consommation de novembre":
+  - heading "Consommation de novembre" [level=2]
+  - paragraph: 312 kWh, soit 8 % de moins qu'en octobre.
+  - button "Voir le détail"

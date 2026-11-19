@@ -1,4 +1,5 @@
 import { Command } from "commander";
+import { auditCommand } from "./commands/audit.js";
 import { tokensCommand } from "./commands/tokens.js";
 
 /** Exit code for runtime errors (SPEC section 5.1). */
@@ -29,9 +30,34 @@ export function createProgram(): Command {
 
   program
     .command("audit")
-    .description("run accessibility, third-party and security checks on a URL or a Storybook build")
-    .argument("<target>", "URL or Storybook directory")
-    .action(notImplemented("audit", 2));
+    .description("run accessibility checks on a URL, a running Storybook or a built folder")
+    .argument("<target>", "URL, Storybook URL or folder")
+    .option("-c, --config <file>", "configuration file", "seuil.config.json")
+    .option("--json <file>", "also write the results as JSON")
+    .option("--globals <list>", "Storybook globals variants, comma separated (e.g. theme:sante,theme:admin)")
+    .option("--rules <list>", "only these rules, comma separated")
+    .option("-u, --update-snapshots", "accept the current accessibility trees as the new reference")
+    .option("--concurrency <n>", "pages audited in parallel", "4")
+    .action(async (target: string, opts: { config: string; json?: string; globals?: string; rules?: string; updateSnapshots?: boolean; concurrency: string }) => {
+      const list = (value?: string) => value?.split(",").map((s) => s.trim()).filter(Boolean);
+      const globals = list(opts.globals);
+      const rules = list(opts.rules);
+      const progress = process.stderr.isTTY
+        ? (done: number, total: number) => process.stderr.write(`\r  ${done}/${total} checks${done === total ? "\n" : ""}`)
+        : undefined;
+      const outcome = await auditCommand({
+        target,
+        config: opts.config,
+        ...(opts.json && { json: opts.json }),
+        ...(globals && { globals }),
+        ...(rules && { rules }),
+        ...(opts.updateSnapshots && { updateSnapshots: true }),
+        concurrency: Number(opts.concurrency) || 4,
+        ...(progress && { onProgress: progress }),
+      });
+      (outcome.code === 2 ? console.error : console.log)(outcome.output);
+      process.exitCode = outcome.code;
+    });
 
   program
     .command("check")

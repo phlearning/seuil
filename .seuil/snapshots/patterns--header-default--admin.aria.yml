@@ -1,0 +1,18 @@
+- banner:
+  - link "Aller au contenu":
+    - /url: "#contenu"
+  - link "Clinique des Aubépines":
+    - /url: /
+  - navigation "Navigation principale":
+    - list:
+      - listitem:
+        - link "Accueil":
+          - /url: "#"
+      - listitem:
+        - link "Prendre rendez-vous":
+          - /url: "#rdv"
+      - listitem:
+        - link "Contact":
+          - /url: "#contact"
+- main:
+  - paragraph: "Appuyez sur Tab depuis le haut de la page : le lien « Aller au contenu » apparaît en premier."

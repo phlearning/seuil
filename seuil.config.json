@@ -8,6 +8,10 @@
       ["color.action.text", "color.action.bg"]
     ]
   },
+  "audit": {
+    "storybookGlobals": ["theme:sante", "theme:admin", "theme:energie"],
+    "snapshots": ".seuil/snapshots"
+  },
   "targets": ["http://localhost:6006"],
   "firstParty": ["localhost"],
   "allowThirdParties": [],

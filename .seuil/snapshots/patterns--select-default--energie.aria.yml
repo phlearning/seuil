@@ -1,0 +1,7 @@
+- text: Canton de domicile
+- combobox "Canton de domicile":
+  - option "Choisir un canton" [selected]
+  - option "Genève"
+  - option "Vaud"
+  - option "Valais"
+  - option "Fribourg"

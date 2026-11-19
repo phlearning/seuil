@@ -1,0 +1,8 @@
+- status:
+  - paragraph:
+    - strong: Demande envoyée
+  - text: Vous recevrez une confirmation par e-mail.
+- alert:
+  - paragraph:
+    - strong: Formulaire incomplet
+  - text: Deux champs obligatoires sont vides.

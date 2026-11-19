@@ -31,4 +31,8 @@ describe("exitCode", () => {
   it("fails on warnings when failOn is warning", () => {
     expect(exitCode(results(finding("warning")), "warning")).toBe(1);
   });
+
+  it("returns 2 when some checks could not run, even without findings", () => {
+    expect(exitCode({ ...results(), errors: ["a11y/axe on home: timeout"] })).toBe(2);
+  });
 });

@@ -50,9 +50,14 @@ export interface Results {
   version: 1;
   generatedAt: string;
   findings: Finding[];
+  /** What was checked, so a report can state its scope. */
+  scope?: { targets: number; rules: string[] };
+  /** Checks that could not run: the results are incomplete. */
+  errors?: string[];
 }
 
-export function exitCode(results: Results, failOn: Severity = "error"): 0 | 1 {
+export function exitCode(results: Results, failOn: Severity = "error"): 0 | 1 | 2 {
+  if (results.errors && results.errors.length > 0) return 2;
   const blocking = results.findings.some(
     (f) => f.severity === "error" || (failOn === "warning" && f.severity === "warning"),
   );

@@ -6,7 +6,7 @@
 
 Seuil is a compliance gate for agencies that ship web products to regulated clients (health, public administration, energy). It plugs into the delivery chain, from design tokens to deployed pages, and blocks a pull request until accessibility, data protection and security checks pass. It then produces an audit report the agency can hand to its client as is.
 
-**Status: week 1 of 5.** `seuil tokens` works; the other commands are not implemented yet. See [docs/SPEC.md](docs/SPEC.md) (in French) for the full specification and the 5-week plan.
+**Status: week 2 of 5.** `seuil tokens` and `seuil audit` (accessibility rules) work; data protection, security, the guided audit and reports come next. See [docs/SPEC.md](docs/SPEC.md) (in French) for the full specification and the 5-week plan.
 
 ```bash
 $ seuil tokens
@@ -47,7 +47,10 @@ pnpm install
 pnpm test
 pnpm build
 node packages/seuil/dist/cli.js --help
+pnpm audit:storybook   # Seuil audits its own Storybook: 10 stories x 3 themes x 7 rules
 ```
+
+Accessibility tree snapshots live in `.seuil/snapshots` and are committed. After an intended change, accept it with `seuil audit <target> --update-snapshots`.
 
 ## Data sovereignty
 
