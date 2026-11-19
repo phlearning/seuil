@@ -14,3 +14,4 @@ data/geoip/*.mmdb
 
 .DS_Store
 .env
+debug-storybook.log
