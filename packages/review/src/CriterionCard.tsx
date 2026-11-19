@@ -21,16 +21,17 @@ interface Props {
   item: Coverage;
   lang: Lang;
   pages: Page[];
+  readOnly?: boolean;
   onSave(id: string, verdict: Verdict | null, comment: string): Promise<void>;
 }
 
-export function CriterionCard({ item, lang, pages, onSave }: Props) {
+export function CriterionCard({ item, lang, pages, readOnly = false, onSave }: Props) {
   const { criterion: c } = item;
   const ids = useId();
   const [verdict, setVerdict] = useState<Verdict | undefined>(item.review?.verdict ?? (item.suggestNotApplicable ? "na" : undefined));
   const [comment, setComment] = useState(item.review?.comment ?? "");
   const [saving, setSaving] = useState(false);
-  const [open, setOpen] = useState(item.status === "to-review" || item.status === "auto-fail");
+  const [open, setOpen] = useState(!readOnly && (item.status === "to-review" || item.status === "auto-fail"));
 
   const save = async (value: Verdict | null) => {
     setSaving(true);
@@ -93,7 +94,12 @@ export function CriterionCard({ item, lang, pages, onSave }: Props) {
 
         <Material id={c.id} pages={pages} />
 
-        {item.status !== "auto-fail" && (
+        {readOnly && item.review && (
+          <p className="review-verdict">
+            <strong>Verdict :</strong> {item.review.comment || "sans commentaire"}
+          </p>
+        )}
+        {!readOnly && item.status !== "auto-fail" && (
           <form
             className="review-form"
             onSubmit={(e) => {

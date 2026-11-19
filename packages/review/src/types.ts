@@ -55,6 +55,8 @@ export interface Summary {
 export interface State {
   lang: Lang;
   reviewer: string;
+  /** Static copy on the showcase: verdicts are shown, not editable. */
+  readOnly?: boolean;
   generatedAt: string;
   principles: Record<string, Record<Lang, string>>;
   summary: Summary;

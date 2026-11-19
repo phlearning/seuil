@@ -2,6 +2,9 @@
   "name": "@seuil/site",
   "version": "0.0.0",
   "private": true,
-  "description": "Static showcase published to GitHub Pages: Storybook, demo reports, read-only guided audit (week 5).",
-  "type": "module"
+  "description": "Static showcase published to GitHub Pages: landing page, Storybook, live demos, client reports, read-only guided reviews.",
+  "type": "module",
+  "scripts": {
+    "assemble": "node build.mjs"
+  }
 }

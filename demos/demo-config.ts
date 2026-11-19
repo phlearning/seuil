@@ -16,6 +16,8 @@ export const SECURITY_HEADERS: Record<string, string> = {
 
 export function demoConfig(dir: string, pages: string[], port: number, headers = SECURITY_HEADERS): UserConfig {
   return {
+    // Relative asset paths: the same build works at the root and under /demos/<name>/ on the showcase.
+    base: "./",
     plugins: [react()],
     build: {
       rollupOptions: { input: Object.fromEntries(pages.map((p) => [p, resolve(dir, `${p}.html`)])) },

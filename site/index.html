@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seuil - porte de conformité pour les agences web</title>
+<meta name="description" content="Seuil bloque une pull request tant que l'accessibilité (WCAG 2.2 AA, eCH-0059), la protection des données (nLPD) et la sécurité ne sont pas conformes, puis produit un rapport d'audit remis au client.">
+<link rel="stylesheet" href="./site.css">
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="top">
+  <p class="brand">Seuil</p>
+  <nav aria-label="Navigation principale">
+    <ul>
+      <li><a href="#controles">Contrôles</a></li>
+      <li><a href="#demos">Démos</a></li>
+      <li><a href="#installer">Installer</a></li>
+      <li><a href="{{REPO}}">Code source</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="contenu">
+  <section class="hero" aria-labelledby="titre">
+    <h1 id="titre">Rien ne passe le seuil sans être conforme.</h1>
+    <p class="lede">Seuil s'insère dans la chaîne de livraison d'une agence, des design tokens jusqu'aux pages déployées. Il bloque une pull request tant que l'accessibilité, la protection des données ou la sécurité ne sont pas conformes, puis produit un rapport d'audit que l'agence remet tel quel à son client.</p>
+    <p class="lede">Pensé pour les projets livrés à des clients réglementés : santé, administration publique, énergie.</p>
+    <p class="actions"><a class="button" href="#demos">Voir les trois démos</a> <a class="button secondary" href="./storybook/">Ouvrir le design system</a></p>
+  </section>
+
+  <section id="controles" aria-labelledby="t-controles">
+    <h2 id="t-controles">Ce que Seuil contrôle</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Contraste dès les tokens</h3>
+        <p>Les paires texte et fond sont vérifiées dans les design tokens, thème par thème, avant même que le code existe. Seuil propose la couleur conforme la plus proche.</p>
+      </article>
+      <article class="card">
+        <h3>Accessibilité WCAG 2.2 AA</h3>
+        <p>axe-core, parcours réel au clavier, redistribution à 320 px, zoom à 200 %, espacement du texte, animations, taille des cibles, étiquettes et arbre d'accessibilité. Couvre eCH-0059 v3.0.</p>
+      </article>
+      <article class="card">
+        <h3>Tiers et nLPD</h3>
+        <p>Chaque requête vers un tiers, le pays du serveur et la juridiction de la société, les traceurs et cookies posés avant tout choix. Un registre des flux est remis au DPO du client.</p>
+      </article>
+      <article class="card">
+        <h3>Sécurité</h3>
+        <p>Analyse de la CSP, HSTS, en-têtes de sécurité et dépendances vulnérables (OSV).</p>
+      </article>
+      <article class="card">
+        <h3>Audit guidé</h3>
+        <p>Les critères qu'aucune machine ne peut juger sont vérifiés par une personne dans une interface locale. Le rapport couvre les 55 critères, et une revue devient caduque si la page change.</p>
+      </article>
+      <article class="card">
+        <h3>Rapports</h3>
+        <p>Commentaire de pull request, rapport client imprimable en français ou en anglais, registre des flux en CSV.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="demos" aria-labelledby="t-demos">
+    <h2 id="t-demos">Trois clients fictifs, une même fonctionnalité réalisée deux fois</h2>
+    <p>Pour chaque client, une pull request rouge que Seuil bloque et une pull request verte conforme. Les noms et les marques sont inventés.</p>
+    {{DEMOS}}
+  </section>
+
+  <section id="installer" aria-labelledby="t-installer">
+    <h2 id="t-installer">Installer</h2>
+    <h3>GitHub Actions</h3>
+    <pre><code>- uses: phlearning/seuil/action@main
+  with:
+    client: Clinique des Aubépines</code></pre>
+    <h3>GitLab CI, y compris auto-hébergé</h3>
+    <pre><code>include:
+  - remote: https://raw.githubusercontent.com/phlearning/seuil/main/gitlab/seuil.gitlab-ci.yml</code></pre>
+    <h3>En local, avec Docker</h3>
+    <pre><code>docker run --rm -v "$PWD:/work" ghcr.io/phlearning/seuil check</code></pre>
+    <p>L'outil n'envoie aucune donnée, hormis la requête optionnelle de vulnérabilités à OSV (noms et versions des paquets, désactivable). Il peut tourner entièrement sur l'infrastructure du client.</p>
+  </section>
+
+  <section aria-labelledby="t-limites">
+    <h2 id="t-limites">Limites assumées</h2>
+    <ul>
+      <li>Les contrôles automatiques ne couvrent qu'une partie de chaque critère WCAG : aucun critère n'est déclaré conforme sur leur seule base.</li>
+      <li>Le volet protection des données est un constat technique documenté, pas un avis juridique.</li>
+      <li>Les audits guidés des démos sont des audits de démonstration, à valider par une personne qualifiée.</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="bottom">
+  <p><a href="{{REPO}}">Code source</a> · <a href="{{REPO}}/blob/main/README.fr.md">Documentation</a> · <a href="{{REPO}}/blob/main/README.md">English</a></p>
+  <p>Localisation des serveurs : <a href="https://db-ip.com">IP Geolocation by DB-IP</a>, licence CC BY 4.0. Généré le {{DATE}}.</p>
+</footer>
+</body>
+</html>

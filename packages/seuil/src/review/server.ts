@@ -66,24 +66,27 @@ async function readBody(req: IncomingMessage): Promise<unknown> {
   return JSON.parse(Buffer.concat(chunks).toString("utf8"));
 }
 
+/** What the review UI shows; readOnly is set for the static export on the showcase. */
+export function reviewState(options: Pick<ReviewServerOptions, "resultsFile" | "reviewFile" | "criteria" | "reviewer" | "lang">, readOnly = false) {
+  const results = JSON.parse(readFileSync(options.resultsFile, "utf8")) as Results;
+  const review = loadReview(options.reviewFile);
+  const coverage = computeCoverage(options.criteria.criteria, results, review);
+  return {
+    lang: options.lang,
+    reviewer: options.reviewer,
+    readOnly,
+    generatedAt: results.generatedAt,
+    principles: options.criteria.principles,
+    summary: summarize(coverage),
+    ech: summarize(coverage.filter((c) => c.criterion.wcag21)),
+    coverage,
+    inventory: results.inventory ?? [],
+  };
+}
+
 export async function startReviewServer(options: ReviewServerOptions): Promise<ReviewServer> {
   const readResults = () => JSON.parse(readFileSync(options.resultsFile, "utf8")) as Results;
-
-  const state = () => {
-    const results = readResults();
-    const review = loadReview(options.reviewFile);
-    const coverage = computeCoverage(options.criteria.criteria, results, review);
-    return {
-      lang: options.lang,
-      reviewer: options.reviewer,
-      generatedAt: results.generatedAt,
-      principles: options.criteria.principles,
-      summary: summarize(coverage),
-      ech: summarize(coverage.filter((c) => c.criterion.wcag21)),
-      coverage,
-      inventory: results.inventory ?? [],
-    };
-  };
+  const state = () => reviewState(options);
 
   let origin = "";
   const server: Server = createServer(async (req, res) => {

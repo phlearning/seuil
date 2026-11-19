@@ -89,7 +89,8 @@ export function createProgram(): Command {
     .option("--reviewer <name>", "name recorded with each verdict (default: git config user.name)")
     .option("-p, --port <n>", "local port", "4310")
     .option("-l, --lang <lang>", "fr | en", "fr")
-    .action(async (results: string, opts: { config: string; review?: string; reviewer?: string; port: string; lang: "fr" | "en" }) => {
+    .option("--export <dir>", "write a static read-only copy instead of serving (for a showcase)")
+    .action(async (results: string, opts: { config: string; review?: string; reviewer?: string; port: string; lang: "fr" | "en"; export?: string }) => {
       const outcome = await reviewCommand({
         results,
         config: opts.config,
@@ -97,6 +98,7 @@ export function createProgram(): Command {
         lang: opts.lang,
         ...(opts.review && { review: opts.review }),
         ...(opts.reviewer && { reviewer: opts.reviewer }),
+        ...(opts.export && { export: opts.export }),
       });
       (outcome.code === 2 ? console.error : console.log)(outcome.message);
       process.exitCode = outcome.code;

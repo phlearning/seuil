@@ -25,7 +25,10 @@ function App() {
   useEffect(() => {
     fetch("./api/state")
       .then((r) => r.json() as Promise<State>)
-      .then(setState)
+      .then((s) => {
+        setState(s);
+        if (s.readOnly) setFilter("all");
+      })
       .catch((e: Error) => setError(e.message));
   }, []);
 
@@ -76,6 +79,11 @@ function App() {
         </div>
       </header>
       <main id="contenu" className="review-main">
+        {state.readOnly && (
+          <Alert title="Démonstration en lecture seule">
+            Copie statique d'un audit guidé : les verdicts et constats sont affichés tels qu'enregistrés dans seuil-review.json. En local, seuil review permet de les saisir.
+          </Alert>
+        )}
         <div className="review-filter">
           <Select
             id="filter"
@@ -100,7 +108,7 @@ function App() {
                 {p}. {state.principles[p]?.[state.lang]}
               </h2>
               {items.map((item) => (
-                <CriterionCard key={`${item.criterion.id}-${item.review?.at ?? ""}`} item={item} lang={state.lang} pages={state.inventory} onSave={save} />
+                <CriterionCard key={`${item.criterion.id}-${item.review?.at ?? ""}`} item={item} lang={state.lang} pages={state.inventory} readOnly={state.readOnly ?? false} onSave={save} />
               ))}
             </section>
           );
