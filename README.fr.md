@@ -103,3 +103,7 @@ Chaque client fictif reçoit la même fonctionnalité deux fois : une pull reque
 ## Souveraineté des données
 
 L'outil n'envoie aucune donnée, hormis la requête optionnelle de vulnérabilités à OSV (contenu du lockfile uniquement, désactivable avec `"offline": true`). Il peut tourner entièrement sur l'infrastructure du client, y compris sur un GitLab auto-hébergé.
+
+## Licence
+
+MIT, voir [LICENSE](LICENSE). Données de localisation des serveurs : IP Geolocation by DB-IP (https://db-ip.com), licence CC BY 4.0.

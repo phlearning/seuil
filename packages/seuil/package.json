@@ -23,5 +23,6 @@
     "commander": "15.1.0",
     "mmdb-lib": "3.0.5",
     "playwright": "1.65.0"
-  }
+  },
+  "license": "MIT"
 }

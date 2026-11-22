@@ -103,3 +103,7 @@ Each fictional client gets the same feature twice: a red pull request that Seuil
 ## Data sovereignty
 
 The tool sends no data anywhere, except the optional OSV vulnerability lookup (lockfile contents only, can be disabled with `"offline": true`). It can run entirely on the client's own infrastructure, including self-hosted GitLab.
+
+## License
+
+MIT, see [LICENSE](LICENSE). Server location data: IP Geolocation by DB-IP (https://db-ip.com), CC BY 4.0.
