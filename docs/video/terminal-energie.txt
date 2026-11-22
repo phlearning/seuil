@@ -1,0 +1,43 @@
+$ seuil check
+
+ERROR  privacy/consent  [LTC (RS 784.10) art. 45c, ePrivacy 2002/58/CE art. 5(3)]
+  at http://127.0.0.1:4303/consommation.html  cookie _ga
+  Tracking cookie "_ga" is set before the visitor could make any choice.
+  Fix: Set it only after consent, or not at all.
+
+ERROR  privacy/third-parties  [nLPD (RS 235.1) art. 16, nLPD (RS 235.1) art. 19]
+  at http://127.0.0.1:4303/consommation.html  www.googletagmanager.com
+  Undeclared third party www.googletagmanager.com: Google Tag Manager (Google LLC, US, US CLOUD Act), server in US. Every visitor's IP address is sent to it on page load.
+  Fix: Remove it, self-host it, or once reviewed with the DPO add it to allowThirdParties.
+
+ERROR  security/headers  [OWASP Secure Headers content-security-policy, nLPD (RS 235.1) art. 8]
+  at http://127.0.0.1:4303/consommation.html  content-security-policy
+  No Content-Security-Policy: an injected script runs with full access to the page and its forms.
+  Fix: Send a CSP such as: default-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'.
+
+ERROR  security/deps  [OSV GHSA-35jh-r3h4-6jhm, nLPD (RS 235.1) art. 8]
+  at lodash@4.17.20  pnpm-lock.yaml
+  lodash@4.17.20: Command Injection in lodash (GHSA-35jh-r3h4-6jhm, CVE-2021-23337, high).
+  Fix: Upgrade lodash to 4.17.21 or later.
+
+Data-flow register (extrait) :
+  Host                          Provider            Company (country)  Server  On load  Declared  nLPD
+  region1.google-analytics.com  Google Analytics    Google LLC (US)    US      yes      NO        art. 16, art. 19
+  www.googletagmanager.com      Google Tag Manager  Google LLC (US)    US      yes      NO        art. 16, art. 19
+  IP Geolocation by DB-IP (https://db-ip.com)
+
+Audited 3 target(s) with 12 rule(s): 21 error(s), 1 warning(s).
+  a11y/axe               ok
+  a11y/keyboard          ok
+  a11y/labels            ok
+  a11y/reflow            ok
+  a11y/text-spacing      ok
+  a11y/motion            ok
+  a11y/target-size       ok
+  a11y/names             1 warning
+  privacy/third-parties  6 errors
+  privacy/consent        12 errors
+  security/headers       3 errors
+
+$ echo $?
+1

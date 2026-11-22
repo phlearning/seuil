@@ -19,3 +19,4 @@ data/geoip/SOURCE.txt
 **/.seuil/screens/
 **/review-export/
 site/dist/
+docs/video/out/

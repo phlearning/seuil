@@ -29,6 +29,28 @@
     <p class="actions"><a class="button" href="#demos">Voir les trois démos</a> <a class="button secondary" href="./storybook/">Ouvrir le design system</a></p>
   </section>
 
+  <section id="video" aria-labelledby="t-video">
+    <h2 id="t-video">Seuil en 90 secondes</h2>
+    <video controls preload="metadata" width="1280" height="720" style="width:100%;height:auto;border-radius:8px;border:1px solid var(--line)" aria-describedby="video-texte">
+      <source src="./media/seuil-presentation.mp4" type="video/mp4">
+      <a href="./media/seuil-presentation.mp4">Télécharger la vidéo (MP4)</a>
+    </video>
+    <details id="video-texte">
+      <summary>Version texte de la vidéo (vidéo muette, sous-titrée)</summary>
+      <ol>
+        <li>Seuil : une porte de conformité pour les agences web qui travaillent pour des clients réglementés.</li>
+        <li>Le problème : prouver l'accessibilité (WCAG 2.2 AA, eCH-0059) ; une police ou un traceur ajouté en passant envoie l'IP des visiteurs à l'étranger (nLPD) ; des défauts vus trop tard, souvent chez le client.</li>
+        <li>La vitrine : trois clients fictifs, une même fonctionnalité livrée deux fois.</li>
+        <li>Une pull request rouge bloquée : Google Analytics avant consentement, CSP retirée, lodash vulnérable, flux vers Google aux États-Unis, code de sortie 1.</li>
+        <li>Le commentaire de pull request, un par projet, mis à jour à chaque push.</li>
+        <li>L'audit guidé des 55 critères WCAG 2.2 A et AA.</li>
+        <li>Le rapport client imprimable : WCAG 2.2 AA, eCH-0059, registre des flux, limites assumées.</li>
+        <li>Mise en place : GitHub Action, GitLab CI, seuil.config.json, Docker.</li>
+        <li>Utilisation : seuil check, seuil review, seuil report.</li>
+      </ol>
+    </details>
+  </section>
+
   <section id="controles" aria-labelledby="t-controles">
     <h2 id="t-controles">Ce que Seuil contrôle</h2>
     <div class="grid">
@@ -61,7 +83,7 @@
 
   <section id="demos" aria-labelledby="t-demos">
     <h2 id="t-demos">Trois clients fictifs, une même fonctionnalité réalisée deux fois</h2>
-    <p>Pour chaque client, une pull request rouge que Seuil bloque et une pull request verte conforme. Les noms et les marques sont inventés.</p>
+    <p>Pour chaque client, une pull request rouge que Seuil bloque, laissée ouverte, et une version verte conforme, mergée. Les noms et les marques sont inventés.</p>
     {{DEMOS}}
   </section>
 

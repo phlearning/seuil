@@ -7,6 +7,9 @@ import type { Rule } from "../types.js";
 /** Upper bound of Tab presses per page (each focused element is also screenshotted twice). */
 export const MAX_TAB_STEPS = 1000;
 
+/** Extra Tab presses allowed on one element whose shadow DOM may hold several stops. */
+const MAX_SAME_ELEMENT_PRESSES = 20;
+
 import type { Described } from "../page.js";
 
 const focused = (page: Page) =>
@@ -99,13 +102,14 @@ export const keyboardRule: Rule = {
     // Walk the page with real Tab presses.
     await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
     const sequence: Described[] = [];
-    const maxSteps = Math.min(MAX_TAB_STEPS, tabbables.length * 2 + 4);
+    const maxSteps = Math.min(MAX_TAB_STEPS, tabbables.length * 2 + 4 + MAX_SAME_ELEMENT_PRESSES);
     let exhausted = true;
     let cycleStart = -1;
     let emptySteps = 0;
     // Tab pressed and focus stayed on the same element (without passing through the document): a trap.
     let stuck = false;
     let passedDocument = false;
+    let samePresses = 0;
     for (let step = 0; step < maxSteps; step++) {
       await page.keyboard.press("Tab");
       const current = await focused(page);
@@ -118,10 +122,18 @@ export const keyboardRule: Rule = {
         continue;
       }
       emptySteps = 0;
+      // Same element again without passing through the document. Focus may be moving inside its
+      // shadow DOM (video controls, web components): keep pressing Tab before calling it a trap.
+      if (current.selector === sequence.at(-1)?.selector && !passedDocument) {
+        if (++samePresses <= MAX_SAME_ELEMENT_PRESSES) continue;
+        stuck = sequence.length < tabbables.length;
+        exhausted = false;
+        break;
+      }
+      samePresses = 0;
       const seen = sequence.findIndex((s) => s.selector === current.selector);
       if (seen !== -1) {
         cycleStart = seen;
-        stuck = seen === sequence.length - 1 && !passedDocument && sequence.length < tabbables.length;
         exhausted = false;
         break;
       }

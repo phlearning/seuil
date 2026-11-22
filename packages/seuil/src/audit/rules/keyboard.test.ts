@@ -47,6 +47,20 @@ describe("a11y/keyboard", () => {
     expect(findings.map((f) => `${f.references[0]?.id} ${f.target.selector}`)).toEqual(["2.1.2 #ok"]);
   });
 
+  it("does not mistake focus moving inside a shadow DOM (video controls, web components) for a trap", async () => {
+    const html = page(
+      `<button>Avant</button><x-player id="player"></x-player><button>Après</button>`,
+      `<script>
+        customElements.define("x-player", class extends HTMLElement {
+          connectedCallback() {
+            this.attachShadow({ mode: "open" }).innerHTML = "<button>Lire</button><button>Son</button><button>Plein écran</button>";
+          }
+        });
+      </script>`,
+    );
+    expect((await h.run(keyboardRule, html)).filter((f) => f.references[0]?.id === "2.1.2")).toEqual([]);
+  });
+
   it("flags a custom button that cannot be reached by keyboard (2.1.1)", async () => {
     const findings = await h.run(keyboardRule, page(`<button>Ok</button><div role="button" id="fake">Valider</div>`));
     expect(criteria(findings)).toEqual(["2.1.1"]);
