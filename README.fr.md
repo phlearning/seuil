@@ -6,7 +6,7 @@
 
 Seuil est une porte de conformité pour les agences qui livrent des produits web à des clients réglementés (santé, administration publique, énergie). Il s'insère dans la chaîne de livraison, des design tokens jusqu'aux pages déployées, et bloque une pull request tant que les contrôles d'accessibilité, de protection des données et de sécurité échouent. Il produit ensuite un rapport d'audit que l'agence peut remettre tel quel à son client.
 
-**Statut : semaine 4 sur 5.** Toutes les commandes fonctionnent : `tokens`, `audit`, `check`, `review` (audit guidé des 55 critères WCAG 2.2 A et AA) et `report` (rapport client en HTML, commentaire de PR en Markdown, registre des flux en CSV). Les intégrations CI et la vitrine publique arrivent ensuite. La spécification complète et le planning sur 5 semaines sont dans [docs/SPEC.md](docs/SPEC.md).
+**Statut : terminé (semaine 5 sur 5).** Toutes les commandes fonctionnent (`tokens`, `audit`, `check`, `review`, `report`), avec une image Docker, une GitHub Action, un template GitLab CI et une vitrine statique. La spécification complète et le planning sur 5 semaines sont dans [docs/SPEC.md](docs/SPEC.md).
 
 ```bash
 $ seuil tokens
@@ -63,6 +63,42 @@ node ../../packages/seuil/dist/cli.js report --client "Clinique des Aubépines" 
 ```
 
 Les snapshots de l'arbre d'accessibilité sont dans `.seuil/snapshots` et sont versionnés. Après un changement voulu, on l'accepte avec `seuil audit <cible> --update-snapshots`.
+
+## Utilisation en CI
+
+GitHub Actions (un commentaire par projet sur la pull request, rapports en artefacts) :
+
+```yaml
+- uses: phlearning/seuil/action@main
+  with:
+    working-directory: demos/sante
+    client: Clinique des Aubépines
+```
+
+GitLab CI, y compris auto-hébergé :
+
+```yaml
+include:
+  - remote: https://raw.githubusercontent.com/phlearning/seuil/main/gitlab/seuil.gitlab-ci.yml
+```
+
+Partout où Docker tourne (Chromium headless, données et DB-IP Lite inclus) :
+
+```bash
+docker run --rm -v "$PWD:/work" ghcr.io/phlearning/seuil check
+```
+
+## Pull requests de démonstration
+
+Chaque client fictif reçoit la même fonctionnalité deux fois : une pull request rouge que Seuil bloque, et une verte qui passe.
+
+| Client | Fonctionnalité | Branche rouge, bloquée pour | Branche verte |
+|---|---|---|---|
+| Clinique des Aubépines | Questionnaire préalable | `demo/sante-questionnaire-rouge` : piège au clavier, champs identifiés seulement par leur placeholder | `demo/sante-questionnaire` |
+| Commune de Valfleurie | Nouvelle charte | `demo/admin-charte-rouge` : Google Fonts (transfert vers les États-Unis), token de contraste insuffisant, formulaire de largeur fixe | `demo/admin-charte` |
+| Cascade Énergie | Mesure d'audience | `demo/energie-audience-rouge` : Google Analytics avant consentement, CSP retirée, lodash vulnérable | `demo/energie-audience` |
+
+`pnpm showcase` construit la vitrine statique (démos jouables, rapports clients, audits guidés en lecture seule, Storybook) dans `site/dist` ; `.github/workflows/pages.yml` la publie.
 
 ## Souveraineté des données
 

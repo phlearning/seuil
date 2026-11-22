@@ -6,7 +6,7 @@
 
 Seuil is a compliance gate for agencies that ship web products to regulated clients (health, public administration, energy). It plugs into the delivery chain, from design tokens to deployed pages, and blocks a pull request until accessibility, data protection and security checks pass. It then produces an audit report the agency can hand to its client as is.
 
-**Status: week 4 of 5.** Every command works: `tokens`, `audit`, `check`, `review` (guided audit of the 55 WCAG 2.2 A/AA criteria) and `report` (client report in HTML, PR comment in Markdown, data-flow register in CSV). CI integrations and the public showcase come next. See [docs/SPEC.md](docs/SPEC.md) (in French) for the full specification and the 5-week plan.
+**Status: complete (week 5 of 5).** Every command works (`tokens`, `audit`, `check`, `review`, `report`), with a Docker image, a GitHub Action, a GitLab CI template and a static showcase. See [docs/SPEC.md](docs/SPEC.md) (in French) for the full specification and the 5-week plan.
 
 ```bash
 $ seuil tokens
@@ -63,6 +63,42 @@ node ../../packages/seuil/dist/cli.js report --client "Clinique des Aubépines" 
 ```
 
 Accessibility tree snapshots live in `.seuil/snapshots` and are committed. After an intended change, accept it with `seuil audit <target> --update-snapshots`.
+
+## Use it in CI
+
+GitHub Actions (one comment per project on the pull request, reports as artifacts):
+
+```yaml
+- uses: phlearning/seuil/action@main
+  with:
+    working-directory: demos/sante
+    client: Clinique des Aubépines
+```
+
+GitLab CI, including self-hosted GitLab:
+
+```yaml
+include:
+  - remote: https://raw.githubusercontent.com/phlearning/seuil/main/gitlab/seuil.gitlab-ci.yml
+```
+
+Anywhere with Docker (headless Chromium, data and DB-IP Lite included):
+
+```bash
+docker run --rm -v "$PWD:/work" ghcr.io/phlearning/seuil check
+```
+
+## Demo pull requests
+
+Each fictional client gets the same feature twice: a red pull request that Seuil blocks, and a green one that passes.
+
+| Client | Feature | Red branch, blocked for | Green branch |
+|---|---|---|---|
+| Clinique des Aubépines | Pre-visit questionnaire | `demo/sante-questionnaire-rouge`: keyboard trap, fields labelled only by placeholders | `demo/sante-questionnaire` |
+| Commune de Valfleurie | New brand | `demo/admin-charte-rouge`: Google Fonts (transfer to the US), low-contrast token, fixed-width form | `demo/admin-charte` |
+| Cascade Énergie | Audience measurement | `demo/energie-audience-rouge`: Google Analytics before consent, CSP removed, vulnerable lodash | `demo/energie-audience` |
+
+`pnpm showcase` builds the static site (live demos, client reports, read-only guided reviews, Storybook) into `site/dist`; `.github/workflows/pages.yml` publishes it.
 
 ## Data sovereignty
 
