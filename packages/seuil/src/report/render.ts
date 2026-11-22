@@ -1,5 +1,5 @@
 import type { CriterionStatus, DataFlow, Finding } from "../results.js";
-import { STRINGS } from "./i18n.js";
+import { STRINGS, type Strings } from "./i18n.js";
 import type { ReportModel } from "./model.js";
 
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -155,29 +155,58 @@ export function renderMarkdown(m: ReportModel): string {
   const t = STRINGS[m.lang];
   const all = [...m.accessibility, ...m.privacy, ...m.security, ...m.other];
   const errors = all.filter((f) => f.severity === "error");
-  const warnings = all.length - errors.length;
+  const warnings = all.filter((f) => f.severity === "warning");
   const icon = errors.length > 0 || m.errors.length > 0 ? "❌" : "✅";
-  const cell = (s: string) => s.replace(/\|/g, "\\|").replace(/\n/g, " ");
-  const shown = errors.slice(0, 25);
-  return [
+
+  const lines = [
     "<!-- seuil-report -->",
     `## ${icon} ${t.prTitle}`,
     "",
-    `**${t.errorsWarnings(errors.length, warnings)}** · WCAG 2.2 AA : ${t.coverageLine(m.summary)}`,
-    m.errors.length > 0 ? `\n> **${t.incomplete(m.errors.length)}**` : "",
-    "",
-    shown.length > 0
-      ? [
-          `| ${t.ruleCol} | ${t.where} | Description | ${t.fix} |`,
-          "|---|---|---|---|",
-          ...shown.map((f) => `| \`${f.rule}\` | \`${cell(where(f))}\` | ${cell(f.message)} | ${cell(f.suggestion ?? "")} |`),
-          errors.length > shown.length ? `\n${t.prMore(errors.length - shown.length)}` : "",
-        ].join("\n")
-      : "",
-  ]
-    .filter((line) => line !== "")
-    .join("\n")
-    .concat("\n");
+    `**${t.errorsWarnings(errors.length, warnings.length)}** · WCAG 2.2 AA : ${t.coverageLine(m.summary)}`,
+  ];
+  if (m.errors.length > 0) lines.push("", `> **${t.incomplete(m.errors.length)}**`);
+  if (errors.length > 0) lines.push("", ...markdownTable(errors, t, 25));
+  if (warnings.length > 0) {
+    lines.push("", "<details>", `<summary>${t.warningsTitle(warnings.length)}</summary>`, "", ...markdownTable(warnings, t, 25), "", "</details>");
+  }
+  return lines.join("\n") + "\n";
+}
+
+interface Group {
+  finding: Finding;
+  places: string[];
+}
+
+/** Same rule, element and message on several pages: one row listing the pages. */
+function groupFindings(findings: Finding[]): Group[] {
+  const groups = new Map<string, Group>();
+  for (const f of findings) {
+    const key = [f.rule, f.target.theme ?? "", f.target.selector ?? f.target.id, f.message, f.suggestion ?? ""].join("\u0000");
+    const place = /^https?:\/\//.test(f.target.id) ? new URL(f.target.id).pathname : f.target.id;
+    const group = groups.get(key) ?? { finding: f, places: [] };
+    if (!group.places.includes(place)) group.places.push(place);
+    groups.set(key, group);
+  }
+  return [...groups.values()];
+}
+
+function markdownTable(findings: Finding[], t: Strings, limit: number): string[] {
+  // Escape HTML too: GitHub would otherwise drop text such as "<label for>".
+  const cell = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\|/g, "\\|").replace(/\n/g, " ");
+  const code = (s: string) => `<code>${cell(s)}</code>`;
+  const groups = groupFindings(findings);
+  const shown = groups.slice(0, limit);
+  const rows = shown.map(({ finding: f, places }) => {
+    const element = [f.target.theme && `[${f.target.theme}]`, f.target.selector ?? (places.length > 1 ? "" : f.target.id)].filter(Boolean).join(" ");
+    const where = [element && code(element), places.length > 1 || f.target.selector ? t.onPages(places.map(cell)) : ""].filter(Boolean).join("<br>");
+    return `| ${code(f.rule)} | ${where} | ${cell(f.message)} | ${cell(f.suggestion ?? "")} |`;
+  });
+  return [
+    `| ${t.ruleCol} | ${t.where} | Description | ${t.fix} |`,
+    "|---|---|---|---|",
+    ...rows,
+    ...(groups.length > shown.length ? ["", t.prMore(groups.length - shown.length)] : []),
+  ];
 }
 
 /** Data-flow register as CSV (RFC 4180, UTF-8 with BOM so spreadsheets keep the accents). */

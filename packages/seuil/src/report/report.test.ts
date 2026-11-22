@@ -95,6 +95,38 @@ describe("renderMarkdown", () => {
   });
 });
 
+describe("renderMarkdown grouping and escaping", () => {
+  const f = (page: string, extra: Partial<Results["findings"][number]> = {}): Results["findings"][number] => ({
+    rule: "privacy/third-parties",
+    severity: "error",
+    target: { kind: "page", id: `http://127.0.0.1:4303${page}`, selector: "www.googletagmanager.com" },
+    message: "Undeclared third party www.googletagmanager.com.",
+    references: [],
+    suggestion: "Add a visible <label for> & remove it.",
+    ...extra,
+  });
+  const md = (findings: Results["findings"]) =>
+    renderMarkdown(buildReport({ ...results, findings }, loadCriteria(), { version: 1, entries: {} }, { lang: "fr", client: "x" }));
+
+  it("escapes HTML so GitHub does not swallow text", () => {
+    const out = md([f("/")]);
+    expect(out).toContain("Add a visible &lt;label for&gt; &amp; remove it.");
+    expect(out).not.toContain("<label for>");
+  });
+
+  it("groups the same finding on several pages into one row", () => {
+    const out = md([f("/"), f("/plan-du-site.html"), f("/consommation.html")]);
+    expect(out.match(/^\| <code>privacy\/third-parties/gm)).toHaveLength(1);
+    expect(out).toContain("3 pages : /, /plan-du-site.html, /consommation.html");
+  });
+
+  it("keeps a blank line before the table and folds warnings", () => {
+    const out = md([f("/"), f("/", { severity: "warning", rule: "security/deps", message: "old dep" })]);
+    expect(out).toMatch(/non conforme\(s\)\.\n\n\| Règle/);
+    expect(out).toContain("<details>\n<summary>Voir les 1 avertissement(s)</summary>\n\n| Règle");
+  });
+});
+
 describe("renderCsv", () => {
   it("starts with a BOM and quotes cells that need it", () => {
     const csv = renderCsv(model("fr"));

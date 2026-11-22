@@ -48,6 +48,8 @@ export interface Strings {
   incomplete: (n: number) => string;
   prTitle: string;
   prMore: (n: number) => string;
+  warningsTitle: (n: number) => string;
+  onPages: (pages: string[]) => string;
 }
 
 const fr: Strings = {
@@ -111,6 +113,8 @@ const fr: Strings = {
   incomplete: (n) => `${n} contrôle(s) n'ont pas pu s'exécuter : résultats incomplets.`,
   prTitle: "Seuil : contrôle de conformité",
   prMore: (n) => `... et ${n} autre(s). Détail dans seuil-results.json.`,
+  warningsTitle: (n) => `Voir les ${n} avertissement(s)`,
+  onPages: (p) => (p.length === 1 ? `page ${p[0]}` : `${p.length} pages : ${p.join(", ")}`),
 };
 
 const en: Strings = {
@@ -174,6 +178,8 @@ const en: Strings = {
   incomplete: (n) => `${n} check(s) could not run: results are incomplete.`,
   prTitle: "Seuil: compliance check",
   prMore: (n) => `... and ${n} more. Details in seuil-results.json.`,
+  warningsTitle: (n) => `Show the ${n} warning(s)`,
+  onPages: (p) => (p.length === 1 ? `page ${p[0]}` : `${p.length} pages: ${p.join(", ")}`),
 };
 
 export const STRINGS: Record<Lang, Strings> = { fr, en };
