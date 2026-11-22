@@ -36,6 +36,8 @@ jobs:
 
   deploy:
     needs: build
+    # Free GitHub Pages needs a public repository: while private, the build still runs as a check.
+    if: ${{ !github.event.repository.private }}
     runs-on: ubuntu-24.04
     environment:
       name: github-pages
