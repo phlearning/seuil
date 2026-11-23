@@ -34,6 +34,16 @@ describe("a11y/reflow", () => {
     expect(await h.run(textSpacingRule, html)).toEqual([]);
   });
 
+  it("ignores a skip link hidden with clip, even with padding", async () => {
+    const srOnly = `position:absolute;width:1px;height:1px;padding:12px 24px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap`;
+    expect(await h.run(reflowRule, page(`<a href="#main" style="${srOnly}">Aller au contenu principal de la page</a><main id="main">x</main>`))).toEqual([]);
+  });
+
+  it("ignores a clipping section whose overflow is decorative, not text", async () => {
+    const html = page(`<section style="position:relative;overflow:hidden;height:200px"><h2>Notre agence</h2><p>Un texte qui tient.</p><div style="position:absolute;top:150px;left:0;width:900px;height:300px;background:#eee"></div></section>`);
+    expect(await h.run(reflowRule, html)).toEqual([]);
+  });
+
   it("flags text cut off at 200% (1.4.4)", async () => {
     const text = "Votre demande a bien été enregistrée et sera traitée dans les meilleurs délais par nos services.";
     const findings = await h.run(reflowRule, page(`<p id="box" style="height:24px;overflow:hidden;width:50%">${text}</p>`));
@@ -49,8 +59,8 @@ describe("a11y/text-spacing", () => {
   it("flags a fixed-height label that clips with wider spacing (1.4.12)", async () => {
     const findings = await h.run(
       textSpacingRule,
-      // Fits on one line at line-height 1, overflows once line-height becomes 1.5.
-      page(`<button id="btn" style="height:22px;width:220px;overflow:hidden;line-height:1;font-size:16px">Prendre rendez-vous</button>`),
+      // One line at normal spacing; wider letter spacing wraps it to a second line that falls outside the button.
+      page(`<button id="btn" style="height:24px;width:175px;overflow:hidden;line-height:1.2;font-size:16px;padding:0;white-space:normal">Prendre rendez-vous</button>`),
     );
     expect(criteria(findings)).toEqual(["1.4.12"]);
     expect(findings[0]?.target.selector).toBe("#btn");

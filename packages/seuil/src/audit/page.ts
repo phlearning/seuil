@@ -80,9 +80,28 @@ const HELPERS = String.raw`
       const box = el.getBoundingClientRect();
       if (box.width <= 2 || box.height <= 2) continue;
       const s = getComputedStyle(el);
+      // Visually hidden on purpose (sr-only patterns using clip or clip-path), whatever their padding.
+      if (/rect\(0(px)?,? 0(px)?,? 0(px)?,? 0(px)?\)/.test(s.clip) || /inset\((50|100)%\)/.test(s.clipPath)) continue;
       const hidesX = /hidden|clip/.test(s.overflowX);
       const hidesY = /hidden|clip/.test(s.overflowY);
-      if ((hidesX && el.scrollWidth > el.clientWidth + 1) || (hidesY && el.scrollHeight > el.clientHeight + 1)) out.push(describe(el));
+      if (!((hidesX && el.scrollWidth > el.clientWidth + 1) || (hidesY && el.scrollHeight > el.clientHeight + 1))) continue;
+      // Overflow alone is not lost text: decorative shapes often overflow a clipping section.
+      // Report only when a piece of text actually lies outside the box.
+      const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+      let cut = false;
+      for (let node = walker.nextNode(); node && !cut; node = walker.nextNode()) {
+        if (!node.textContent.trim()) continue;
+        const range = document.createRange();
+        range.selectNodeContents(node);
+        for (const r of range.getClientRects()) {
+          if (r.width === 0 || r.height === 0) continue;
+          if ((hidesX && (r.right > box.right + 1 || r.left < box.left - 1)) || (hidesY && (r.bottom > box.bottom + 1 || r.top < box.top - 1))) {
+            cut = true;
+            break;
+          }
+        }
+      }
+      if (cut) out.push(describe(el));
     }
     return out;
   };
