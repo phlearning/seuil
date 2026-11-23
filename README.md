@@ -157,7 +157,7 @@ The [showcase](https://phlearning.github.io/seuil/) has the live demos, their cl
 | `site/`, `docs/video/` | Showcase and video, rebuilt by `pnpm showcase` and `node docs/video/record.mjs` |
 
 ```bash
-pnpm typecheck && pnpm test   # 150 tests, browser rules run in real Chromium
+pnpm typecheck && pnpm test   # browser rules run in real Chromium
 ```
 
 ## Data sovereignty

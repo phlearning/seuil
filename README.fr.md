@@ -157,7 +157,7 @@ La [vitrine](https://phlearning.github.io/seuil/) présente les démos jouables,
 | `site/`, `docs/video/` | Vitrine et vidéo, reconstruites par `pnpm showcase` et `node docs/video/record.mjs` |
 
 ```bash
-pnpm typecheck && pnpm test   # 150 tests, les règles navigateur tournent dans un vrai Chromium
+pnpm typecheck && pnpm test   # les règles navigateur tournent dans un vrai Chromium
 ```
 
 ## Souveraineté des données
