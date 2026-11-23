@@ -3,6 +3,7 @@ import { auditCommand } from "./commands/audit.js";
 import { checkCommand } from "./commands/check.js";
 import { reportCommand } from "./commands/report.js";
 import { reviewCommand } from "./commands/review.js";
+import { startMcpServer } from "./mcp/server.js";
 import { tokensCommand } from "./commands/tokens.js";
 
 /** Exit code for runtime errors (SPEC section 5.1). */
@@ -118,6 +119,13 @@ export function createProgram(): Command {
       if (outcome.code === 2) console.error(outcome.output);
       else process.stdout.write(outcome.output.endsWith("\n") ? outcome.output : outcome.output + "\n");
       process.exitCode = outcome.code;
+    });
+
+  program
+    .command("mcp")
+    .description("run Seuil as an MCP server on stdio, for AI clients such as Claude")
+    .action(async () => {
+      await startMcpServer();
     });
 
   return program;
