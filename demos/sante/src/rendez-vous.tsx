@@ -1,4 +1,4 @@
-import { Alert, Checkbox, Form, Select, TextField, type FormError } from "@seuil/ui";
+import { Checkbox, Form, Select, TextField, type FormError } from "@seuil/ui";
 import { useEffect, useRef, useState } from "react";
 import { mount } from "./layout.js";
 
@@ -46,10 +46,38 @@ function Booking() {
       <Checkbox id="rappel" name="rappel" label="Recevoir un rappel par SMS la veille" />
       <fieldset className="demo-fieldset">
         <legend>Questionnaire préalable (facultatif)</legend>
-        <TextField id="allergies" name="allergies" label="Allergies connues" hint="Médicaments, aliments, latex..." />
-        <TextField id="traitement" name="traitement" label="Traitement en cours" />
+        <input name="allergies" placeholder="Allergies connues" className="seuil-field__input" />
+        <input name="traitement" placeholder="Traitement en cours" className="seuil-field__input" />
       </fieldset>
     </Form>
+  );
+}
+
+function ArrivalNotice() {
+  const [open, setOpen] = useState(true);
+  const button = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    button.current?.focus();
+    const keepFocus = (e: KeyboardEvent) => {
+      if (e.key === "Tab" || e.key === "Escape") {
+        e.preventDefault();
+        button.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", keepFocus);
+    return () => document.removeEventListener("keydown", keepFocus);
+  }, [open]);
+
+  if (!open) return null;
+  return (
+    <div className="seuil-alert" style={{ position: "fixed", inset: "20% 10% auto", background: "var(--color-bg-default)", zIndex: 5 }}>
+      <p>Merci de remplir le questionnaire préalable avant votre consultation.</p>
+      <button ref={button} type="button" className="seuil-button seuil-button--primary" onClick={() => setOpen(false)}>
+        J'ai compris
+      </button>
+    </div>
   );
 }
 
@@ -58,8 +86,7 @@ mount(
   <>
     <h1>Prendre rendez-vous</h1>
     <p>Les champs marqués d'un astérisque sont obligatoires.</p>
-    {/* Shown in the page flow: no popup to dismiss, nothing that holds focus. */}
-    <Alert title="Avant votre consultation">Le questionnaire préalable aide le médecin à préparer votre rendez-vous.</Alert>
+    <ArrivalNotice />
     <Booking />
   </>,
 );
