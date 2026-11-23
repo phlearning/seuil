@@ -132,6 +132,31 @@ Exit codes: `0` compliant, `1` findings at or above `failOn`, `2` a check could 
 
 The usual flow: the pull request runs `seuil check` and blocks on errors; before delivery, a person runs `seuil review` for the criteria that need a human, then `seuil report` produces the document for the client.
 
+## Use it with Claude and other AI clients
+
+`seuil mcp` runs Seuil as an [MCP](https://modelcontextprotocol.io) server, so an AI client can run the gate, look at the offending element and fix the code until the gate is green.
+
+| Tool | What the AI gets |
+|---|---|
+| `audit`, `check` | Findings grouped by element: rule, CSS selector, HTML snippet, WCAG or nLPD reference, suggested fix |
+| `findings` | The same, filtered from `seuil-results.json` without running the checks again |
+| `screenshot` | An image of the page with the element outlined, optionally focused, at 320 px or 640x400 to see reflow and zoom issues |
+| `report` | The PR comment, the client report or the data-flow register |
+| `review_status` | The WCAG criteria still to be verified by a person, with their checklist |
+
+**In this repository**, Claude Code picks up `.mcp.json` and the `seuil` skill (`.claude/skills/seuil/`), which teaches the loop: run the gate, look, fix the cause, rebuild, run it again. Ask for instance "make the admin demo gate green".
+
+**In another project:**
+
+```bash
+# from a clone of this repository
+claude mcp add seuil -- node /path/to/seuil/packages/seuil/dist/cli.js mcp
+# or with Docker (Linux; on macOS, point the targets at host.docker.internal)
+claude mcp add seuil -- docker run -i --rm --network host -v "$PWD:/work" -w /work ghcr.io/phlearning/seuil mcp
+```
+
+The AI can fix what the checks find; the verdicts of the guided review stay with a person, and `review_status` is read-only on purpose.
+
 ## Demo pull requests
 
 Each fictional client has a compliant feature merged into `main` (green), then an open pull request that degrades it the way it often happens in real projects (red). Seuil blocks the red ones.

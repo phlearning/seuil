@@ -132,6 +132,31 @@ Codes de sortie : `0` conforme, `1` défauts au niveau de `failOn` ou au-dessus,
 
 Le déroulé habituel : la pull request lance `seuil check` et bloque sur les erreurs ; avant la livraison, une personne lance `seuil review` pour les critères qui demandent un humain, puis `seuil report` produit le document pour le client.
 
+## L'utiliser avec Claude et d'autres IA
+
+`seuil mcp` lance Seuil comme serveur [MCP](https://modelcontextprotocol.io) : une IA peut lancer la porte, regarder l'élément fautif et corriger le code jusqu'à ce que la porte soit verte.
+
+| Outil | Ce que l'IA obtient |
+|---|---|
+| `audit`, `check` | Les défauts regroupés par élément : règle, sélecteur CSS, extrait HTML, référence WCAG ou nLPD, correction suggérée |
+| `findings` | La même chose, filtrée depuis `seuil-results.json` sans relancer les contrôles |
+| `screenshot` | Une image de la page avec l'élément encadré, focalisé si besoin, à 320 px ou en 640x400 pour voir la redistribution et le zoom |
+| `report` | Le commentaire de PR, le rapport client ou le registre des flux |
+| `review_status` | Les critères WCAG qu'une personne doit encore vérifier, avec leur checklist |
+
+**Dans ce dépôt**, Claude Code charge `.mcp.json` et le skill `seuil` (`.claude/skills/seuil/`), qui lui apprend la boucle : lancer la porte, regarder, corriger la cause, reconstruire, relancer. Demandez par exemple « fais passer la porte de la démo admin au vert ».
+
+**Dans un autre projet :**
+
+```bash
+# depuis un clone de ce dépôt
+claude mcp add seuil -- node /chemin/vers/seuil/packages/seuil/dist/cli.js mcp
+# ou avec Docker (Linux ; sur macOS, faites pointer les cibles vers host.docker.internal)
+claude mcp add seuil -- docker run -i --rm --network host -v "$PWD:/work" -w /work ghcr.io/phlearning/seuil mcp
+```
+
+L'IA corrige ce que les contrôles trouvent ; les verdicts de l'audit guidé restent à une personne, et `review_status` est volontairement en lecture seule.
+
 ## Pull requests de démonstration
 
 Chaque client fictif a une fonctionnalité conforme mergée dans `main` (verte), puis une pull request ouverte qui la dégrade, comme cela arrive souvent dans les vrais projets (rouge). Seuil bloque les rouges.
