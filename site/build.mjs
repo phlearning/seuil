@@ -13,8 +13,8 @@ const DEMOS = [
     name: "Clinique des Aubépines",
     sector: "Santé",
     feature: "Questionnaire préalable au rendez-vous",
-    branch: "demo/sante-questionnaire",
-    commit: "ebdac62",
+    branch: "demo/sante-questionnaire-compact",
+    commit: "3281eb2",
     red: ["Champs du questionnaire sans label visible (WCAG 3.3.2)", "Fenêtre d'information qui retient le focus clavier (WCAG 2.1.2)"],
     green: ["Champs étiquetés, regroupés dans un fieldset", "Information dans le flux de la page, sans fenêtre"],
   },
@@ -23,8 +23,8 @@ const DEMOS = [
     name: "Commune de Valfleurie",
     sector: "Administration publique",
     feature: "Nouvelle charte graphique",
-    branch: "demo/admin-charte",
-    commit: "7f5fddb",
+    branch: "demo/admin-google-fonts",
+    commit: "0126407",
     red: [
       "Police chargée depuis Google Fonts : adresse IP des visiteurs transmise aux États-Unis (nLPD art. 16)",
       "Gris secondaire à 3.45:1 dans les tokens (WCAG 1.4.3)",
@@ -37,8 +37,8 @@ const DEMOS = [
     name: "Cascade Énergie",
     sector: "Énergie",
     feature: "Mesure d'audience et total de consommation",
-    branch: "demo/energie-audience",
-    commit: "b96435e",
+    branch: "demo/energie-google-analytics",
+    commit: "41fdb31",
     red: [
       "Google Analytics et cookies _ga avant tout choix du visiteur (LTC art. 45c)",
       "CSP supprimée pour laisser passer le script (nLPD art. 8)",
@@ -56,12 +56,12 @@ const demosHtml = DEMOS.map(
   <p>Fonctionnalité : ${html(d.feature)}.</p>
   <div class="prs">
     <div class="pr red">
-      <h4>Pull request rouge : bloquée</h4>
+      <h4>Pull request rouge : la même page dégradée, bloquée</h4>
       <ul>${d.red.map((r) => `<li>${html(r)}</li>`).join("")}</ul>
-      <p><a href="${pr(`${d.branch}-rouge`)}">Voir la pull request</a> · <a href="./demos/${d.id}/rapport-pr-rouge.html">Rapport de la version rouge</a></p>
+      <p><a href="${pr(d.branch)}">Voir la pull request</a> · <a href="./demos/${d.id}/rapport-pr-rouge.html">Rapport de la version rouge</a></p>
     </div>
     <div class="pr">
-      <h4>Version verte : conforme, mergée</h4>
+      <h4>Version verte : conforme, dans main</h4>
       <ul>${d.green.map((g) => `<li>${html(g)}</li>`).join("")}</ul>
       <p><a href="${REPO}/commit/${d.commit}">Voir le commit</a></p>
     </div>

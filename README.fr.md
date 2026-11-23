@@ -134,13 +134,13 @@ Le déroulé habituel : la pull request lance `seuil check` et bloque sur les er
 
 ## Pull requests de démonstration
 
-Chaque client fictif reçoit la même fonctionnalité deux fois : une pull request rouge que Seuil bloque, laissée ouverte, et une version verte mergée dans `main`.
+Chaque client fictif a une fonctionnalité conforme mergée dans `main` (verte), puis une pull request ouverte qui la dégrade, comme cela arrive souvent dans les vrais projets (rouge). Seuil bloque les rouges.
 
-| Client | Fonctionnalité | Pull request rouge, bloquée pour | Version verte |
-|---|---|---|---|
-| Clinique des Aubépines | Questionnaire préalable | [`demo/sante-questionnaire-rouge`](https://github.com/phlearning/seuil/pulls?q=is%3Apr+head%3Ademo%2Fsante-questionnaire-rouge) : piège au clavier, champs identifiés seulement par leur placeholder | [ebdac62](https://github.com/phlearning/seuil/commit/ebdac62) |
-| Commune de Valfleurie | Nouvelle charte | [`demo/admin-charte-rouge`](https://github.com/phlearning/seuil/pulls?q=is%3Apr+head%3Ademo%2Fadmin-charte-rouge) : Google Fonts (IP des visiteurs envoyée aux États-Unis), token de contraste insuffisant, formulaire de largeur fixe | [7f5fddb](https://github.com/phlearning/seuil/commit/7f5fddb) |
-| Cascade Énergie | Mesure d'audience | [`demo/energie-audience-rouge`](https://github.com/phlearning/seuil/pulls?q=is%3Apr+head%3Ademo%2Fenergie-audience-rouge) : Google Analytics avant consentement, CSP retirée, lodash vulnérable | [b96435e](https://github.com/phlearning/seuil/commit/b96435e) |
+| Client | Fonctionnalité verte, mergée | Pull request rouge, bloquée pour |
+|---|---|---|
+| Clinique des Aubépines | [Questionnaire préalable](https://github.com/phlearning/seuil/commit/3281eb2) | [`demo/sante-questionnaire-compact`](https://github.com/phlearning/seuil/pulls?q=is%3Apr+head%3Ademo%2Fsante-questionnaire-compact) : piège au clavier, champs identifiés seulement par leur placeholder |
+| Commune de Valfleurie | [Nouvelle charte](https://github.com/phlearning/seuil/commit/0126407) | [`demo/admin-google-fonts`](https://github.com/phlearning/seuil/pulls?q=is%3Apr+head%3Ademo%2Fadmin-google-fonts) : Google Fonts (IP des visiteurs envoyée aux États-Unis), token de contraste insuffisant, formulaire de largeur fixe |
+| Cascade Énergie | [Mesure d'audience](https://github.com/phlearning/seuil/commit/41fdb31) | [`demo/energie-google-analytics`](https://github.com/phlearning/seuil/pulls?q=is%3Apr+head%3Ademo%2Fenergie-google-analytics) : Google Analytics avant consentement, CSP retirée, lodash vulnérable |
 
 La [vitrine](https://phlearning.github.io/seuil/) présente les démos jouables, leurs rapports clients, les rapports des versions rouges et les audits guidés. Les audits guidés sont des audits de démonstration, à valider par une personne qualifiée.
 

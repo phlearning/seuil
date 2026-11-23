@@ -134,13 +134,13 @@ The usual flow: the pull request runs `seuil check` and blocks on errors; before
 
 ## Demo pull requests
 
-Each fictional client gets the same feature twice: a red pull request that Seuil blocks, left open, and a green version merged into `main`.
+Each fictional client has a compliant feature merged into `main` (green), then an open pull request that degrades it the way it often happens in real projects (red). Seuil blocks the red ones.
 
-| Client | Feature | Red pull request, blocked for | Green version |
-|---|---|---|---|
-| Clinique des Aubépines | Pre-visit questionnaire | [`demo/sante-questionnaire-rouge`](https://github.com/phlearning/seuil/pulls?q=is%3Apr+head%3Ademo%2Fsante-questionnaire-rouge): keyboard trap, fields labelled only by placeholders | [ebdac62](https://github.com/phlearning/seuil/commit/ebdac62) |
-| Commune de Valfleurie | New brand | [`demo/admin-charte-rouge`](https://github.com/phlearning/seuil/pulls?q=is%3Apr+head%3Ademo%2Fadmin-charte-rouge): Google Fonts (IP addresses sent to the US), low-contrast token, fixed-width form | [7f5fddb](https://github.com/phlearning/seuil/commit/7f5fddb) |
-| Cascade Énergie | Audience measurement | [`demo/energie-audience-rouge`](https://github.com/phlearning/seuil/pulls?q=is%3Apr+head%3Ademo%2Fenergie-audience-rouge): Google Analytics before consent, CSP removed, vulnerable lodash | [b96435e](https://github.com/phlearning/seuil/commit/b96435e) |
+| Client | Green feature, merged | Red pull request, blocked for |
+|---|---|---|
+| Clinique des Aubépines | [Pre-visit questionnaire](https://github.com/phlearning/seuil/commit/3281eb2) | [`demo/sante-questionnaire-compact`](https://github.com/phlearning/seuil/pulls?q=is%3Apr+head%3Ademo%2Fsante-questionnaire-compact): keyboard trap, fields labelled only by placeholders |
+| Commune de Valfleurie | [New brand](https://github.com/phlearning/seuil/commit/0126407) | [`demo/admin-google-fonts`](https://github.com/phlearning/seuil/pulls?q=is%3Apr+head%3Ademo%2Fadmin-google-fonts): Google Fonts (IP addresses sent to the US), low-contrast token, fixed-width form |
+| Cascade Énergie | [Audience measurement](https://github.com/phlearning/seuil/commit/41fdb31) | [`demo/energie-google-analytics`](https://github.com/phlearning/seuil/pulls?q=is%3Apr+head%3Ademo%2Fenergie-google-analytics): Google Analytics before consent, CSP removed, vulnerable lodash |
 
 The [showcase](https://phlearning.github.io/seuil/) has the live demos, their client reports, the reports of the red versions and the guided reviews. The guided reviews are demonstration audits, to be validated by a qualified person.
 
