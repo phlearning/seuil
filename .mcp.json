@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "seuil": {
+      "command": "node",
+      "args": ["packages/seuil/dist/cli.js", "mcp"]
+    }
+  }
+}
