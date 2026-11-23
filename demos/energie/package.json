@@ -13,10 +13,12 @@
   "dependencies": {
     "@seuil/tokens": "workspace:*",
     "@seuil/ui": "workspace:*",
+    "lodash": "4.17.20",
     "react": "19.1.10",
     "react-dom": "19.1.10"
   },
   "devDependencies": {
+    "@types/lodash": "4.14.161",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@vitejs/plugin-react": "6.3.0",
