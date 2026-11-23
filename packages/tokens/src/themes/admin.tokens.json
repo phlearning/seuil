@@ -3,8 +3,7 @@
     "family": {
       "base": {
         "$type": "fontFamily",
-        "$description": "New commune brand: system fonts only, so nothing is downloaded from a third party.",
-        "$value": ["Avenir Next", "Segoe UI", "Roboto", "Helvetica Neue", "system-ui", "sans-serif"]
+        "$value": ["Source Sans 3", "sans-serif"]
       }
     }
   },
@@ -12,7 +11,7 @@
     "bg": { "default": { "$type": "color", "$value": "#ffffff" } },
     "text": {
       "default": { "$type": "color", "$value": "#1f1f1f" },
-      "muted": { "$type": "color", "$value": "#545454" }
+      "muted": { "$type": "color", "$value": "#8a8a8a" }
     },
     "action": {
       "bg": { "$type": "color", "$value": "#b3001b" },

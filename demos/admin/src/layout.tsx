@@ -1,5 +1,6 @@
 import "@seuil/tokens/tokens.css";
 import "@seuil/ui/styles.css";
+import "./charte.css";
 import { Header } from "@seuil/ui";
 import { StrictMode, type ReactNode } from "react";
 import { createRoot } from "react-dom/client";
