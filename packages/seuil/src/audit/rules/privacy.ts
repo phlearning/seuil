@@ -120,7 +120,7 @@ export const consentRule: Rule = {
     const trackers = new Map<string, Provider>();
     for (const o of observed) {
       const provider = findProvider(context.providers, o.host);
-      if (provider && TRACKING_CATEGORIES.includes(provider.category)) trackers.set(o.host, provider);
+      if (provider && TRACKING_CATEGORIES.includes(provider.category) && !provider.cookieless) trackers.set(o.host, provider);
     }
     for (const [host, provider] of trackers) {
       findings.push({

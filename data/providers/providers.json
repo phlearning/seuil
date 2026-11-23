@@ -8,7 +8,10 @@
       "country": "US",
       "cloudAct": true,
       "category": "fonts",
-      "domains": ["fonts.googleapis.com", "fonts.gstatic.com"],
+      "domains": [
+        "fonts.googleapis.com",
+        "fonts.gstatic.com"
+      ],
       "source": "https://developers.google.com/fonts/faq/privacy"
     },
     {
@@ -18,7 +21,10 @@
       "country": "US",
       "cloudAct": true,
       "category": "analytics",
-      "domains": ["google-analytics.com", "analytics.google.com"],
+      "domains": [
+        "google-analytics.com",
+        "analytics.google.com"
+      ],
       "source": "https://policies.google.com/privacy"
     },
     {
@@ -28,7 +34,9 @@
       "country": "US",
       "cloudAct": true,
       "category": "tag-manager",
-      "domains": ["googletagmanager.com"],
+      "domains": [
+        "googletagmanager.com"
+      ],
       "source": "https://policies.google.com/privacy"
     },
     {
@@ -38,7 +46,10 @@
       "country": "US",
       "cloudAct": true,
       "category": "maps",
-      "domains": ["maps.googleapis.com", "maps.gstatic.com"],
+      "domains": [
+        "maps.googleapis.com",
+        "maps.gstatic.com"
+      ],
       "source": "https://policies.google.com/privacy"
     },
     {
@@ -48,7 +59,12 @@
       "country": "US",
       "cloudAct": true,
       "category": "video",
-      "domains": ["youtube.com", "youtube-nocookie.com", "ytimg.com", "googlevideo.com"],
+      "domains": [
+        "youtube.com",
+        "youtube-nocookie.com",
+        "ytimg.com",
+        "googlevideo.com"
+      ],
       "source": "https://policies.google.com/privacy"
     },
     {
@@ -58,7 +74,10 @@
       "country": "US",
       "cloudAct": true,
       "category": "advertising",
-      "domains": ["connect.facebook.net", "facebook.com"],
+      "domains": [
+        "connect.facebook.net",
+        "facebook.com"
+      ],
       "source": "https://www.facebook.com/privacy/policy/"
     },
     {
@@ -68,7 +87,10 @@
       "country": "US",
       "cloudAct": true,
       "category": "advertising",
-      "domains": ["snap.licdn.com", "px.ads.linkedin.com"],
+      "domains": [
+        "snap.licdn.com",
+        "px.ads.linkedin.com"
+      ],
       "source": "https://www.linkedin.com/legal/privacy-policy"
     },
     {
@@ -78,7 +100,9 @@
       "country": "US",
       "cloudAct": true,
       "category": "analytics",
-      "domains": ["clarity.ms"],
+      "domains": [
+        "clarity.ms"
+      ],
       "source": "https://privacy.microsoft.com/privacystatement"
     },
     {
@@ -88,7 +112,10 @@
       "country": "MT",
       "cloudAct": false,
       "category": "analytics",
-      "domains": ["hotjar.com", "hotjar.io"],
+      "domains": [
+        "hotjar.com",
+        "hotjar.io"
+      ],
       "source": "https://www.hotjar.com/legal/policies/privacy/"
     },
     {
@@ -98,7 +125,9 @@
       "country": "US",
       "cloudAct": true,
       "category": "cdn",
-      "domains": ["cdnjs.cloudflare.com"],
+      "domains": [
+        "cdnjs.cloudflare.com"
+      ],
       "source": "https://www.cloudflare.com/privacypolicy/"
     },
     {
@@ -108,8 +137,24 @@
       "country": "US",
       "cloudAct": true,
       "category": "video",
-      "domains": ["player.vimeo.com", "vimeocdn.com"],
+      "domains": [
+        "player.vimeo.com",
+        "vimeocdn.com"
+      ],
       "source": "https://vimeo.com/privacy"
+    },
+    {
+      "id": "plausible",
+      "name": "Plausible Analytics",
+      "company": "Plausible Analytics",
+      "country": "EE",
+      "cloudAct": false,
+      "category": "analytics",
+      "cookieless": true,
+      "domains": [
+        "plausible.io"
+      ],
+      "source": "https://plausible.io/data-policy"
     }
   ]
 }

@@ -12,6 +12,8 @@ export interface Provider {
   country: string;
   cloudAct: boolean;
   category: ProviderCategory;
+  /** Stores nothing on the visitor's device: no consent needed for it (it stays a third party). */
+  cookieless?: boolean;
   domains: string[];
   source: string;
 }

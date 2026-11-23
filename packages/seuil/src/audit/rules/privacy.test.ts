@@ -69,6 +69,12 @@ describe("privacy/consent", () => {
     expect(findings[0]?.message).toContain("Fake Analytics (analytics) is contacted on page load");
   });
 
+  it("does not ask consent for cookieless analytics, but still lists it as a third party", async () => {
+    const cookieless = { ...fakeTracker, cookieless: true };
+    expect(await h.run(consentRule, withWidget(), { providers: [cookieless] })).toEqual([]);
+    expect(await h.run(thirdPartiesRule, withWidget(), { providers: [cookieless] })).toHaveLength(1);
+  });
+
   it("flags a tracking cookie set on load", async () => {
     const [finding] = await h.run(consentRule, page(`<h1>Accueil</h1>`, `<script>document.cookie = "_ga=GA1.1.123.456; path=/";</script>`));
     expect(finding).toMatchObject({ rule: "privacy/consent", severity: "error", target: { selector: "cookie _ga" } });
