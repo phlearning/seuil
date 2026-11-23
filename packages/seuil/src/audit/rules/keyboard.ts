@@ -139,11 +139,11 @@ export const keyboardRule: Rule = {
       }
       passedDocument = false;
       sequence.push(current);
-      if (!(await hasVisibleFocus(page))) {
-        add("error", "2.4.7", current, "Keyboard focus is not visible on this element.", "Keep the browser outline or add a :focus-visible style with at least 3:1 contrast.");
-      }
+      // A hidden element also shows no focus indicator: report the cause once.
       if (await isObscured(page)) {
-        add("error", "2.4.11", current, "The focused element is entirely hidden by other content.", "Add scroll-padding for sticky headers, or make sure overlays do not cover focused elements.");
+        add("error", "2.4.11", current, "The focused element is entirely hidden by other content.", "Add scroll-padding for sticky headers and banners, or make sure overlays do not cover focused elements.");
+      } else if (!(await hasVisibleFocus(page))) {
+        add("error", "2.4.7", current, "Keyboard focus is not visible on this element.", "Keep the browser outline or add a :focus-visible style with at least 3:1 contrast.");
       }
     }
 

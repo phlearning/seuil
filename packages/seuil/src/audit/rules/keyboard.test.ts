@@ -100,7 +100,7 @@ describe("a11y/keyboard", () => {
       </style>`,
     ).replace("<main>", `<div class="bar">Bandeau</div><main>`);
     const findings = await h.run(keyboardRule, html);
-    expect(criteria(findings)).toContain("2.4.11");
+    expect(criteria(findings)).toEqual(["2.4.11"]);
   });
 
   it("stays inside an open modal dialog without calling it a trap", async () => {
