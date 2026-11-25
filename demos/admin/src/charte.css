@@ -1,0 +1,4 @@
+/* Match the mockup: fixed form width. */
+[data-theme="admin"] .seuil-form {
+  width: 480px;
+}
