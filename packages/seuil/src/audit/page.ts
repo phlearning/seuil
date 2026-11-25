@@ -82,6 +82,8 @@ const HELPERS = String.raw`
       const s = getComputedStyle(el);
       // Visually hidden on purpose (sr-only patterns using clip or clip-path), whatever their padding.
       if (/rect\(0(px)?,? 0(px)?,? 0(px)?,? 0(px)?\)/.test(s.clip) || /inset\((50|100)%\)/.test(s.clipPath)) continue;
+      // Icon buttons that push their text out of the box with text-indent (image replacement).
+      if (Math.abs(parseFloat(s.textIndent) || 0) >= box.width) continue;
       const hidesX = /hidden|clip/.test(s.overflowX);
       const hidesY = /hidden|clip/.test(s.overflowY);
       if (!((hidesX && el.scrollWidth > el.clientWidth + 1) || (hidesY && el.scrollHeight > el.clientHeight + 1))) continue;

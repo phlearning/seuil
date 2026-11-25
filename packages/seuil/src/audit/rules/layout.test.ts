@@ -44,6 +44,14 @@ describe("a11y/reflow", () => {
     expect(await h.run(reflowRule, html)).toEqual([]);
   });
 
+  it("ignores an icon button whose text is pushed out with text-indent (image replacement)", async () => {
+    const html = page(
+      `<button class="icon">Rechercher sur le site</button>`,
+      `<style>.icon { width: 40px; height: 40px; overflow: hidden; text-indent: -5000px; white-space: nowrap; }</style>`,
+    );
+    expect(await h.run(reflowRule, html)).toEqual([]);
+  });
+
   it("flags text cut off at 200% (1.4.4)", async () => {
     const text = "Votre demande a bien été enregistrée et sera traitée dans les meilleurs délais par nos services.";
     const findings = await h.run(reflowRule, page(`<p id="box" style="height:24px;overflow:hidden;width:50%">${text}</p>`));
