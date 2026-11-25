@@ -46,6 +46,16 @@ async function hasVisibleFocus(page: Page): Promise<boolean> {
   return !withFocus.equals(withoutFocus);
 }
 
+/**
+ * True when the focused element has no size or lies entirely outside the viewport, where the
+ * browser cannot scroll it into view (closed off-canvas menus, links moved off-screen).
+ */
+const isOffScreen = (page: Page) =>
+  page.evaluate(() => {
+    const r = document.activeElement!.getBoundingClientRect();
+    return r.width < 1 || r.height < 1 || r.right <= 0 || r.bottom <= 0 || r.left >= innerWidth || r.top >= innerHeight;
+  });
+
 /** True when the focused element is entirely covered by something else (2.4.11). */
 const isObscured = (page: Page) =>
   page.evaluate(() => {
@@ -68,6 +78,12 @@ export const keyboardRule: Rule = {
   id: "a11y/keyboard",
   async run(page, target) {
     await openTarget(page, target);
+    // Smooth scrolling would leave the focused element mid-scroll when it is measured and screenshotted.
+    await page.evaluate(() => {
+      const sheet = new CSSStyleSheet();
+      sheet.replaceSync("*, html { scroll-behavior: auto !important; }");
+      document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet];
+    });
     const findings: Finding[] = [];
     const add = (severity: Finding["severity"], criterion: string, element: Described, message: string, suggestion?: string) =>
       findings.push({
@@ -140,7 +156,9 @@ export const keyboardRule: Rule = {
       passedDocument = false;
       sequence.push(current);
       // A hidden element also shows no focus indicator: report the cause once.
-      if (await isObscured(page)) {
+      if (await isOffScreen(page)) {
+        add("error", "2.4.7", current, "Keyboard focus lands on an element that is off-screen or has no size.", "Hide closed menus and panels with display:none, visibility:hidden or inert, or move the element into view when it receives focus.");
+      } else if (await isObscured(page)) {
         add("error", "2.4.11", current, "The focused element is entirely hidden by other content.", "Add scroll-padding for sticky headers and banners, or make sure overlays do not cover focused elements.");
       } else if (!(await hasVisibleFocus(page))) {
         add("error", "2.4.7", current, "Keyboard focus is not visible on this element.", "Keep the browser outline or add a :focus-visible style with at least 3:1 contrast.");

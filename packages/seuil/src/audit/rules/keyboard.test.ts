@@ -103,6 +103,26 @@ describe("a11y/keyboard", () => {
     expect(criteria(findings)).toEqual(["2.4.11"]);
   });
 
+  it("flags links of a closed off-canvas menu that still take focus off-screen, without crashing", async () => {
+    const html = page(
+      `<button>Avant</button><nav class="drawer"><a href="#a" id="off">Menu</a></nav><button>Après</button>`,
+      `<style>.drawer { position: fixed; top: 0; left: calc(100% + 40px); width: 300px; }</style>`,
+    );
+    const findings = await h.run(keyboardRule, html);
+    expect(findings).toHaveLength(1);
+    expect(findings[0]).toMatchObject({ severity: "error", target: { selector: "#off" } });
+    expect(findings[0]!.message).toMatch(/off-screen/);
+    expect(criteria(findings)).toEqual(["2.4.7"]);
+  });
+
+  it("waits for smooth scrolling before judging where the focused element is", async () => {
+    const html = page(
+      `<button>Haut</button><div style="height:3000px"></div><button>Bas</button>`,
+      `<style>html { scroll-behavior: smooth }</style>`,
+    );
+    expect(await h.run(keyboardRule, html)).toEqual([]);
+  });
+
   it("stays inside an open modal dialog without calling it a trap", async () => {
     const html = page(
       `<button>Fond</button><dialog id="d"><button>Confirmer</button><button>Fermer</button></dialog>`,
