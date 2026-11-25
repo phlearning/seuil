@@ -1,3 +1,4 @@
+import sumBy from "lodash/sumBy";
 import { mount } from "./layout.js";
 
 const MONTHS = [
@@ -33,7 +34,7 @@ mount(
       <tfoot>
         <tr>
           <th scope="row">Total</th>
-          <td>{MONTHS.reduce((total, [, kwh]) => total + kwh, 0)}</td>
+          <td>{sumBy(MONTHS, ([, kwh]) => kwh)}</td>
         </tr>
       </tfoot>
     </table>

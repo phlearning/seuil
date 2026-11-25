@@ -227,6 +227,9 @@ importers:
       '@seuil/ui':
         specifier: workspace:*
         version: link:../../packages/ui
+      lodash:
+        specifier: 4.17.20
+        version: 4.17.20
       react:
         specifier: 19.1.10
         version: 19.1.10
@@ -234,6 +237,9 @@ importers:
         specifier: 19.1.10
         version: 19.1.10(react@19.1.10)
     devDependencies:
+      '@types/lodash':
+        specifier: 4.14.161
+        version: 4.14.161
       '@types/react':
         specifier: 19.3.0
         version: 19.3.0
@@ -1255,6 +1261,9 @@ packages:
   '@types/estree@1.0.10':
     resolution: {integrity: sha512-lTyOMnOcmRBzdCv6/4zUZCrEhV0xrqQiUZBZtVcbmLHBXKLnN8q89v/wKRF/Q0HbwVsqbIG3o5HDoFl9sduM+g==}
 
+  '@types/lodash@4.14.161':
+    resolution: {integrity: sha512-EP6O3Jkr7bXvZZSZYlsgt5DIjiGr0dXP1/jVEwVLTFgg0d+3lWVQkRavYVQszV7dYUwvg0B8R0MBDpcmXg7XIA==}
+
   '@types/node@26.6.6':
     resolution: {integrity: sha512-MzQj+8Kx3XI40OmUAE6Qoh58ZMNstNNMwn2nfd3qWsfe7nDNSqJNzes4njhz6AHwrSHOffSLwXU6yb474Q4aog==}
 
@@ -2029,6 +2038,9 @@ packages:
   lightningcss@1.33.0:
     resolution: {integrity: sha512-WkUDrojuJs0xkgGf2udWxa3yGBRxPtxUkB79i6aCZLRgc7PM8fZe9TosfPDcvEpQZbuFASnHYmRLBLUbmLOIIA==}
     engines: {node: '>= 12.0.0'}
+
+  lodash@4.17.20:
+    resolution: {integrity: sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==}
 
   loupe@3.2.1:
     resolution: {integrity: sha512-CdzqowRJCeLU72bHvWqwRBBlLcMEtIvGrlvef74kMnV2AolS9Y8xUv1I0U/MNAWMhBlKIoyuEgoJ0t/bbwHbLQ==}
@@ -3402,6 +3414,8 @@ snapshots:
 
   '@types/estree@1.0.10': {}
 
+  '@types/lodash@4.14.161': {}
+
   '@types/node@26.6.6':
     dependencies:
       undici-types: 8.9.0
@@ -4061,6 +4075,8 @@ snapshots:
       lightningcss-linux-x64-musl: 1.33.0
       lightningcss-win32-arm64-msvc: 1.33.0
       lightningcss-win32-x64-msvc: 1.33.0
+
+  lodash@4.17.20: {}
 
   loupe@3.2.1: {}
 
